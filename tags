@@ -1,0 +1,1417 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+#	plugin/txtbrowser.vim	/^    vnoremap <silent> # y?<C-R>=substitute(escape(@", '.*\\\\\/[]'), "\\n", '\\\\n', 'g')<CR><CR>$/;"	m
+*	plugin/txtbrowser.vim	/^    vnoremap <silent> * y\/<C-R>=substitute(escape(@", '.*\\\\\/[]'), "\\n", '\\\\n', 'g')<CR><CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).#\\ Search\\ Backward(&P) <ESC>#$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).*\\ Search\\ Forward(&N) <ESC>*$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).Find\\ This\\ Word(&F) <ESC>:TFind <cword> <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).Goto\\ This\\ Url(&G) <ESC>:TGoto <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).Hightlight\\ This\\ Word(&H) <ESC>yaw:TBMatch @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_Blue\\ This\\ Word(&H) <ESC>yaw:TBBlue @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_bold\\ This\\ Word(&H) <ESC>yaw:TBBold @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_green\\ This\\ Word(&H) <ESC>yaw:TBGreen @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_italic\\ This\\ Word(&H) <ESC>yaw:TBItalic @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_red\\ This\\ Word(&H) <ESC>yaw:TBRed @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.TxtBrowser(&T).Search\\ This\\ Word(&S) <ESC>:TSearch <cword> <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).前向搜索光标下的单词(&N) <ESC>*$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).变斜光标下的单词(&H) <ESC>yaw:TBItalic @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).变粗光标下的单词(&H) <ESC>yaw:TBBold @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).变红光标下的单词(&H) <ESC>yaw:TBRed @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).变绿光标下的单词(&H) <ESC>yaw:TBGreen @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).变蓝光标下的单词(&H) <ESC>yaw:TBBlue @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).后向搜索光标下的单词(&P) <ESC>#$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).打开光标下的URL(&G) <ESC>:TGoto <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).搜索光标下的单词(&S) <ESC>:TSearch <cword> <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).查找光标下的单词(&F) <ESC>:TFind <cword> <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    inoremenu <silent> .51 PopUp.文本浏览工具(&T).高亮搜索光标下的单词(&H) <ESC>yaw:TBMatch @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).#\\ Search\\ Backward(&P) #$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).*\\ Search\\ Forward(&N) *$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).Find\\ This\\ Word(&F) :TFind <cword> <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).Goto\\ This\\ Url(&G) :TGoto <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).Hightlight\\ This\\ Word(&H) yaw<ESC>:TBMatch @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_Blue\\ This\\ Word(&H) yaw<ESC>:TBBlue @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_bold\\ This\\ Word(&H) yaw<ESC>:TBBold @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_green\\ This\\ Word(&H) yaw<ESC>:TBGreen @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_italic\\ This\\ Word(&H) yaw<ESC>:TBItalic @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_red\\ This\\ Word(&H) yaw<ESC>:TBRed @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.TxtBrowser(&T).Search\\ This\\ Word(&S) :TSearch <cword> <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).前向搜索光标下的单词(&N) *$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).变斜光标下的单词(&H) yaw<ESC>:TBItalic @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).变粗光标下的单词(&H) yaw<ESC>:TBBold @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).变红光标下的单词(&H) yaw<ESC>:TBRed @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).变绿光标下的单词(&H) yaw<ESC>:TBGreen @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).变蓝光标下的单词(&H) yaw<ESC>:TBBlue @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).后向搜索光标下的单词(&P) #$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).打开光标下的URL(&G) :TGoto <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).搜索光标下的单词(&S) :TSearch <cword> <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).查找光标下的单词(&F) :TFind <cword> <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    nnoremenu <silent> .51 PopUp.文本浏览工具(&T).高亮搜索光标下的单词(&H) yaw<ESC>:TBMatch @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).#\\ Search\\ Backward(&P) y?<C-R>=substitute(escape(@", '.*\\\\\/[]'), "\\n", '\\\\n', 'g')<CR><CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).*\\ Search\\ Forward(&N) y\/<C-R>=substitute(escape(@", '.*\\\\\/[]'), "\\n", '\\\\n', 'g')<CR><CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).Find\\ Word\\ Selected(&F) y<ESC>:TFind <c-r>" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).Goto\\ Url\\ Selected(&G) y<ESC>:TGoto <c-r>" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).Hightlight\\ Text\\ Selected(&H) y<ESC>:TBMatch @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_Blue\\ Text\\ Selected(&H) y<ESC>:TBBlue @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_bold\\ Text\\ Selected(&H) y<ESC>:TBBold @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_green\\ Text\\ Selected(&H) y<ESC>:TBGreen @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_itali\\ Text\\ Selected(&H) y<ESC>:TBItalic @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).Make_red\\ Text\\ Selected(&H) y<ESC>:TBRed @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.TxtBrowser(&T).Search\\ Word\\ Selected(&S) y<ESC>:TSearch <c-r>" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).前向搜索选中的文本(&N) y\/<C-R>=substitute(escape(@", '.*\\\\\/[]'), "\\n", '\\\\n', 'g')<CR><CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).变斜选中的文本(&H) y<ESC>:TBItalic @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).变粗选中的文本(&H) y<ESC>:TBBold @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).变红选中的文本(&H) y<ESC>:TBRed @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).变绿选中的文本(&H) y<ESC>:TBGreen @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).变蓝选中的文本(&H) y<ESC>:TBBlue @\\" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).后向搜索选中的文本(&P) y?<C-R>=substitute(escape(@", '.*\\\\\/[]'), "\\n", '\\\\n', 'g')<CR><CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).打开选择的URL(&G) y<ESC>:TGoto <c-r>" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).搜索选择的单词(&S) y<ESC>:TSearch <c-r>" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).查找选择的单词(&F) y<ESC>:TFind <c-r>" <CR>$/;"	m
+.51	plugin/txtbrowser.vim	/^    vnoremenu <silent> .51 PopUp.文本浏览工具(&T).高亮选中的文本(&H) y<ESC>:TBMatch @\\" <CR>$/;"	m
+<C-G>S	plugin/surround.vim	/^  imap      <C-G>S <Plug>ISurround$/;"	m
+<C-G>s	plugin/surround.vim	/^  imap      <C-G>s <Plug>Isurround$/;"	m
+<C-R>	ftplugin/python/pyflakes.vim	/^noremap <buffer><silent> <C-R> <C-R>:PyflakesUpdate<CR>$/;"	m
+<C-S>	plugin/surround.vim	/^    imap    <C-S> <Plug>Isurround$/;"	m
+<Leader>d	plugin/tasklist.vim	/^    map <unique> <Leader>d <Plug>TaskList$/;"	m
+<Leader>f	plugin/txtbrowser.vim	/^    nmap <script> <silent> <unique> <Leader>f <ESC>:TFind <cword> <CR>$/;"	m
+<Leader>f	plugin/txtbrowser.vim	/^    vmap <script> <silent> <unique> <Leader>f y<ESC>:TFind <c-r>" <CR>$/;"	m
+<Leader>g	plugin/txtbrowser.vim	/^    nmap <script> <silent> <unique> <Leader>g <ESC>:TGoto <CR>$/;"	m
+<Leader>g	plugin/txtbrowser.vim	/^    vmap <script> <silent> <unique> <Leader>g y<ESC>:TGoto <c-r>" <CR>$/;"	m
+<Leader>h	plugin/txtbrowser.vim	/^    nmap <script> <silent> <unique> <Leader>h yaw<ESC>:TBMatch @\\" <CR>$/;"	m
+<Leader>h	plugin/txtbrowser.vim	/^    vmap <script> <silent> <unique> <Leader>h y<ESC>:TBMatch @\\" <CR>$/;"	m
+<Leader>s	plugin/txtbrowser.vim	/^    nmap <script> <silent> <unique> <Leader>s <ESC>:TSearch <cword> <CR>$/;"	m
+<Leader>s	plugin/txtbrowser.vim	/^    vmap <script> <silent> <unique> <Leader>s y<ESC>:TSearch <c-r>" <CR>$/;"	m
+<Plug>Csurround	plugin/surround.vim	/^nnoremap <silent> <Plug>Csurround  :<C-U>call <SID>changesurround()<CR>$/;"	m
+<Plug>Dsurround	plugin/surround.vim	/^nnoremap <silent> <Plug>Dsurround  :<C-U>call <SID>dosurround(<SID>inputtarget())<CR>$/;"	m
+<Plug>ISurround	plugin/surround.vim	/^inoremap <silent> <Plug>ISurround  <C-R>=<SID>insert(1)<CR>$/;"	m
+<Plug>Isurround	plugin/surround.vim	/^inoremap <silent> <Plug>Isurround  <C-R>=<SID>insert()<CR>$/;"	m
+<Plug>TaskList	plugin/tasklist.vim	/^nnoremap <unique> <script> <Plug>TaskList :TaskList<CR>$/;"	m
+<Plug>VSurround	plugin/surround.vim	/^vnoremap <silent> <Plug>VSurround  :<C-U>call <SID>opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>$/;"	m
+<Plug>VgSurround	plugin/surround.vim	/^vnoremap <silent> <Plug>VgSurround :<C-U>call <SID>opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR>$/;"	m
+<Plug>Vsurround	plugin/surround.vim	/^vnoremap <silent> <Plug>Vsurround  :<C-U>call <SID>opfunc(visualmode())<CR>$/;"	m
+<Plug>YSsurround	plugin/surround.vim	/^nnoremap <silent> <Plug>YSsurround :<C-U>call <SID>opfunc2(v:count1)<CR>$/;"	m
+<Plug>YSurround	plugin/surround.vim	/^nnoremap <silent> <Plug>YSurround  :<C-U>set opfunc=<SID>opfunc2<CR>g@$/;"	m
+<Plug>Yssurround	plugin/surround.vim	/^nnoremap <silent> <Plug>Yssurround :<C-U>call <SID>opfunc(v:count1)<CR>$/;"	m
+<Plug>Ysurround	plugin/surround.vim	/^nnoremap <silent> <Plug>Ysurround  :<C-U>set opfunc=<SID>opfunc<CR>g@$/;"	m
+<SID>xx	plugin/taglist.vim	/^    map <SID>xx <SID>xx$/;"	m
+<c-n>	plugin/supertab.vim	/^  inoremap <c-n> <c-r>=<SID>SuperTab('n')<cr>$/;"	m
+<c-p>	plugin/supertab.vim	/^  inoremap <c-p> <c-r>=<SID>SuperTab('p')<cr>$/;"	m
+<c-r><tab>	after/plugin/snipMate.vim	/^ino <silent> <c-r><tab> <c-r>=ShowAvailableSnips()<cr>$/;"	m
+<c-x>	plugin/supertab.vim	/^  imap <c-x> <c-r>=<SID>ManualCompletionEnter()<cr>$/;"	m
+<cr>	plugin/supertab.vim	/^    inoremap <cr> <c-r>=<SID>SelectCompletion()<cr>$/;"	m
+<s-tab>	after/plugin/snipMate.vim	/^ino <silent> <s-tab> <c-r>=BackwardsSnippet()<cr>$/;"	m
+<tab>	after/plugin/snipMate.vim	/^ino <silent> <tab> <c-r>=TriggerSnippet()<cr>$/;"	m
+ASSIGN	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def ASSIGN(self, node):$/;"	m	class:Checker
+AUGASSIGN	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def AUGASSIGN(self, node):$/;"	m	class:Checker
+ActivatePyflakesQuickFixWindow	ftplugin/python/pyflakes.vim	/^    function s:ActivatePyflakesQuickFixWindow()$/;"	f
+Argument	ftplugin/python/pyflakes/pyflakes/checker.py	/^class Argument(Binding):$/;"	c
+Assignment	ftplugin/python/pyflakes/pyflakes/checker.py	/^class Assignment(Binding):$/;"	c
+BackwardsSnippet	plugin/snipMate.vim	/^fun! BackwardsSnippet()$/;"	f
+Binding	ftplugin/python/pyflakes/pyflakes/checker.py	/^class Binding(object):$/;"	c
+BlockStarter	indent/python.vim	/^function! s:BlockStarter(lnum, block_start_re)$/;"	f
+Bookmark.AddBookmark	plugin/NERD_tree.vim	/^function! s:Bookmark.AddBookmark(name, path)$/;"	f
+Bookmark.BookmarkExistsFor	plugin/NERD_tree.vim	/^function! s:Bookmark.BookmarkExistsFor(name)$/;"	f
+Bookmark.BookmarkFor	plugin/NERD_tree.vim	/^function! s:Bookmark.BookmarkFor(name)$/;"	f
+Bookmark.BookmarkNames	plugin/NERD_tree.vim	/^function! s:Bookmark.BookmarkNames()$/;"	f
+Bookmark.Bookmarks	plugin/NERD_tree.vim	/^function! s:Bookmark.Bookmarks()$/;"	f
+Bookmark.CacheBookmarks	plugin/NERD_tree.vim	/^function! s:Bookmark.CacheBookmarks(silent)$/;"	f
+Bookmark.ClearAll	plugin/NERD_tree.vim	/^function! s:Bookmark.ClearAll()$/;"	f
+Bookmark.GetNodeForName	plugin/NERD_tree.vim	/^function! s:Bookmark.GetNodeForName(name, searchFromAbsoluteRoot)$/;"	f
+Bookmark.GetSelected	plugin/NERD_tree.vim	/^function! s:Bookmark.GetSelected()$/;"	f
+Bookmark.InvalidBookmarks	plugin/NERD_tree.vim	/^function! s:Bookmark.InvalidBookmarks()$/;"	f
+Bookmark.New	plugin/NERD_tree.vim	/^function! s:Bookmark.New(name, path)$/;"	f
+Bookmark.Sort	plugin/NERD_tree.vim	/^function! s:Bookmark.Sort()$/;"	f
+Bookmark.ToRoot	plugin/NERD_tree.vim	/^function! s:Bookmark.ToRoot(name)$/;"	f
+Bookmark.Write	plugin/NERD_tree.vim	/^function! s:Bookmark.Write()$/;"	f
+Bookmark.activate	plugin/NERD_tree.vim	/^function! s:Bookmark.activate()$/;"	f
+Bookmark.compareTo	plugin/NERD_tree.vim	/^function! s:Bookmark.compareTo(otherbookmark)$/;"	f
+Bookmark.delete	plugin/NERD_tree.vim	/^function! s:Bookmark.delete()$/;"	f
+Bookmark.getNode	plugin/NERD_tree.vim	/^function! s:Bookmark.getNode(searchFromAbsoluteRoot)$/;"	f
+Bookmark.mustExist	plugin/NERD_tree.vim	/^function! s:Bookmark.mustExist()$/;"	f
+Bookmark.openInNewTab	plugin/NERD_tree.vim	/^function! s:Bookmark.openInNewTab(options)$/;"	f
+Bookmark.setPath	plugin/NERD_tree.vim	/^function! s:Bookmark.setPath(path)$/;"	f
+Bookmark.str	plugin/NERD_tree.vim	/^function! s:Bookmark.str()$/;"	f
+Bookmark.toRoot	plugin/NERD_tree.vim	/^function! s:Bookmark.toRoot()$/;"	f
+Bookmark.validate	plugin/NERD_tree.vim	/^function! s:Bookmark.validate()$/;"	f
+Buffer	autoload/gundo.py	/^class Buffer(object):$/;"	c
+Buffer	plugin/gundo.py	/^class Buffer(object):$/;"	c
+BuildTabStops	autoload/snipMate.vim	/^fun s:BuildTabStops(snip, lnum, col, indent)$/;"	f
+CLASSDEF	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def CLASSDEF(self, node):$/;"	m	class:Checker
+CaptureKeyPresses	plugin/supertab.vim	/^function! s:CaptureKeyPresses()$/;"	f
+CheckForUpdate	plugin/tasklist.vim	/^function! s:CheckForUpdate()$/;"	f
+CheckTests	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^class CheckTests(TestCase):$/;"	c
+Checker	ftplugin/python/pyflakes/pyflakes/checker.py	/^class Checker(object):$/;"	c
+ChooseSnippet	plugin/snipMate.vim	/^fun s:ChooseSnippet(scope, trigger)$/;"	f
+ClassScope	ftplugin/python/pyflakes/pyflakes/checker.py	/^class ClassScope(Scope):$/;"	c
+ClearAll	plugin/pytest.vim	/^function! s:ClearAll()$/;"	f
+ClearPyflakes	ftplugin/python/pyflakes.vim	/^    function s:ClearPyflakes()$/;"	f
+Close	ftplugin/html_snip_helper.vim	/^fun! Close()$/;"	f
+CommandLineCompletion	plugin/supertab.vim	/^function! s:CommandLineCompletion()$/;"	f
+Completion	plugin/pytest.vim	/^function! s:Completion(ArgLead, CmdLine, CursorPos)$/;"	f
+CompletionReset	plugin/supertab.vim	/^function! s:CompletionReset(char)$/;"	f
+ContextCompletion	plugin/supertab.vim	/^function! s:ContextCompletion()$/;"	f
+ContextDiscover	plugin/supertab.vim	/^function! s:ContextDiscover()$/;"	f
+ContextText	plugin/supertab.vim	/^function! s:ContextText()$/;"	f
+Count	autoload/snipMate.vim	/^fun s:Count(haystack, needle)$/;"	f
+CurrentPath	plugin/pytest.vim	/^function! s:CurrentPath()$/;"	f
+DICTCOMP	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def DICTCOMP(self, node):$/;"	m	class:Checker
+DefineSnips	plugin/snipMate.vim	/^fun s:DefineSnips(dir, aliasft, realft)$/;"	f
+DuplicateArgument	ftplugin/python/pyflakes/pyflakes/messages.py	/^class DuplicateArgument(Message):$/;"	c
+Echo	plugin/pytest.vim	/^function! s:Echo(msg, ...)$/;"	f
+EnableLongestEnhancement	plugin/supertab.vim	/^function! s:EnableLongestEnhancement()$/;"	f
+Exit	plugin/tasklist.vim	/^function! s:Exit(key)$/;"	f
+ExportBinding	ftplugin/python/pyflakes/pyflakes/checker.py	/^class ExportBinding(Binding):$/;"	c
+ExtractSnips	plugin/snipMate.vim	/^fun! ExtractSnips(dir, ft)$/;"	f
+ExtractSnipsFile	plugin/snipMate.vim	/^fun! ExtractSnipsFile(file, ft)$/;"	f
+FOR	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def FOR(self, node):$/;"	m	class:Checker
+FU	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('from moo import fu as FU, bar as FU', m.RedefinedWhileUnused, m.UnusedImport)$/;"	i
+FU	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu as FU, bar as FU', m.RedefinedWhileUnused, m.UnusedImport)$/;"	i
+FUNCTIONDEF	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def FUNCTIONDEF(self, node):$/;"	m	class:Checker
+False	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu and False')$/;"	i
+False	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu or False')$/;"	i
+FilePath	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^from twisted.python.filepath import FilePath$/;"	i
+Filename	autoload/snipMate.vim	/^fun! Filename(...)$/;"	f
+FindPythonObject	plugin/pytest.vim	/^function! s:FindPythonObject(obj)$/;"	f
+FunctionDefinition	ftplugin/python/pyflakes/pyflakes/checker.py	/^class FunctionDefinition(Binding):$/;"	c
+FunctionScope	ftplugin/python/pyflakes/pyflakes/checker.py	/^class FunctionScope(Scope):$/;"	c
+GLOBAL	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def GLOBAL(self, node):$/;"	m	class:Checker
+GetPyflakesMessage	ftplugin/python/pyflakes.vim	/^    function s:GetPyflakesMessage()$/;"	f
+GetPythonIndent	indent/python.vim	/^function! GetPythonIndent(lnum)$/;"	f
+GetQuickFixStackCount	ftplugin/python/pyflakes.vim	/^    function s:GetQuickFixStackCount()$/;"	f
+GetSnippet	plugin/snipMate.vim	/^fun s:GetSnippet(word, scope)$/;"	f
+GetSnippets	plugin/snipMate.vim	/^fun! GetSnippets(dir, filetypes)$/;"	f
+GoToError	plugin/pytest.vim	/^function! s:GoToError(direction)$/;"	f
+GoToInlineError	plugin/pytest.vim	/^function! s:GoToInlineError(direction)$/;"	f
+GreenBar	plugin/pytest.vim	/^function! s:GreenBar()$/;"	f
+GundoAug	autoload/gundo.vim	/^augroup GundoAug$/;"	a
+GundoClose	autoload/gundo.vim	/^function! s:GundoClose()"{{{$/;"	f
+GundoDidNotLoad	autoload/gundo.vim	/^    function! s:GundoDidNotLoad()$/;"	f
+GundoGetTargetState	autoload/gundo.vim	/^function! s:GundoGetTargetState()"{{{$/;"	f
+GundoGoToWindowForBufferName	autoload/gundo.vim	/^function! s:GundoGoToWindowForBufferName(name)"{{{$/;"	f
+GundoInlineHelpLength	autoload/gundo.vim	/^function! s:GundoInlineHelpLength()"{{{$/;"	f
+GundoIsVisible	autoload/gundo.vim	/^function! s:GundoIsVisible()"{{{$/;"	f
+GundoMapGraph	autoload/gundo.vim	/^function! s:GundoMapGraph()"{{{$/;"	f
+GundoMapPreview	autoload/gundo.vim	/^function! s:GundoMapPreview()"{{{$/;"	f
+GundoMouseDoubleClick	autoload/gundo.vim	/^function! s:GundoMouseDoubleClick()"{{{$/;"	f
+GundoMove	autoload/gundo.vim	/^function! s:GundoMove(direction) range"{{{$/;"	f
+GundoOpen	autoload/gundo.vim	/^function! s:GundoOpen()"{{{$/;"	f
+GundoOpenGraph	autoload/gundo.vim	/^function! s:GundoOpenGraph()"{{{$/;"	f
+GundoOpenPreview	autoload/gundo.vim	/^function! s:GundoOpenPreview()"{{{$/;"	f
+GundoPlayTo	autoload/gundo.py	/^def GundoPlayTo():$/;"	f
+GundoPlayTo	autoload/gundo.vim	/^function! s:GundoPlayTo()"{{{$/;"	f
+GundoPlayTo	plugin/gundo.py	/^def GundoPlayTo():$/;"	f
+GundoRenderChangePreview	autoload/gundo.py	/^def GundoRenderChangePreview():$/;"	f
+GundoRenderChangePreview	autoload/gundo.vim	/^function! s:GundoRenderChangePreview()"{{{$/;"	f
+GundoRenderChangePreview	plugin/gundo.py	/^def GundoRenderChangePreview():$/;"	f
+GundoRenderGraph	autoload/gundo.py	/^def GundoRenderGraph():$/;"	f
+GundoRenderGraph	autoload/gundo.vim	/^function! s:GundoRenderGraph()"{{{$/;"	f
+GundoRenderGraph	plugin/gundo.py	/^def GundoRenderGraph():$/;"	f
+GundoRenderGraph	plugin/gundo.vim	/^command! -nargs=0 GundoRenderGraph call gundo#GundoRenderGraph()$/;"	c
+GundoRenderPreview	autoload/gundo.py	/^def GundoRenderPreview():$/;"	f
+GundoRenderPreview	autoload/gundo.vim	/^function! s:GundoRenderPreview()"{{{$/;"	f
+GundoRenderPreview	plugin/gundo.py	/^def GundoRenderPreview():$/;"	f
+GundoResizeBuffers	autoload/gundo.vim	/^function! s:GundoResizeBuffers(backto)"{{{$/;"	f
+GundoRevert	autoload/gundo.py	/^def GundoRevert():$/;"	f
+GundoRevert	autoload/gundo.vim	/^function! s:GundoRevert()"{{{$/;"	f
+GundoRevert	plugin/gundo.py	/^def GundoRevert():$/;"	f
+GundoSettingsGraph	autoload/gundo.vim	/^function! s:GundoSettingsGraph()"{{{$/;"	f
+GundoSettingsPreview	autoload/gundo.vim	/^function! s:GundoSettingsPreview()"{{{$/;"	f
+GundoSyntaxGraph	autoload/gundo.vim	/^function! s:GundoSyntaxGraph()"{{{$/;"	f
+GundoToggle	autoload/gundo.vim	/^            command! -nargs=0 GundoToggle call s:GundoDidNotLoad()$/;"	c
+GundoToggle	autoload/gundo.vim	/^    command! -nargs=0 GundoToggle call s:GundoDidNotLoad()$/;"	c
+GundoToggle	autoload/gundo.vim	/^function! s:GundoToggle()"{{{$/;"	f
+GundoToggle	plugin/gundo.vim	/^command! -nargs=0 GundoToggle call gundo#GundoToggle()$/;"	c
+HiLink	ftplugin/pp.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
+HiLink	ftplugin/pp.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
+IMPORT	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def IMPORT(self, node):$/;"	m	class:Checker
+IMPORTFROM	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def IMPORTFROM(self, node):$/;"	m	class:Checker
+ImportShadowedByLoopVar	ftplugin/python/pyflakes/pyflakes/messages.py	/^class ImportShadowedByLoopVar(Message):$/;"	c
+ImportStarUsed	ftplugin/python/pyflakes/pyflakes/messages.py	/^class ImportStarUsed(Message):$/;"	c
+Importation	ftplugin/python/pyflakes/pyflakes/checker.py	/^class Importation(Binding):$/;"	c
+Init	plugin/supertab.vim	/^function! s:Init()$/;"	f
+InitBuffer	plugin/supertab.vim	/^function! s:InitBuffer()$/;"	f
+KeyMap.All	plugin/NERD_tree.vim	/^function! s:KeyMap.All()$/;"	f
+KeyMap.BindAll	plugin/NERD_tree.vim	/^function! s:KeyMap.BindAll()$/;"	f
+KeyMap.Create	plugin/NERD_tree.vim	/^function! s:KeyMap.Create(options)$/;"	f
+KeyMap.bind	plugin/NERD_tree.vim	/^function! s:KeyMap.bind()$/;"	f
+LAMBDA	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def LAMBDA(self, node):$/;"	m	class:Checker
+LISTCOMP	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def LISTCOMP(self, node):$/;"	m	class:Checker
+LastSession	plugin/pytest.vim	/^function! s:LastSession()$/;"	f
+LateFutureImport	ftplugin/python/pyflakes/pyflakes/messages.py	/^class LateFutureImport(Message):$/;"	c
+LineNumber	plugin/tasklist.vim	/^function! s:LineNumber()$/;"	f
+LoopOnFail	plugin/pytest.vim	/^function! s:LoopOnFail(type)$/;"	f
+LoopProxy	plugin/pytest.vim	/^function! s:LoopProxy(type)$/;"	f
+MISSING_BUFFER	autoload/gundo.py	/^MISSING_BUFFER = "Cannot find Gundo's target buffer (%s)"$/;"	v
+MISSING_BUFFER	plugin/gundo.py	/^MISSING_BUFFER = "Cannot find Gundo's target buffer (%s)"$/;"	v
+MISSING_WINDOW	autoload/gundo.py	/^MISSING_WINDOW = "Cannot find window (%s) for Gundo's target buffer (%s)"$/;"	v
+MISSING_WINDOW	plugin/gundo.py	/^MISSING_WINDOW = "Cannot find window (%s) for Gundo's target buffer (%s)"$/;"	v
+MRU	plugin/mru.vim	/^command! -nargs=? -complete=customlist,s:MRU_Complete MRU$/;"	c
+MRU_AddFile	plugin/mru.vim	/^function! s:MRU_AddFile(acmd_bufnr)$/;"	f
+MRU_Add_Menu	plugin/mru.vim	/^    let MRU_Add_Menu = 1$/;"	v
+MRU_Auto_Close	plugin/mru.vim	/^    let MRU_Auto_Close = 1$/;"	v
+MRU_Cmd	plugin/mru.vim	/^function! s:MRU_Cmd(pat)$/;"	f
+MRU_Complete	plugin/mru.vim	/^function! s:MRU_Complete(ArgLead, CmdLine, CursorPos)$/;"	f
+MRU_Edit_File	plugin/mru.vim	/^function! s:MRU_Edit_File(filename, sanitized)$/;"	f
+MRU_Exclude_Files	plugin/mru.vim	/^    let MRU_Exclude_Files = ''$/;"	v
+MRU_File	plugin/mru.vim	/^                let MRU_File = $USERPROFILE . '\\_vim_mru_files'$/;"	v
+MRU_File	plugin/mru.vim	/^        let MRU_File = $HOME . '\/.vim_mru_files'$/;"	v
+MRU_File	plugin/mru.vim	/^        let MRU_File = $VIM . '\/_vim_mru_files'$/;"	v
+MRU_Include_Files	plugin/mru.vim	/^    let MRU_Include_Files = ''$/;"	v
+MRU_LoadList	plugin/mru.vim	/^function! s:MRU_LoadList()$/;"	f
+MRU_Max_Entries	plugin/mru.vim	/^    let MRU_Max_Entries = 100$/;"	v
+MRU_Max_Menu_Entries	plugin/mru.vim	/^    let MRU_Max_Menu_Entries = 10$/;"	v
+MRU_Max_Submenu_Entries	plugin/mru.vim	/^    let MRU_Max_Submenu_Entries = 10$/;"	v
+MRU_Open_Window	plugin/mru.vim	/^function! s:MRU_Open_Window(...)$/;"	f
+MRU_Refresh_Menu	plugin/mru.vim	/^function! s:MRU_Refresh_Menu()$/;"	f
+MRU_SaveList	plugin/mru.vim	/^function! s:MRU_SaveList()$/;"	f
+MRU_Select_File_Cmd	plugin/mru.vim	/^function! s:MRU_Select_File_Cmd(opt) range$/;"	f
+MRU_Use_Current_Window	plugin/mru.vim	/^    let MRU_Use_Current_Window = 0$/;"	v
+MRU_Warn_Msg	plugin/mru.vim	/^function! s:MRU_Warn_Msg(msg)$/;"	f
+MRU_Window_Edit_File	plugin/mru.vim	/^function! s:MRU_Window_Edit_File(fname, multi, edit_type, open_type)$/;"	f
+MRU_Window_Height	plugin/mru.vim	/^    let MRU_Window_Height = 8$/;"	v
+MRU_add_files_to_menu	plugin/mru.vim	/^function! s:MRU_add_files_to_menu(prefix, file_list)$/;"	f
+MRU_escape_filename	plugin/mru.vim	/^function! s:MRU_escape_filename(fname)$/;"	f
+MakeSnip	plugin/snipMate.vim	/^fun! MakeSnip(scope, trigger, content, ...)$/;"	f
+ManualCompletionEnter	plugin/supertab.vim	/^function! s:ManualCompletionEnter()$/;"	f
+MenuController.New	plugin/NERD_tree.vim	/^function! s:MenuController.New(menuItems)$/;"	f
+MenuController._allIndexesFor	plugin/NERD_tree.vim	/^function! s:MenuController._allIndexesFor(shortcut)$/;"	f
+MenuController._current	plugin/NERD_tree.vim	/^function! s:MenuController._current()$/;"	f
+MenuController._cursorDown	plugin/NERD_tree.vim	/^function! s:MenuController._cursorDown()$/;"	f
+MenuController._cursorUp	plugin/NERD_tree.vim	/^function! s:MenuController._cursorUp()$/;"	f
+MenuController._echoPrompt	plugin/NERD_tree.vim	/^function! s:MenuController._echoPrompt()$/;"	f
+MenuController._handleKeypress	plugin/NERD_tree.vim	/^function! s:MenuController._handleKeypress(key)$/;"	f
+MenuController._nextIndexFor	plugin/NERD_tree.vim	/^function! s:MenuController._nextIndexFor(shortcut)$/;"	f
+MenuController._restoreOptions	plugin/NERD_tree.vim	/^function! s:MenuController._restoreOptions()$/;"	f
+MenuController._saveOptions	plugin/NERD_tree.vim	/^function! s:MenuController._saveOptions()$/;"	f
+MenuController._setCmdheight	plugin/NERD_tree.vim	/^function! s:MenuController._setCmdheight()$/;"	f
+MenuController.showMenu	plugin/NERD_tree.vim	/^function! s:MenuController.showMenu()$/;"	f
+MenuItem.All	plugin/NERD_tree.vim	/^function! s:MenuItem.All()$/;"	f
+MenuItem.AllEnabled	plugin/NERD_tree.vim	/^function! s:MenuItem.AllEnabled()$/;"	f
+MenuItem.Create	plugin/NERD_tree.vim	/^function! s:MenuItem.Create(options)$/;"	f
+MenuItem.CreateSeparator	plugin/NERD_tree.vim	/^function! s:MenuItem.CreateSeparator(options)$/;"	f
+MenuItem.CreateSubmenu	plugin/NERD_tree.vim	/^function! s:MenuItem.CreateSubmenu(options)$/;"	f
+MenuItem.enabled	plugin/NERD_tree.vim	/^function! s:MenuItem.enabled()$/;"	f
+MenuItem.execute	plugin/NERD_tree.vim	/^function! s:MenuItem.execute()$/;"	f
+MenuItem.isSeparator	plugin/NERD_tree.vim	/^function! s:MenuItem.isSeparator()$/;"	f
+MenuItem.isSubmenu	plugin/NERD_tree.vim	/^function! s:MenuItem.isSubmenu()$/;"	f
+Message	ftplugin/python/pyflakes/pyflakes/messages.py	/^class Message(object):$/;"	c
+ModuleScope	ftplugin/python/pyflakes/pyflakes/checker.py	/^class ModuleScope(Scope):$/;"	c
+Mru	plugin/mru.vim	/^command! -nargs=? -complete=customlist,s:MRU_Complete Mru$/;"	c
+NAME	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def NAME(self, node):$/;"	m	class:Checker
+NERDTree	plugin/NERD_tree.vim	/^augroup NERDTree$/;"	a
+NERDTree	plugin/NERD_tree.vim	/^command! -n=? -complete=dir -bar NERDTree :call s:initNerdTree('<args>')$/;"	c
+NERDTreeAddKeyMap	plugin/NERD_tree.vim	/^function! NERDTreeAddKeyMap(options)$/;"	f
+NERDTreeAddMenuItem	plugin/NERD_tree.vim	/^function! NERDTreeAddMenuItem(options)$/;"	f
+NERDTreeAddMenuSeparator	plugin/NERD_tree.vim	/^function! NERDTreeAddMenuSeparator(...)$/;"	f
+NERDTreeAddNode	nerdtree_plugin/fs_menu.vim	/^function! NERDTreeAddNode()$/;"	f
+NERDTreeAddSubmenu	plugin/NERD_tree.vim	/^function! NERDTreeAddSubmenu(options)$/;"	f
+NERDTreeClose	plugin/NERD_tree.vim	/^command! -n=0 -bar NERDTreeClose :call s:closeTreeIfOpen()$/;"	c
+NERDTreeCopyNode	nerdtree_plugin/fs_menu.vim	/^function! NERDTreeCopyNode()$/;"	f
+NERDTreeDeleteNode	nerdtree_plugin/fs_menu.vim	/^function! NERDTreeDeleteNode()$/;"	f
+NERDTreeExecFile	nerdtree_plugin/exec_menuitem.vim	/^function! NERDTreeExecFile()$/;"	f
+NERDTreeExecFileActive	nerdtree_plugin/exec_menuitem.vim	/^function! NERDTreeExecFileActive()$/;"	f
+NERDTreeFind	plugin/NERD_tree.vim	/^command! -n=0 -bar NERDTreeFind call s:findAndRevealPath()$/;"	c
+NERDTreeFromBookmark	plugin/NERD_tree.vim	/^command! -n=1 -complete=customlist,s:completeBookmarks -bar NERDTreeFromBookmark call s:initNerdTree('<args>')$/;"	c
+NERDTreeHijackNetrw	plugin/NERD_tree.vim	/^    augroup NERDTreeHijackNetrw$/;"	a
+NERDTreeMirror	plugin/NERD_tree.vim	/^command! -n=0 -bar NERDTreeMirror call s:initNerdTreeMirror()$/;"	c
+NERDTreeMoveNode	nerdtree_plugin/fs_menu.vim	/^function! NERDTreeMoveNode()$/;"	f
+NERDTreeRender	plugin/NERD_tree.vim	/^function! NERDTreeRender()$/;"	f
+NERDTreeToggle	plugin/NERD_tree.vim	/^command! -n=? -complete=dir -bar NERDTreeToggle :call s:toggle('<args>')$/;"	c
+NameOfCurrentClass	plugin/pytest.vim	/^function! s:NameOfCurrentClass()$/;"	f
+NameOfCurrentFunction	plugin/pytest.vim	/^function! s:NameOfCurrentFunction()$/;"	f
+NameOfCurrentMethod	plugin/pytest.vim	/^function! s:NameOfCurrentMethod()$/;"	f
+NameTests	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^class NameTests(TestCase):$/;"	c
+Node	autoload/gundo.py	/^class Node(object):$/;"	c
+Node	plugin/gundo.py	/^class Node(object):$/;"	c
+None	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; {fu:None}')$/;"	i
+OpenError	plugin/pytest.vim	/^function! s:OpenError(path)$/;"	f
+OpenWindow	plugin/tasklist.vim	/^function! s:OpenWindow(buffnr, lineno)$/;"	f
+ParseErrors	plugin/pytest.vim	/^function! s:ParseErrors(stdout)$/;"	f
+ParseFailures	plugin/pytest.vim	/^function! s:ParseFailures(stdout)$/;"	f
+Path.AbsolutePathFor	plugin/NERD_tree.vim	/^function! s:Path.AbsolutePathFor(str)$/;"	f
+Path.CopyingSupported	plugin/NERD_tree.vim	/^function! s:Path.CopyingSupported()$/;"	f
+Path.Create	plugin/NERD_tree.vim	/^function! s:Path.Create(fullpath)$/;"	f
+Path.JoinPathStrings	plugin/NERD_tree.vim	/^function! s:Path.JoinPathStrings(...)$/;"	f
+Path.New	plugin/NERD_tree.vim	/^function! s:Path.New(path)$/;"	f
+Path.Slash	plugin/NERD_tree.vim	/^function! s:Path.Slash()$/;"	f
+Path.WinToUnixPath	plugin/NERD_tree.vim	/^function! s:Path.WinToUnixPath(pathstr)$/;"	f
+Path._str	plugin/NERD_tree.vim	/^function! s:Path._str()$/;"	f
+Path._strForCd	plugin/NERD_tree.vim	/^function! s:Path._strForCd()$/;"	f
+Path._strForEdit	plugin/NERD_tree.vim	/^function! s:Path._strForEdit()$/;"	f
+Path._strForGlob	plugin/NERD_tree.vim	/^function! s:Path._strForGlob()$/;"	f
+Path._strForUI	plugin/NERD_tree.vim	/^function! s:Path._strForUI()$/;"	f
+Path.bookmarkNames	plugin/NERD_tree.vim	/^function! s:Path.bookmarkNames()$/;"	f
+Path.cacheDisplayString	plugin/NERD_tree.vim	/^function! s:Path.cacheDisplayString()$/;"	f
+Path.changeToDir	plugin/NERD_tree.vim	/^function! s:Path.changeToDir()$/;"	f
+Path.compareTo	plugin/NERD_tree.vim	/^function! s:Path.compareTo(path)$/;"	f
+Path.copy	plugin/NERD_tree.vim	/^function! s:Path.copy(dest)$/;"	f
+Path.copyingWillOverwrite	plugin/NERD_tree.vim	/^function! s:Path.copyingWillOverwrite(dest)$/;"	f
+Path.delete	plugin/NERD_tree.vim	/^function! s:Path.delete()$/;"	f
+Path.displayString	plugin/NERD_tree.vim	/^function! s:Path.displayString()$/;"	f
+Path.equals	plugin/NERD_tree.vim	/^function! s:Path.equals(path)$/;"	f
+Path.exists	plugin/NERD_tree.vim	/^function! s:Path.exists()$/;"	f
+Path.extractDriveLetter	plugin/NERD_tree.vim	/^function! s:Path.extractDriveLetter(fullpath)$/;"	f
+Path.getDir	plugin/NERD_tree.vim	/^function! s:Path.getDir()$/;"	f
+Path.getLastPathComponent	plugin/NERD_tree.vim	/^function! s:Path.getLastPathComponent(dirSlash)$/;"	f
+Path.getParent	plugin/NERD_tree.vim	/^function! s:Path.getParent()$/;"	f
+Path.getSortOrderIndex	plugin/NERD_tree.vim	/^function! s:Path.getSortOrderIndex()$/;"	f
+Path.ignore	plugin/NERD_tree.vim	/^function! s:Path.ignore()$/;"	f
+Path.isUnder	plugin/NERD_tree.vim	/^function! s:Path.isUnder(path)$/;"	f
+Path.readInfoFromDisk	plugin/NERD_tree.vim	/^function! s:Path.readInfoFromDisk(fullpath)$/;"	f
+Path.refresh	plugin/NERD_tree.vim	/^function! s:Path.refresh()$/;"	f
+Path.rename	plugin/NERD_tree.vim	/^function! s:Path.rename(newPath)$/;"	f
+Path.str	plugin/NERD_tree.vim	/^function! s:Path.str(...)$/;"	f
+Path.strTrunk	plugin/NERD_tree.vim	/^function! s:Path.strTrunk()$/;"	f
+Pdb	plugin/pytest.vim	/^function! s:Pdb(path, ...)$/;"	f
+Pep8	ftplugin/python/pep8.vim	/^function! <SID>Pep8()$/;"	f
+ProcessFile	plugin/snipMate.vim	/^fun s:ProcessFile(file, ft, ...)$/;"	f
+ProcessSnippet	autoload/snipMate.vim	/^fun s:ProcessSnippet(snip)$/;"	f
+Proxy	plugin/pytest.vim	/^function! s:Proxy(action, ...)$/;"	f
+PyCF_ONLY_AST	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^from _ast import PyCF_ONLY_AST$/;"	i
+PyflakesUpdate	ftplugin/python/pyflakes.vim	/^    function s:PyflakesUpdate()$/;"	f
+PyflakesUpdate	ftplugin/python/pyflakes.vim	/^  command PyflakesUpdate :call s:PyflakesUpdate()$/;"	c
+Pytest	plugin/pytest.vim	/^command! -nargs=+ -complete=custom,s:Completion Pytest call s:Proxy(<f-args>)$/;"	c
+PytestFailsSyntax	plugin/pytest.vim	/^function! s:PytestFailsSyntax() abort$/;"	f
+PytestSyntax	plugin/pytest.vim	/^function! s:PytestSyntax() abort$/;"	f
+Python25Test	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^class Python25Test(harness.Test):$/;"	c
+Python26Tests	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^class Python26Tests(harness.Test):$/;"	c
+Python27Test	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^class Python27Test(harness.Test):$/;"	c
+RedBar	plugin/pytest.vim	/^function! s:RedBar()$/;"	f
+RedefinedFunction	ftplugin/python/pyflakes/pyflakes/messages.py	/^class RedefinedFunction(Message):$/;"	c
+RedefinedWhileUnused	ftplugin/python/pyflakes/pyflakes/messages.py	/^class RedefinedWhileUnused(Message):$/;"	c
+ReleaseKeyPresses	plugin/supertab.vim	/^function! s:ReleaseKeyPresses()$/;"	f
+RemoveSnippet	autoload/snipMate.vim	/^fun s:RemoveSnippet()$/;"	f
+ResetAll	plugin/pytest.vim	/^function! s:ResetAll()$/;"	f
+ResetSnippets	plugin/snipMate.vim	/^fun! ResetSnippets()$/;"	f
+RunInSplitWindow	plugin/pytest.vim	/^function! s:RunInSplitWindow(path)$/;"	f
+RunPyTest	plugin/pytest.vim	/^function! s:RunPyTest(path)$/;"	f
+RunPyflakes	ftplugin/python/pyflakes.vim	/^    function s:RunPyflakes()$/;"	f
+S	plugin/surround.vim	/^      vmap  S    <Plug>VSurround$/;"	m
+Scope	ftplugin/python/pyflakes/pyflakes/checker.py	/^class Scope(dict):$/;"	c
+SearchFile	plugin/tasklist.vim	/^function! s:SearchFile(hits, word)$/;"	f
+SearchParensPair	indent/python.vim	/^function! s:SearchParensPair()$/;"	f
+SelectCompletion	plugin/supertab.vim	/^    function s:SelectCompletion()$/;"	f
+SelectWord	autoload/snipMate.vim	/^fun s:SelectWord()$/;"	f
+SetCompletionType	plugin/supertab.vim	/^function! s:SetCompletionType()$/;"	f
+SetDefaultCompletionType	plugin/supertab.vim	/^function! s:SetDefaultCompletionType()$/;"	f
+ShowAvailableSnips	plugin/snipMate.vim	/^fun! ShowAvailableSnips()$/;"	f
+ShowError	plugin/pytest.vim	/^function! s:ShowError()$/;"	f
+ShowFails	plugin/pytest.vim	/^function! s:ShowFails(...)$/;"	f
+StatementStart	indent/python.vim	/^function! s:StatementStart(lnum)$/;"	f
+StringIO	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^from StringIO import StringIO$/;"	i
+SuperTab	plugin/supertab.vim	/^function! s:SuperTab(command)$/;"	f
+SuperTabAlternateCompletion	plugin/supertab.vim	/^function! SuperTabAlternateCompletion(type)$/;"	f
+SuperTabHelp	plugin/supertab.vim	/^    command SuperTabHelp :call <SID>SuperTabHelp()$/;"	c
+SuperTabHelp	plugin/supertab.vim	/^function! s:SuperTabHelp()$/;"	f
+SuperTabSetCompletionType	plugin/supertab.vim	/^function! SuperTabSetCompletionType(type)$/;"	f
+SuperTabSetDefaultCompletionType	plugin/supertab.vim	/^function! SuperTabSetDefaultCompletionType(type)$/;"	f
+TBBlue	plugin/txtbrowser.vim	/^command! -nargs=? -bar TBBlue call s:TBBlue(<args>)$/;"	c
+TBBlue	plugin/txtbrowser.vim	/^function! s:TBBlue (text)$/;"	f
+TBBold	plugin/txtbrowser.vim	/^command! -nargs=? -bar TBBold call s:TBBold(<args>)$/;"	c
+TBBold	plugin/txtbrowser.vim	/^function! s:TBBold (text)$/;"	f
+TBEscape	plugin/txtbrowser.vim	/^function! s:TBEscape (text)$/;"	f
+TBGreen	plugin/txtbrowser.vim	/^command! -nargs=? -bar TBGreen call s:TBGreen(<args>)$/;"	c
+TBGreen	plugin/txtbrowser.vim	/^function! s:TBGreen (text)$/;"	f
+TBItalic	plugin/txtbrowser.vim	/^command! -nargs=? -bar TBItalic call s:TBItalic(<args>)$/;"	c
+TBItalic	plugin/txtbrowser.vim	/^function! s:TBItalic (text)$/;"	f
+TBMatch	plugin/txtbrowser.vim	/^command! -nargs=? -bar TBMatch call s:TBMatch(<args>)$/;"	c
+TBMatch	plugin/txtbrowser.vim	/^function! s:TBMatch (text)$/;"	f
+TBRed	plugin/txtbrowser.vim	/^command! -nargs=? -bar TBRed call s:TBRed(<args>)$/;"	c
+TBRed	plugin/txtbrowser.vim	/^function! s:TBRed (text)$/;"	f
+TBrowser_Ctags_Cmd	ftplugin/txt.vim	/^	let TBrowser_Ctags_Cmd = Tlist_Ctags_Cmd$/;"	v
+TFind	plugin/txtbrowser.vim	/^command! -nargs=? -bar TFind call s:TxtBrowserWord(<f-args>)$/;"	c
+TGoto	plugin/txtbrowser.vim	/^command! -nargs=? -bar TGoto call s:TxtbrowserGoto(<f-args>)$/;"	c
+TSearch	plugin/txtbrowser.vim	/^command! -nargs=? -bar TSearch call s:TxtBrowserSearch(<f-args>)$/;"	c
+TagList_IsValid	plugin/taglist.vim	/^function! TagList_IsValid()$/;"	f
+TagList_Start	plugin/taglist.vim	/^function! TagList_Start()$/;"	f
+TagList_WrapUp	plugin/taglist.vim	/^function! TagList_WrapUp()$/;"	f
+TagList_title	plugin/taglist.vim	/^    let TagList_title = "__Tag_List__"$/;"	v
+TaskList	plugin/tasklist.vim	/^command! TaskList call s:TaskList()$/;"	c
+TaskList	plugin/tasklist.vim	/^function! s:TaskList()$/;"	f
+Test	ftplugin/python/pyflakes/pyflakes/test/harness.py	/^class Test(unittest.TestCase):$/;"	c
+Test	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^class Test(harness.Test):$/;"	c
+Test	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^class Test(harness.Test):$/;"	c
+Test	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^class Test(harness.Test):$/;"	c
+TestCase	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^from twisted.trial.unittest import TestCase$/;"	i
+TestCase	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^from twisted.trial.unittest import TestCase$/;"	i
+TestSpecialAll	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^class TestSpecialAll(harness.Test):$/;"	c
+TestUnusedAssignment	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^class TestUnusedAssignment(harness.Test):$/;"	c
+ThisClass	plugin/pytest.vim	/^function! s:ThisClass(verbose, ...)$/;"	f
+ThisFile	plugin/pytest.vim	/^function! s:ThisFile(verbose, ...)$/;"	f
+ThisFunction	plugin/pytest.vim	/^function! s:ThisFunction(verbose, ...)$/;"	f
+ThisMethod	plugin/pytest.vim	/^function! s:ThisMethod(verbose, ...)$/;"	f
+Tlist	plugin/taglist.vim	/^    command! -nargs=0 -bar Tlist TlistToggle$/;"	c
+TlistAddFiles	plugin/taglist.vim	/^    command! -nargs=+ -complete=file TlistAddFiles$/;"	c
+TlistAddFilesRecursive	plugin/taglist.vim	/^    command! -nargs=+ -complete=dir TlistAddFilesRecursive$/;"	c
+TlistClose	plugin/taglist.vim	/^    command! -nargs=0 -bar TlistClose call s:Tlist_Window_Close()$/;"	c
+TlistDebug	plugin/taglist.vim	/^    command! -nargs=? -complete=file -bar TlistDebug$/;"	c
+TlistHighlightTag	plugin/taglist.vim	/^    command! -nargs=0 -bar TlistHighlightTag call s:Tlist_Window_Highlight_Tag($/;"	c
+TlistLock	plugin/taglist.vim	/^    command! -bar TlistLock let Tlist_Auto_Update=0$/;"	c
+TlistMessages	plugin/taglist.vim	/^    command! -nargs=0 -bar TlistMessages call s:Tlist_Debug_Show()$/;"	c
+TlistOpen	plugin/taglist.vim	/^    command! -nargs=0 -bar TlistOpen call s:Tlist_Window_Open()$/;"	c
+TlistSessionLoad	plugin/taglist.vim	/^    command! -nargs=* -complete=file TlistSessionLoad$/;"	c
+TlistSessionSave	plugin/taglist.vim	/^    command! -nargs=* -complete=file TlistSessionSave$/;"	c
+TlistShowPrototype	plugin/taglist.vim	/^    command! -nargs=* -complete=buffer TlistShowPrototype$/;"	c
+TlistShowTag	plugin/taglist.vim	/^    command! -nargs=* -complete=buffer TlistShowTag$/;"	c
+TlistSync	plugin/taglist.vim	/^    command! -nargs=0 -bar TlistSync TlistHighlightTag$/;"	c
+TlistToggle	plugin/taglist.vim	/^    command! -nargs=0 -bar TlistToggle call s:Tlist_Window_Toggle()$/;"	c
+TlistUndebug	plugin/taglist.vim	/^    command! -nargs=0 -bar TlistUndebug  call s:Tlist_Debug_Disable()$/;"	c
+TlistUnlock	plugin/taglist.vim	/^    command! -bar TlistUnlock let Tlist_Auto_Update=1$/;"	c
+TlistUpdate	plugin/taglist.vim	/^    command! -nargs=0 -bar TlistUpdate call s:Tlist_Update_Current_File()$/;"	c
+Tlist_Add_Files	plugin/taglist.vim	/^function! s:Tlist_Add_Files(...)$/;"	f
+Tlist_Add_Files_Recursive	plugin/taglist.vim	/^function! s:Tlist_Add_Files_Recursive(dir, ...)$/;"	f
+Tlist_Auto_Highlight_Tag	plugin/taglist.vim	/^        let Tlist_Auto_Highlight_Tag = 1$/;"	v
+Tlist_Auto_Open	plugin/taglist.vim	/^        let Tlist_Auto_Open = 0$/;"	v
+Tlist_Auto_Update	plugin/taglist.vim	/^        let Tlist_Auto_Update = 1$/;"	v
+Tlist_Ballon_Expr	plugin/taglist.vim	/^function! Tlist_Ballon_Expr()$/;"	f
+Tlist_Buffer_Removed	plugin/taglist.vim	/^function! s:Tlist_Buffer_Removed(filename)$/;"	f
+Tlist_Change_Sort	plugin/taglist.vim	/^function! s:Tlist_Change_Sort(caller, action, sort_type)$/;"	f
+Tlist_Close_On_Select	plugin/taglist.vim	/^        let Tlist_Close_On_Select = 0$/;"	v
+Tlist_Compact_Format	plugin/taglist.vim	/^        let Tlist_Compact_Format = 0$/;"	v
+Tlist_Ctags_Cmd	ftplugin/txt.vim	/^let Tlist_Ctags_Cmd = TBrowser_Ctags_Cmd . s:TBrowser_Config$/;"	v
+Tlist_Ctags_Cmd	plugin/taglist.vim	/^            let Tlist_Ctags_Cmd = 'ctags'$/;"	v
+Tlist_Ctags_Cmd	plugin/taglist.vim	/^            let Tlist_Ctags_Cmd = 'ctags.exe'$/;"	v
+Tlist_Ctags_Cmd	plugin/taglist.vim	/^            let Tlist_Ctags_Cmd = 'exctags'$/;"	v
+Tlist_Ctags_Cmd	plugin/taglist.vim	/^            let Tlist_Ctags_Cmd = 'exuberant-ctags'$/;"	v
+Tlist_Ctags_Cmd	plugin/taglist.vim	/^            let Tlist_Ctags_Cmd = 'tags'$/;"	v
+Tlist_Debug_Disable	plugin/taglist.vim	/^function! s:Tlist_Debug_Disable(...)$/;"	f
+Tlist_Debug_Enable	plugin/taglist.vim	/^function! s:Tlist_Debug_Enable(...)$/;"	f
+Tlist_Debug_Show	plugin/taglist.vim	/^function! s:Tlist_Debug_Show()$/;"	f
+Tlist_Detect_Filetype	plugin/taglist.vim	/^function! s:Tlist_Detect_Filetype(fname)$/;"	f
+Tlist_Discard_FileInfo	plugin/taglist.vim	/^function! s:Tlist_Discard_FileInfo(fidx)$/;"	f
+Tlist_Discard_TagInfo	plugin/taglist.vim	/^function! s:Tlist_Discard_TagInfo(fidx)$/;"	f
+Tlist_Display_Prototype	plugin/taglist.vim	/^        let Tlist_Display_Prototype = 0$/;"	v
+Tlist_Display_Tag_Scope	plugin/taglist.vim	/^        let Tlist_Display_Tag_Scope = 1$/;"	v
+Tlist_Enable_Fold_Column	plugin/taglist.vim	/^        let Tlist_Enable_Fold_Column = 1$/;"	v
+Tlist_Exe_Cmd_No_Acmds	plugin/taglist.vim	/^function! s:Tlist_Exe_Cmd_No_Acmds(cmd)$/;"	f
+Tlist_Exit_OnlyWindow	plugin/taglist.vim	/^        let Tlist_Exit_OnlyWindow = 0$/;"	v
+Tlist_Extract_Tag_Scope	plugin/taglist.vim	/^function! s:Tlist_Extract_Tag_Scope(tag_line)$/;"	f
+Tlist_Extract_Tagtype	plugin/taglist.vim	/^function! s:Tlist_Extract_Tagtype(tag_line)$/;"	f
+Tlist_FileType_Init	plugin/taglist.vim	/^function! s:Tlist_FileType_Init(ftype)$/;"	f
+Tlist_File_Fold_Auto_Close	plugin/taglist.vim	/^        let Tlist_File_Fold_Auto_Close = 0$/;"	v
+Tlist_Find_Nearest_Tag_Idx	plugin/taglist.vim	/^function! s:Tlist_Find_Nearest_Tag_Idx(fidx, linenum)$/;"	f
+Tlist_GainFocus_On_ToggleOpen	plugin/taglist.vim	/^        let Tlist_GainFocus_On_ToggleOpen = 0$/;"	v
+Tlist_Get_Buffer_Filetype	plugin/taglist.vim	/^function! s:Tlist_Get_Buffer_Filetype(bnum)$/;"	f
+Tlist_Get_File_Index	plugin/taglist.vim	/^function! s:Tlist_Get_File_Index(fname)$/;"	f
+Tlist_Get_Tag_Linenum	plugin/taglist.vim	/^function! s:Tlist_Get_Tag_Linenum(fidx, tidx)$/;"	f
+Tlist_Get_Tag_Prototype	plugin/taglist.vim	/^function! s:Tlist_Get_Tag_Prototype(fidx, tidx)$/;"	f
+Tlist_Get_Tag_Prototype_By_Line	plugin/taglist.vim	/^function! Tlist_Get_Tag_Prototype_By_Line(...)$/;"	f
+Tlist_Get_Tag_SearchPat	plugin/taglist.vim	/^function! s:Tlist_Get_Tag_SearchPat(fidx, tidx)$/;"	f
+Tlist_Get_Tag_Type_By_Tag	plugin/taglist.vim	/^function! s:Tlist_Get_Tag_Type_By_Tag(fidx, tidx)$/;"	f
+Tlist_Get_Tagname_By_Line	plugin/taglist.vim	/^function! Tlist_Get_Tagname_By_Line(...)$/;"	f
+Tlist_Highlight_Tag_On_BufEnter	plugin/taglist.vim	/^        let Tlist_Highlight_Tag_On_BufEnter = 1$/;"	v
+Tlist_Inc_Winwidth	plugin/taglist.vim	/^            let Tlist_Inc_Winwidth = 0$/;"	v
+Tlist_Inc_Winwidth	plugin/taglist.vim	/^            let Tlist_Inc_Winwidth = 1$/;"	v
+Tlist_Init_File	plugin/taglist.vim	/^function! s:Tlist_Init_File(filename, ftype)$/;"	f
+Tlist_Log_Msg	plugin/taglist.vim	/^function! s:Tlist_Log_Msg(msg)$/;"	f
+Tlist_Max_Submenu_Items	plugin/taglist.vim	/^        let Tlist_Max_Submenu_Items = 20$/;"	v
+Tlist_Max_Tag_Length	plugin/taglist.vim	/^        let Tlist_Max_Tag_Length = 10$/;"	v
+Tlist_Menu_Add_Base_Menu	plugin/taglist.vim	/^function! s:Tlist_Menu_Add_Base_Menu()$/;"	f
+Tlist_Menu_File_Refresh	plugin/taglist.vim	/^function! s:Tlist_Menu_File_Refresh(fidx)$/;"	f
+Tlist_Menu_Get_Tag_Type_Cmd	plugin/taglist.vim	/^function! s:Tlist_Menu_Get_Tag_Type_Cmd(fidx, ftype, add_ttype_name, ttype_idx)$/;"	f
+Tlist_Menu_Init	plugin/taglist.vim	/^function! s:Tlist_Menu_Init()$/;"	f
+Tlist_Menu_Jump_To_Tag	plugin/taglist.vim	/^function! s:Tlist_Menu_Jump_To_Tag(tidx)$/;"	f
+Tlist_Menu_Refresh	plugin/taglist.vim	/^function! s:Tlist_Menu_Refresh()$/;"	f
+Tlist_Menu_Remove_File	plugin/taglist.vim	/^function! s:Tlist_Menu_Remove_File()$/;"	f
+Tlist_Menu_Update_File	plugin/taglist.vim	/^function! s:Tlist_Menu_Update_File(clear_menu)$/;"	f
+Tlist_Parse_Tagline	plugin/taglist.vim	/^function! s:Tlist_Parse_Tagline(tag_line)$/;"	f
+Tlist_Post_Close_Cleanup	plugin/taglist.vim	/^function! s:Tlist_Post_Close_Cleanup()$/;"	f
+Tlist_Process_Dir	plugin/taglist.vim	/^function! s:Tlist_Process_Dir(dir_name, pat)$/;"	f
+Tlist_Process_File	plugin/taglist.vim	/^function! s:Tlist_Process_File(filename, ftype)$/;"	f
+Tlist_Process_File_Always	plugin/taglist.vim	/^        let Tlist_Process_File_Always = 0$/;"	v
+Tlist_Process_Filelist	plugin/taglist.vim	/^function! s:Tlist_Process_Filelist(file_names)$/;"	f
+Tlist_Refresh	plugin/taglist.vim	/^function! s:Tlist_Refresh()$/;"	f
+Tlist_Refresh_Folds	plugin/taglist.vim	/^function! s:Tlist_Refresh_Folds()$/;"	f
+Tlist_Remove_File	plugin/taglist.vim	/^function! s:Tlist_Remove_File(file_idx, user_request)$/;"	f
+Tlist_Session_Load	plugin/taglist.vim	/^function! s:Tlist_Session_Load(...)$/;"	f
+Tlist_Session_Save	plugin/taglist.vim	/^function! s:Tlist_Session_Save(...)$/;"	f
+Tlist_Set_App	plugin/taglist.vim	/^function! Tlist_Set_App(name)$/;"	f
+Tlist_Show_Menu	plugin/taglist.vim	/^        let Tlist_Show_Menu = 0$/;"	v
+Tlist_Show_One_File	plugin/taglist.vim	/^        let Tlist_Show_One_File = 0$/;"	v
+Tlist_Skip_File	plugin/taglist.vim	/^function! s:Tlist_Skip_File(filename, ftype)$/;"	f
+Tlist_Sort_Type	plugin/taglist.vim	/^        let Tlist_Sort_Type = 'order'$/;"	v
+Tlist_Update_Current_File	plugin/taglist.vim	/^function! s:Tlist_Update_Current_File()$/;"	f
+Tlist_Update_File	plugin/taglist.vim	/^function! Tlist_Update_File(filename, ftype)$/;"	f
+Tlist_Update_Remove_List	plugin/taglist.vim	/^function! s:Tlist_Update_Remove_List(filename, add)$/;"	f
+Tlist_Use_Horiz_Window	plugin/taglist.vim	/^        let Tlist_Use_Horiz_Window = 0$/;"	v
+Tlist_Use_Right_Window	plugin/taglist.vim	/^        let Tlist_Use_Right_Window = 0$/;"	v
+Tlist_Use_SingleClick	plugin/taglist.vim	/^        let Tlist_Use_SingleClick = 0$/;"	v
+Tlist_User_Removed_File	plugin/taglist.vim	/^function! s:Tlist_User_Removed_File(filename)$/;"	f
+Tlist_Vim_Session_Load	plugin/taglist.vim	/^function! s:Tlist_Vim_Session_Load()$/;"	f
+Tlist_Warning_Msg	plugin/taglist.vim	/^function! s:Tlist_Warning_Msg(msg)$/;"	f
+Tlist_WinHeight	plugin/taglist.vim	/^        let Tlist_WinHeight = 10$/;"	v
+Tlist_WinWidth	plugin/taglist.vim	/^        let Tlist_WinWidth = 30$/;"	v
+Tlist_Window_Check_Auto_Open	plugin/taglist.vim	/^function! s:Tlist_Window_Check_Auto_Open()$/;"	f
+Tlist_Window_Check_Width	plugin/taglist.vim	/^function! s:Tlist_Window_Check_Width()$/;"	f
+Tlist_Window_Close	plugin/taglist.vim	/^function! s:Tlist_Window_Close()$/;"	f
+Tlist_Window_Create	plugin/taglist.vim	/^function! s:Tlist_Window_Create()$/;"	f
+Tlist_Window_Display_Help	plugin/taglist.vim	/^function! s:Tlist_Window_Display_Help()$/;"	f
+Tlist_Window_Exit_Only_Window	plugin/taglist.vim	/^function! s:Tlist_Window_Exit_Only_Window()$/;"	f
+Tlist_Window_Get_File_Index_By_Linenum	plugin/taglist.vim	/^function! s:Tlist_Window_Get_File_Index_By_Linenum(lnum)$/;"	f
+Tlist_Window_Get_Tag_Index	plugin/taglist.vim	/^function! s:Tlist_Window_Get_Tag_Index(fidx, lnum)$/;"	f
+Tlist_Window_Get_Tag_Type_By_Linenum	plugin/taglist.vim	/^function! s:Tlist_Window_Get_Tag_Type_By_Linenum(fidx, lnum)$/;"	f
+Tlist_Window_Goto_Window	plugin/taglist.vim	/^function! s:Tlist_Window_Goto_Window()$/;"	f
+Tlist_Window_Highlight_Line	plugin/taglist.vim	/^function! s:Tlist_Window_Highlight_Line()$/;"	f
+Tlist_Window_Highlight_Tag	plugin/taglist.vim	/^function! s:Tlist_Window_Highlight_Tag(filename, cur_lnum, cntx, center)$/;"	f
+Tlist_Window_Init	plugin/taglist.vim	/^function! s:Tlist_Window_Init()$/;"	f
+Tlist_Window_Jump_To_Tag	plugin/taglist.vim	/^function! s:Tlist_Window_Jump_To_Tag(win_ctrl)$/;"	f
+Tlist_Window_Mark_File_Window	plugin/taglist.vim	/^function! s:Tlist_Window_Mark_File_Window()$/;"	f
+Tlist_Window_Move_To_File	plugin/taglist.vim	/^function! s:Tlist_Window_Move_To_File(dir)$/;"	f
+Tlist_Window_Open	plugin/taglist.vim	/^function! s:Tlist_Window_Open()$/;"	f
+Tlist_Window_Open_File	plugin/taglist.vim	/^function! s:Tlist_Window_Open_File(win_ctrl, filename, tagpat)$/;"	f
+Tlist_Window_Open_File_Fold	plugin/taglist.vim	/^function! s:Tlist_Window_Open_File_Fold(acmd_bufnr)$/;"	f
+Tlist_Window_Refresh	plugin/taglist.vim	/^function! s:Tlist_Window_Refresh()$/;"	f
+Tlist_Window_Refresh_File	plugin/taglist.vim	/^function! s:Tlist_Window_Refresh_File(filename, ftype)$/;"	f
+Tlist_Window_Remove_File_From_Display	plugin/taglist.vim	/^function! s:Tlist_Window_Remove_File_From_Display(fidx)$/;"	f
+Tlist_Window_Show_Info	plugin/taglist.vim	/^function! s:Tlist_Window_Show_Info()$/;"	f
+Tlist_Window_Toggle	plugin/taglist.vim	/^function! s:Tlist_Window_Toggle()$/;"	f
+Tlist_Window_Toggle_Help_Text	plugin/taglist.vim	/^function! s:Tlist_Window_Toggle_Help_Text()$/;"	f
+Tlist_Window_Update_File	plugin/taglist.vim	/^function! s:Tlist_Window_Update_File()$/;"	f
+Tlist_Window_Update_Line_Offsets	plugin/taglist.vim	/^function! s:Tlist_Window_Update_Line_Offsets(start_idx, increment, offset)$/;"	f
+Tlist_Window_Zoom	plugin/taglist.vim	/^function! s:Tlist_Window_Zoom()$/;"	f
+ToggleFailWindow	plugin/pytest.vim	/^function! s:ToggleFailWindow()$/;"	f
+ToggleLastSession	plugin/pytest.vim	/^function! s:ToggleLastSession()$/;"	f
+ToggleShowError	plugin/pytest.vim	/^function! s:ToggleShowError()$/;"	f
+TreeDirNode.AbsoluteTreeRoot	plugin/NERD_tree.vim	/^function! s:TreeDirNode.AbsoluteTreeRoot()$/;"	f
+TreeDirNode.GetSelected	plugin/NERD_tree.vim	/^function! s:TreeDirNode.GetSelected()$/;"	f
+TreeDirNode.New	plugin/NERD_tree.vim	/^function! s:TreeDirNode.New(path)$/;"	f
+TreeDirNode._initChildren	plugin/NERD_tree.vim	/^function! s:TreeDirNode._initChildren(silent)$/;"	f
+TreeDirNode._openRecursively2	plugin/NERD_tree.vim	/^function! s:TreeDirNode._openRecursively2(forceOpen)$/;"	f
+TreeDirNode.activate	plugin/NERD_tree.vim	/^function! s:TreeDirNode.activate(forceKeepWinOpen)$/;"	f
+TreeDirNode.addChild	plugin/NERD_tree.vim	/^function! s:TreeDirNode.addChild(treenode, inOrder)$/;"	f
+TreeDirNode.close	plugin/NERD_tree.vim	/^function! s:TreeDirNode.close()$/;"	f
+TreeDirNode.closeChildren	plugin/NERD_tree.vim	/^function! s:TreeDirNode.closeChildren()$/;"	f
+TreeDirNode.createChild	plugin/NERD_tree.vim	/^function! s:TreeDirNode.createChild(path, inOrder)$/;"	f
+TreeDirNode.findNode	plugin/NERD_tree.vim	/^function! s:TreeDirNode.findNode(path)$/;"	f
+TreeDirNode.getChild	plugin/NERD_tree.vim	/^function! s:TreeDirNode.getChild(path)$/;"	f
+TreeDirNode.getChildByIndex	plugin/NERD_tree.vim	/^function! s:TreeDirNode.getChildByIndex(indx, visible)$/;"	f
+TreeDirNode.getChildCount	plugin/NERD_tree.vim	/^function! s:TreeDirNode.getChildCount()$/;"	f
+TreeDirNode.getChildIndex	plugin/NERD_tree.vim	/^function! s:TreeDirNode.getChildIndex(path)$/;"	f
+TreeDirNode.getVisibleChildCount	plugin/NERD_tree.vim	/^function! s:TreeDirNode.getVisibleChildCount()$/;"	f
+TreeDirNode.getVisibleChildren	plugin/NERD_tree.vim	/^function! s:TreeDirNode.getVisibleChildren()$/;"	f
+TreeDirNode.hasVisibleChildren	plugin/NERD_tree.vim	/^function! s:TreeDirNode.hasVisibleChildren()$/;"	f
+TreeDirNode.open	plugin/NERD_tree.vim	/^function! s:TreeDirNode.open()$/;"	f
+TreeDirNode.openExplorer	plugin/NERD_tree.vim	/^function! s:TreeDirNode.openExplorer()$/;"	f
+TreeDirNode.openInNewTab	plugin/NERD_tree.vim	/^function! s:TreeDirNode.openInNewTab(options)$/;"	f
+TreeDirNode.openRecursively	plugin/NERD_tree.vim	/^function! s:TreeDirNode.openRecursively()$/;"	f
+TreeDirNode.refresh	plugin/NERD_tree.vim	/^function! s:TreeDirNode.refresh()$/;"	f
+TreeDirNode.removeChild	plugin/NERD_tree.vim	/^function! s:TreeDirNode.removeChild(treenode)$/;"	f
+TreeDirNode.reveal	plugin/NERD_tree.vim	/^function! s:TreeDirNode.reveal(path)$/;"	f
+TreeDirNode.sortChildren	plugin/NERD_tree.vim	/^function! s:TreeDirNode.sortChildren()$/;"	f
+TreeDirNode.toggleOpen	plugin/NERD_tree.vim	/^function! s:TreeDirNode.toggleOpen()$/;"	f
+TreeDirNode.transplantChild	plugin/NERD_tree.vim	/^function! s:TreeDirNode.transplantChild(newNode)$/;"	f
+TreeFileNode.GetRootForTab	plugin/NERD_tree.vim	/^function! s:TreeFileNode.GetRootForTab()$/;"	f
+TreeFileNode.GetRootLineNum	plugin/NERD_tree.vim	/^function! s:TreeFileNode.GetRootLineNum()$/;"	f
+TreeFileNode.GetSelected	plugin/NERD_tree.vim	/^function! s:TreeFileNode.GetSelected()$/;"	f
+TreeFileNode.New	plugin/NERD_tree.vim	/^function! s:TreeFileNode.New(path)$/;"	f
+TreeFileNode._renderToString	plugin/NERD_tree.vim	/^function! s:TreeFileNode._renderToString(depth, drawText, vertMap, isLastChild)$/;"	f
+TreeFileNode.activate	plugin/NERD_tree.vim	/^function! s:TreeFileNode.activate(forceKeepWinOpen)$/;"	f
+TreeFileNode.bookmark	plugin/NERD_tree.vim	/^function! s:TreeFileNode.bookmark(name)$/;"	f
+TreeFileNode.cacheParent	plugin/NERD_tree.vim	/^function! s:TreeFileNode.cacheParent()$/;"	f
+TreeFileNode.clearBoomarks	plugin/NERD_tree.vim	/^function! s:TreeFileNode.clearBoomarks()$/;"	f
+TreeFileNode.copy	plugin/NERD_tree.vim	/^function! s:TreeFileNode.copy(dest)$/;"	f
+TreeFileNode.delete	plugin/NERD_tree.vim	/^function! s:TreeFileNode.delete()$/;"	f
+TreeFileNode.displayString	plugin/NERD_tree.vim	/^function! s:TreeFileNode.displayString()$/;"	f
+TreeFileNode.equals	plugin/NERD_tree.vim	/^function! s:TreeFileNode.equals(treenode)$/;"	f
+TreeFileNode.findNode	plugin/NERD_tree.vim	/^function! s:TreeFileNode.findNode(path)$/;"	f
+TreeFileNode.findOpenDirSiblingWithVisibleChildren	plugin/NERD_tree.vim	/^function! s:TreeFileNode.findOpenDirSiblingWithVisibleChildren(direction)$/;"	f
+TreeFileNode.findSibling	plugin/NERD_tree.vim	/^function! s:TreeFileNode.findSibling(direction)$/;"	f
+TreeFileNode.getLineNum	plugin/NERD_tree.vim	/^function! s:TreeFileNode.getLineNum()$/;"	f
+TreeFileNode.isRoot	plugin/NERD_tree.vim	/^function! s:TreeFileNode.isRoot()$/;"	f
+TreeFileNode.isVisible	plugin/NERD_tree.vim	/^function! s:TreeFileNode.isVisible()$/;"	f
+TreeFileNode.makeRoot	plugin/NERD_tree.vim	/^function! s:TreeFileNode.makeRoot()$/;"	f
+TreeFileNode.open	plugin/NERD_tree.vim	/^function! s:TreeFileNode.open()$/;"	f
+TreeFileNode.openInNewTab	plugin/NERD_tree.vim	/^function! s:TreeFileNode.openInNewTab(options)$/;"	f
+TreeFileNode.openSplit	plugin/NERD_tree.vim	/^function! s:TreeFileNode.openSplit()$/;"	f
+TreeFileNode.openVSplit	plugin/NERD_tree.vim	/^function! s:TreeFileNode.openVSplit()$/;"	f
+TreeFileNode.putCursorHere	plugin/NERD_tree.vim	/^function! s:TreeFileNode.putCursorHere(isJump, recurseUpward)$/;"	f
+TreeFileNode.refresh	plugin/NERD_tree.vim	/^function! s:TreeFileNode.refresh()$/;"	f
+TreeFileNode.rename	plugin/NERD_tree.vim	/^function! s:TreeFileNode.rename(newName)$/;"	f
+TreeFileNode.renderToString	plugin/NERD_tree.vim	/^function! s:TreeFileNode.renderToString()$/;"	f
+TriggerSnippet	plugin/snipMate.vim	/^fun! TriggerSnippet()$/;"	f
+TxtBrowserSearch	plugin/txtbrowser.vim	/^function! s:TxtBrowserSearch (...) range$/;"	f
+TxtBrowserToggleFt	plugin/txtbrowser.vim	/^function! s:TxtBrowserToggleFt ()$/;"	f
+TxtBrowserWord	plugin/txtbrowser.vim	/^function! s:TxtBrowserWord (...) range$/;"	f
+TxtBrowser_Dict_Url	plugin/txtbrowser.vim	/^    let TxtBrowser_Dict_Url = 'http:\/\/www.google.com\/dictionary?aq=f&langpair=en|zh-CN&q=text&hl=zh-CN'$/;"	v
+TxtBrowser_Title_Level	ftplugin/txt.vim	/^	let TxtBrowser_Title_Level = 3$/;"	v
+TxtbrowserGoto	plugin/txtbrowser.vim	/^function! s:TxtbrowserGoto(...)$/;"	f
+TxtbrowserOpenUrl	plugin/txtbrowser.vim	/^function! s:TxtbrowserOpenUrl (url)$/;"	f
+Txtbrowser_Search_Engine	plugin/txtbrowser.vim	/^    let Txtbrowser_Search_Engine = 'http:\/\/www.google.com\/search?hl=zh-CN&source=hp&q=text&btnG=Google+%E6%90%9C%E7%B4%A2&lr=&aq=f&oq='$/;"	v
+UnBinding	ftplugin/python/pyflakes/pyflakes/checker.py	/^class UnBinding(Binding):$/;"	c
+UndefinedExport	ftplugin/python/pyflakes/pyflakes/messages.py	/^class UndefinedExport(Message):$/;"	c
+UndefinedLocal	ftplugin/python/pyflakes/pyflakes/messages.py	/^class UndefinedLocal(Message):$/;"	c
+UndefinedName	ftplugin/python/pyflakes/pyflakes/messages.py	/^class UndefinedName(Message):$/;"	c
+UnusedImport	ftplugin/python/pyflakes/pyflakes/messages.py	/^class UnusedImport(Message):$/;"	c
+UnusedVariable	ftplugin/python/pyflakes/pyflakes/messages.py	/^class UnusedVariable(Message):$/;"	c
+UpdateChangedSnip	autoload/snipMate.vim	/^fun s:UpdateChangedSnip(entering)$/;"	f
+UpdateDoc	plugin/tasklist.vim	/^function! s:UpdateDoc()$/;"	f
+UpdatePlaceholderTabStops	autoload/snipMate.vim	/^fun s:UpdatePlaceholderTabStops()$/;"	f
+UpdateTabStops	autoload/snipMate.vim	/^fun s:UpdateTabStops()$/;"	f
+UpdateVars	autoload/snipMate.vim	/^fun s:UpdateVars()$/;"	f
+Version	plugin/pytest.vim	/^function! s:Version()$/;"	f
+WideMsg	ftplugin/python/pyflakes.vim	/^    function s:WideMsg(msg)$/;"	f
+WillComplete	plugin/supertab.vim	/^function! s:WillComplete()$/;"	f
+_	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (1 for _ in range(1) if fu)')$/;"	i
+_	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (fu for _ in range(1))')$/;"	i
+_	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [1 for _ in range(1) if fu]')$/;"	i
+_	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [fu for _ in range(1)]')$/;"	i
+_MAGIC_GLOBALS	ftplugin/python/pyflakes/pyflakes/checker.py	/^_MAGIC_GLOBALS = ['__file__', '__builtins__']$/;"	v
+__builtin__	ftplugin/python/pyflakes/pyflakes/checker.py	/^import __builtin__$/;"	i
+__init__	autoload/gundo.py	/^    def __init__(self):$/;"	m	class:Buffer
+__init__	autoload/gundo.py	/^    def __init__(self, n, parent, time, curhead):$/;"	m	class:Node
+__init__	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def __init__(self):$/;"	m	class:FunctionScope
+__init__	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def __init__(self):$/;"	m	class:Scope
+__init__	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def __init__(self, name, source):$/;"	m	class:Binding
+__init__	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def __init__(self, name, source):$/;"	m	class:Importation
+__init__	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def __init__(self, tree, filename=None):$/;"	m	class:Checker
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, modname):$/;"	m	class:ImportStarUsed
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, name):$/;"	m	class:DuplicateArgument
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, name):$/;"	m	class:UndefinedExport
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, name):$/;"	m	class:UndefinedName
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, name):$/;"	m	class:UnusedImport
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, name, orig_loc):$/;"	m	class:ImportShadowedByLoopVar
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, name, orig_loc):$/;"	m	class:RedefinedFunction
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, name, orig_loc):$/;"	m	class:RedefinedWhileUnused
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, name, orig_loc):$/;"	m	class:UndefinedLocal
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, names):$/;"	m	class:LateFutureImport
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, names):$/;"	m	class:UnusedVariable
+__init__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __init__(self, filename, loc, use_column=True):$/;"	m	class:Message
+__init__	plugin/gundo.py	/^    def __init__(self):$/;"	m	class:Buffer
+__init__	plugin/gundo.py	/^    def __init__(self, n, parent, time, curhead):$/;"	m	class:Node
+__repr__	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def __repr__(self):$/;"	m	class:Binding	file:
+__repr__	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def __repr__(self):$/;"	m	class:Scope	file:
+__str__	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def __str__(self):$/;"	m	class:Binding	file:
+__str__	ftplugin/python/pyflakes/pyflakes/messages.py	/^    def __str__(self):$/;"	m	class:Message	file:
+__version__	ftplugin/python/pyflakes/pyflakes/__init__.py	/^__version__ = '0.4.0'$/;"	v
+_ast	ftplugin/python/pyflakes/pyflakes/checker.py	/^import _ast$/;"	i
+_ast	ftplugin/python/pyflakes/pyflakes/scripts/pyflakes.py	/^import _ast$/;"	i
+_ast	ftplugin/python/pyflakes/pyflakes/test/harness.py	/^import _ast$/;"	i
+_check_sanity	autoload/gundo.py	/^def _check_sanity():$/;"	f
+_check_sanity	plugin/gundo.py	/^def _check_sanity():$/;"	f
+_fmt_time	autoload/gundo.py	/^def _fmt_time(t):$/;"	f
+_fmt_time	plugin/gundo.py	/^def _fmt_time(t):$/;"	f
+_generate_change_preview_diff	autoload/gundo.py	/^def _generate_change_preview_diff(current, node_before, node_after):$/;"	f
+_generate_change_preview_diff	plugin/gundo.py	/^def _generate_change_preview_diff(current, node_before, node_after):$/;"	f
+_generate_preview_diff	autoload/gundo.py	/^def _generate_preview_diff(current, node_before, node_after):$/;"	f
+_generate_preview_diff	plugin/gundo.py	/^def _generate_preview_diff(current, node_before, node_after):$/;"	f
+_goto_window_for_buffer	autoload/gundo.py	/^def _goto_window_for_buffer(b):$/;"	f
+_goto_window_for_buffer	plugin/gundo.py	/^def _goto_window_for_buffer(b):$/;"	f
+_goto_window_for_buffer_name	autoload/gundo.py	/^def _goto_window_for_buffer_name(bn):$/;"	f
+_goto_window_for_buffer_name	plugin/gundo.py	/^def _goto_window_for_buffer_name(bn):$/;"	f
+_make_nodes	autoload/gundo.py	/^def _make_nodes(alts, nodes, parent=None):$/;"	f
+_make_nodes	plugin/gundo.py	/^def _make_nodes(alts, nodes, parent=None):$/;"	f
+_output_preview_text	autoload/gundo.py	/^def _output_preview_text(lines):$/;"	f
+_output_preview_text	plugin/gundo.py	/^def _output_preview_text(lines):$/;"	f
+_runDeferred	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def _runDeferred(self, deferred):$/;"	m	class:Checker
+_undo_to	autoload/gundo.py	/^def _undo_to(n):$/;"	f
+_undo_to	plugin/gundo.py	/^def _undo_to(n):$/;"	f
+_walk_branch	autoload/gundo.py	/^    def _walk_branch(origin, dest):$/;"	f	function:GundoPlayTo
+_walk_branch	plugin/gundo.py	/^    def _walk_branch(origin, dest):$/;"	f	function:GundoPlayTo
+activateNode	plugin/NERD_tree.vim	/^function! s:activateNode(forceKeepWindowOpen)$/;"	f
+addArgs	ftplugin/python/pyflakes/pyflakes/checker.py	/^            def addArgs(arglist):$/;"	f	function:Checker.LAMBDA.runFunction
+addBinding	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def addBinding(self, loc, value, reportRedef=True):$/;"	m	class:Checker
+age	autoload/gundo.py	/^def age(ts):$/;"	f
+age	plugin/gundo.py	/^def age(ts):$/;"	f
+agescales	autoload/gundo.py	/^agescales = [("year", 3600 * 24 * 365),$/;"	v
+agescales	plugin/gundo.py	/^agescales = [("year", 3600 * 24 * 365),$/;"	v
+and	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu and False')$/;"	i
+ascii	autoload/gundo.py	/^def ascii(buf, state, type, char, text, coldata):$/;"	f
+ascii	plugin/gundo.py	/^def ascii(buf, state, type, char, text, coldata):$/;"	f
+asciiedges	autoload/gundo.py	/^def asciiedges(seen, rev, parents):$/;"	f
+asciiedges	plugin/gundo.py	/^def asciiedges(seen, rev, parents):$/;"	f
+assert	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; assert fu.bar')$/;"	i
+ast	ftplugin/python/pyflakes.vim	/^import ast$/;"	m
+ast	ftplugin/python/pyflakes/pyflakes/checker.py	/^    import ast$/;"	i
+author	ftplugin/python/pyflakes/setup.py	/^    author="Phil Frost",$/;"	v
+b:current_syntax	ftplugin/pp.vim	/^let b:current_syntax = "puppet"$/;"	v
+b:current_syntax	syntax/txt.vim	/^let b:current_syntax = 'txt'$/;"	v
+b:did_indent	indent/python.vim	/^let b:did_indent = 1$/;"	v
+b:did_pyflakes_plugin	ftplugin/python/pyflakes.vim	/^    let b:did_pyflakes_plugin = 1$/;"	v
+b:did_python_init	ftplugin/python/pyflakes.vim	/^    let b:did_python_init = 0$/;"	v
+b:did_python_init	ftplugin/python/pyflakes.vim	/^    let b:did_python_init = 1$/;"	v
+b:showing_message	ftplugin/python/pyflakes.vim	/^let b:showing_message = 0$/;"	v
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('from baz import fu, bar', m.UnusedImport, m.UnusedImport)$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu, bar', m.UnusedImport, m.UnusedImport)$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu.bar', m.UnusedImport)$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; -fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 & fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 << fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 == fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 >> fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 ^ fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 | fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 % fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 * fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 ** fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 + fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 - fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 \/ fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 \/\/ fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [fu, bar] = 3', m.RedefinedWhileUnused)$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [fu, bar] = fu')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; assert fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; bar=fu')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; exec "print 1" in fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu, bar = 3', m.RedefinedWhileUnused)$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu, bar = fu')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar = 1')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar()')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar(stuff=fu)')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar.baz')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar[1]')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; not fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; print fu.bar[1:]')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; ~fu.bar')$/;"	i
+bar	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^        self.flakes('from fu import *; bar', m.ImportStarUsed)$/;"	i
+baz	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; "bar".fu.baz', m.UnusedImport)$/;"	i
+baz	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar.baz')$/;"	i
+beep	plugin/surround.vim	/^function! s:beep()$/;"	f
+bindMappings	plugin/NERD_tree.vim	/^function! s:bindMappings()$/;"	f
+bookmarkNode	plugin/NERD_tree.vim	/^function! s:bookmarkNode(name)$/;"	f
+bufInWindows	plugin/NERD_tree.vim	/^function! s:bufInWindows(bnum)$/;"	f
+by	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'import %r from line %r shadowed by loop variable'$/;"	i
+centerView	plugin/NERD_tree.vim	/^function! s:centerView()$/;"	f
+chCwd	plugin/NERD_tree.vim	/^function! s:chCwd()$/;"	f
+chRoot	plugin/NERD_tree.vim	/^function! s:chRoot()$/;"	f
+changenr	autoload/gundo.py	/^def changenr(nodes):$/;"	f
+changenr	plugin/gundo.py	/^def changenr(nodes):$/;"	f
+changesurround	plugin/surround.vim	/^function! s:changesurround() " {{{1$/;"	f
+check	ftplugin/python/pyflakes/pyflakes/scripts/pyflakes.py	/^def check(codeString, filename):$/;"	f
+checkForActivate	plugin/NERD_tree.vim	/^function! s:checkForActivate()$/;"	f
+checkForBrowse	plugin/NERD_tree.vim	/^function! s:checkForBrowse(dir)$/;"	f
+checkPath	ftplugin/python/pyflakes/pyflakes/scripts/pyflakes.py	/^def checkPath(filename):$/;"	f
+checkPath	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^from pyflakes.scripts.pyflakes import checkPath$/;"	i
+checkUnusedAssignments	ftplugin/python/pyflakes/pyflakes/checker.py	/^            def checkUnusedAssignments():$/;"	f	function:Checker.LAMBDA.runFunction
+check_dead_scopes	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def check_dead_scopes(self):$/;"	m	class:Checker
+checker	ftplugin/python/pyflakes/pyflakes/scripts/pyflakes.py	/^checker = __import__('pyflakes.checker').checker$/;"	v
+checker	ftplugin/python/pyflakes/pyflakes/test/harness.py	/^from pyflakes import checker$/;"	i
+checker	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^from pyflakes import messages as m, checker$/;"	i
+classifiers	ftplugin/python/pyflakes/setup.py	/^    classifiers=[$/;"	v
+clearBookmarks	plugin/NERD_tree.vim	/^function! s:clearBookmarks(bookmarks)$/;"	f
+closeChildren	plugin/NERD_tree.vim	/^function! s:closeChildren()$/;"	f
+closeCurrentDir	plugin/NERD_tree.vim	/^function! s:closeCurrentDir()$/;"	f
+closeTree	plugin/NERD_tree.vim	/^function! s:closeTree()$/;"	f
+closeTreeIfOpen	plugin/NERD_tree.vim	/^function! s:closeTreeIfOpen()$/;"	f
+closeTreeIfQuitOnOpen	plugin/NERD_tree.vim	/^function! s:closeTreeIfQuitOnOpen()$/;"	f
+closeTreeWindow	plugin/NERD_tree.vim	/^function! s:closeTreeWindow()$/;"	f
+closematch	plugin/surround.vim	/^function! s:closematch(str) " {{{1$/;"	f
+collectLoopVars	ftplugin/python/pyflakes/pyflakes/checker.py	/^        def collectLoopVars(n):$/;"	f	function:Checker.FOR
+colors_name	colors/wombat.vim	/^let colors_name = "wombat"$/;"	v
+compareBookmarks	plugin/NERD_tree.vim	/^function! s:compareBookmarks(first, second)$/;"	f
+compareNodes	plugin/NERD_tree.vim	/^function! s:compareNodes(n1, n2)$/;"	f
+completeBookmarks	plugin/NERD_tree.vim	/^function! s:completeBookmarks(A,L,P)$/;"	f
+createTreeWin	plugin/NERD_tree.vim	/^function! s:createTreeWin()$/;"	f
+cs	plugin/surround.vim	/^  nmap      cs   <Plug>Csurround$/;"	m
+dd	ftplugin/python/pyflakes.vim	/^noremap <buffer><silent> dd dd:PyflakesUpdate<CR>$/;"	m
+deferAssignment	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def deferAssignment(self, callable):$/;"	m	class:Checker
+deferFunction	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def deferFunction(self, callable):$/;"	m	class:Checker
+del	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; del fu', m.RedefinedWhileUnused)$/;"	i
+deleteBookmark	plugin/NERD_tree.vim	/^function! s:deleteBookmark()$/;"	f
+description	ftplugin/python/pyflakes/setup.py	/^    description="passive checker of Python programs",$/;"	v
+did_puppet_syn_inits	ftplugin/pp.vim	/^    let did_puppet_syn_inits = 1$/;"	v
+difflib	autoload/gundo.py	/^import difflib$/;"	i
+difflib	plugin/gundo.py	/^import difflib$/;"	i
+displayHelp	plugin/NERD_tree.vim	/^function! s:displayHelp()$/;"	f
+division	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('from __future__ import division')$/;"	i
+dosurround	plugin/surround.vim	/^function! s:dosurround(...) " {{{1$/;"	f
+draw_edges	autoload/gundo.py	/^def draw_edges(edges, nodeline, interline):$/;"	f
+draw_edges	plugin/gundo.py	/^def draw_edges(edges, nodeline, interline):$/;"	f
+ds	plugin/surround.vim	/^  nmap      ds   <Plug>Dsurround$/;"	m
+dumpHelp	plugin/NERD_tree.vim	/^function! s:dumpHelp()$/;"	f
+dw	ftplugin/python/pyflakes.vim	/^noremap <buffer><silent> dw dw:PyflakesUpdate<CR>$/;"	m
+echo	nerdtree_plugin/fs_menu.vim	/^function! s:echo(msg)$/;"	f
+echo	plugin/NERD_tree.vim	/^function! s:echo(msg)$/;"	f
+echoError	plugin/NERD_tree.vim	/^function! s:echoError(msg)$/;"	f
+echoWarning	nerdtree_plugin/fs_menu.vim	/^function! s:echoWarning(msg)$/;"	f
+echoWarning	plugin/NERD_tree.vim	/^function! s:echoWarning(msg)$/;"	f
+evaluate	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^        def evaluate(source):$/;"	f	function:.test_multilineSyntaxError
+exec	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; exec "print 1" in fu.bar')$/;"	i
+exec	plugin/NERD_tree.vim	/^function! s:exec(cmd)$/;"	f
+extractafter	plugin/surround.vim	/^function! s:extractafter(str)$/;"	f
+extractbefore	plugin/surround.vim	/^function! s:extractbefore(str)$/;"	f
+findAndRevealPath	plugin/NERD_tree.vim	/^function! s:findAndRevealPath()$/;"	f
+firstUsableWindow	plugin/NERD_tree.vim	/^function! s:firstUsableWindow()$/;"	f
+fix_long_right_edges	autoload/gundo.py	/^def fix_long_right_edges(edges):$/;"	f
+fix_long_right_edges	plugin/gundo.py	/^def fix_long_right_edges(edges):$/;"	f
+fixindent	plugin/surround.vim	/^function! s:fixindent(str,spc)$/;"	f
+flakes	ftplugin/python/pyflakes/pyflakes/test/harness.py	/^    def flakes(self, input, *expectedOutputs, **kw):$/;"	m	class:Test
+fmt	autoload/gundo.py	/^    def fmt(t, c):$/;"	f	function:age
+fmt	plugin/gundo.py	/^    def fmt(t, c):$/;"	f	function:age
+for	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (1 for _ in range(1) if fu)')$/;"	i
+for	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (1 for fu in range(1))', m.RedefinedWhileUnused)$/;"	i
+for	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (fu for _ in range(1))')$/;"	i
+for	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [1 for _ in range(1) if fu]')$/;"	i
+for	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [1 for fu in range(1)]', m.RedefinedWhileUnused)$/;"	i
+for	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [fu for _ in range(1)]')$/;"	i
+from	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'import %r from line %r shadowed by loop variable'$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('from baz import fu, bar', m.UnusedImport, m.UnusedImport)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('from baz import fu; print fu')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu, bar', m.UnusedImport, m.UnusedImport)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu.bar', m.UnusedImport)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; "bar".fu.baz', m.UnusedImport)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; "meow"[::fu]')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (1 for _ in range(1) if fu)')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (1 for fu in range(1))', m.RedefinedWhileUnused)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (fu for _ in range(1))')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (fu,)')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; -fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 & fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 << fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 == fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 >> fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 ^ fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 1 | fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 % fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 * fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 ** fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 + fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 - fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 \/ fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; 3 \/\/ fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [1 for _ in range(1) if fu]')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [1 for fu in range(1)]', m.RedefinedWhileUnused)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [fu for _ in range(1)]')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [fu, bar] = 3', m.RedefinedWhileUnused)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [fu, bar] = fu')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [fu]')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; `fu`')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; assert fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; bar=fu')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; del fu', m.RedefinedWhileUnused)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; exec "print 1" in fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu += fu')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu = 3', m.RedefinedWhileUnused)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu = fu')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu and False')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu or False')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu, bar = 3', m.RedefinedWhileUnused)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu, bar = fu')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar = 1')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar()')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar(stuff=fu)')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar.baz')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar[1]')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; lambda fu: fu', m.UnusedImport)$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; lambda: fu')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; n=0; n+=fu')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; not fu.bar')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; print fu')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; print fu.bar[1:]')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; {1:fu}')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; {fu:None}')$/;"	i
+fu	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; ~fu.bar')$/;"	i
+g:NERDTreeBookmark	plugin/NERD_tree.vim	/^let g:NERDTreeBookmark = s:Bookmark$/;"	v
+g:NERDTreeDirNode	plugin/NERD_tree.vim	/^let g:NERDTreeDirNode = s:TreeDirNode$/;"	v
+g:NERDTreeFileNode	plugin/NERD_tree.vim	/^let g:NERDTreeFileNode = s:TreeFileNode$/;"	v
+g:NERDTreeIgnore	plugin/NERD_tree.vim	/^    let g:NERDTreeIgnore = ['\\~$']$/;"	v
+g:NERDTreePath	plugin/NERD_tree.vim	/^let g:NERDTreePath = s:Path$/;"	v
+g:NERDTreeSortOrder	plugin/NERD_tree.vim	/^    let g:NERDTreeSortOrder = ['\\\/$', '*', '\\.swp$',  '\\.bak$', '\\~$']$/;"	v
+g:NERDTreeStatusline	plugin/NERD_tree.vim	/^    let g:NERDTreeStatusline = "%{exists('b:NERDTreeRoot')?b:NERDTreeRoot.path.str():''}"$/;"	v
+g:SuperTabCompletionContexts	plugin/supertab.vim	/^    let g:SuperTabCompletionContexts = ['s:ContextText']$/;"	v
+g:SuperTabContextDefaultCompletionType	plugin/supertab.vim	/^    let g:SuperTabContextDefaultCompletionType = "<c-p>"$/;"	v
+g:SuperTabCrMapping	plugin/supertab.vim	/^    let g:SuperTabCrMapping = 1$/;"	v
+g:SuperTabDefaultCompletionType	plugin/supertab.vim	/^    let g:SuperTabDefaultCompletionType = "<c-p>"$/;"	v
+g:SuperTabLongestEnhanced	plugin/supertab.vim	/^    let g:SuperTabLongestEnhanced = 0$/;"	v
+g:SuperTabLongestHighlight	plugin/supertab.vim	/^    let g:SuperTabLongestHighlight = 0$/;"	v
+g:SuperTabMappingBackward	plugin/supertab.vim	/^    let g:SuperTabMappingBackward = '<s-tab>'$/;"	v
+g:SuperTabMappingForward	plugin/supertab.vim	/^    let g:SuperTabMappingForward = '<tab>'$/;"	v
+g:SuperTabMappingTabLiteral	plugin/supertab.vim	/^    let g:SuperTabMappingTabLiteral = '<c-tab>'$/;"	v
+g:SuperTabMidWordCompletion	plugin/supertab.vim	/^    let g:SuperTabMidWordCompletion = 1$/;"	v
+g:SuperTabRetainCompletionDuration	plugin/supertab.vim	/^    let g:SuperTabRetainCompletionDuration = 'insert'$/;"	v
+g:did_ft	plugin/snipMate.vim	/^let g:did_ft = {}$/;"	v
+g:gundo_close_on_revert	autoload/gundo.vim	/^    let g:gundo_close_on_revert = 0$/;"	v
+g:gundo_help	autoload/gundo.vim	/^    let g:gundo_help = 1$/;"	v
+g:gundo_map_move_newer	autoload/gundo.vim	/^    let g:gundo_map_move_newer = 'k'$/;"	v
+g:gundo_map_move_older	autoload/gundo.vim	/^    let g:gundo_map_move_older = 'j'$/;"	v
+g:gundo_preview_bottom	autoload/gundo.vim	/^    let g:gundo_preview_bottom = 0$/;"	v
+g:gundo_preview_height	autoload/gundo.vim	/^    let g:gundo_preview_height = 15$/;"	v
+g:gundo_py_loaded	autoload/gundo.vim	/^        let g:gundo_py_loaded = 1$/;"	v
+g:gundo_right	autoload/gundo.vim	/^    let g:gundo_right = 0$/;"	v
+g:gundo_width	autoload/gundo.vim	/^    let g:gundo_width = 45$/;"	v
+g:loaded_nerdtree_exec_menuitem	nerdtree_plugin/exec_menuitem.vim	/^let g:loaded_nerdtree_exec_menuitem = 1$/;"	v
+g:loaded_nerdtree_fs_menu	nerdtree_plugin/fs_menu.vim	/^let g:loaded_nerdtree_fs_menu = 1$/;"	v
+g:loaded_surround	plugin/surround.vim	/^let g:loaded_surround = 1$/;"	v
+g:loaded_tasklist	plugin/tasklist.vim	/^let g:loaded_tasklist = 1$/;"	v
+g:pep8_map	ftplugin/python/pep8.vim	/^    let g:pep8_map='<F5>'$/;"	v
+g:pyflakes_builtins	ftplugin/python/pyflakes.vim	/^    let g:pyflakes_builtins = []$/;"	v
+g:pyflakes_use_quickfix	ftplugin/python/pyflakes.vim	/^    let g:pyflakes_use_quickfix = 1$/;"	v
+g:pytest_last_session	plugin/pytest.vim	/^let g:pytest_last_session      = ""$/;"	v
+g:pytest_looponfail	plugin/pytest.vim	/^let g:pytest_looponfail        = 0$/;"	v
+g:pytest_session_error	plugin/pytest.vim	/^let g:pytest_session_error     = 0$/;"	v
+g:pytest_session_errors	plugin/pytest.vim	/^let g:pytest_session_errors    = {}$/;"	v
+g:tlRememberPosition	plugin/tasklist.vim	/^    let g:tlRememberPosition = 0$/;"	v
+g:tlTokenList	plugin/tasklist.vim	/^    let g:tlTokenList = ["FIXME", "TODO", "XXX"]$/;"	v
+g:tlWindowPosition	plugin/tasklist.vim	/^    let g:tlWindowPosition = 0$/;"	v
+g:txtbrowser_version	plugin/txtbrowser.vim	/^let g:txtbrowser_version = "1.3.4"$/;"	v
+gS	plugin/surround.vim	/^    vmap    gS   <Plug>VgSurround$/;"	m
+generate	autoload/gundo.py	/^def generate(dag, edgefn, current):$/;"	f
+generate	plugin/gundo.py	/^def generate(dag, edgefn, current):$/;"	f
+getPath	plugin/NERD_tree.vim	/^function! s:getPath(ln)$/;"	f
+getTreeWinNum	plugin/NERD_tree.vim	/^function! s:getTreeWinNum()$/;"	f
+get_nodeline_edges_tail	autoload/gundo.py	/^def get_nodeline_edges_tail($/;"	f
+get_nodeline_edges_tail	plugin/gundo.py	/^def get_nodeline_edges_tail($/;"	f
+getchar	plugin/surround.vim	/^function! s:getchar()$/;"	f
+gundo#GundoRenderGraph	autoload/gundo.vim	/^function! gundo#GundoRenderGraph()"{{{$/;"	f
+gundo#GundoToggle	autoload/gundo.vim	/^function! gundo#GundoToggle()"{{{$/;"	f
+handleChildren	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def handleChildren(self, tree):$/;"	m	class:Checker
+handleMiddleMouse	plugin/NERD_tree.vim	/^function! s:handleMiddleMouse()$/;"	f
+handleNode	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def handleNode(self, node, parent):$/;"	m	class:Checker
+harness	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^from pyflakes.test import harness$/;"	i
+harness	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^from pyflakes.test import harness$/;"	i
+harness	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^from pyflakes.test import harness$/;"	i
+if	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (1 for _ in range(1) if fu)')$/;"	i
+if	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [1 for _ in range(1) if fu]')$/;"	i
+ignore	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def ignore(self, node):$/;"	m	class:Checker
+importStarred	ftplugin/python/pyflakes/pyflakes/checker.py	/^    importStarred = False       # set to True when import * is found$/;"	v	class:Scope
+in	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (1 for _ in range(1) if fu)')$/;"	i
+in	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (1 for fu in range(1))', m.RedefinedWhileUnused)$/;"	i
+in	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (fu for _ in range(1))')$/;"	i
+in	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [1 for _ in range(1) if fu]')$/;"	i
+in	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [1 for fu in range(1)]', m.RedefinedWhileUnused)$/;"	i
+in	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [fu for _ in range(1)]')$/;"	i
+in	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; exec "print 1" in fu.bar')$/;"	i
+indentLevelFor	plugin/NERD_tree.vim	/^function! s:indentLevelFor(line)$/;"	f
+initNerdTree	plugin/NERD_tree.vim	/^function! s:initNerdTree(name)$/;"	f
+initNerdTreeInPlace	plugin/NERD_tree.vim	/^function! s:initNerdTreeInPlace(dir)$/;"	f
+initNerdTreeMirror	plugin/NERD_tree.vim	/^function! s:initNerdTreeMirror()$/;"	f
+initPythonModule	autoload/gundo.py	/^def initPythonModule():$/;"	f
+initPythonModule	plugin/gundo.py	/^def initPythonModule():$/;"	f
+initVariable	plugin/NERD_tree.vim	/^function! s:initVariable(var, value)$/;"	f
+inputreplacement	plugin/surround.vim	/^function! s:inputreplacement()$/;"	f
+inputtarget	plugin/surround.vim	/^function! s:inputtarget()$/;"	f
+insert	plugin/surround.vim	/^function! s:insert(...) " {{{1$/;"	f
+isDocstring	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def isDocstring(self, node):$/;"	m	class:Checker
+isTreeOpen	plugin/NERD_tree.vim	/^function! s:isTreeOpen()$/;"	f
+isWindowUsable	plugin/NERD_tree.vim	/^function! s:isWindowUsable(winnumber)$/;"	f
+iter_child_nodes	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def iter_child_nodes(node, astcls=_ast.AST):$/;"	f
+iter_child_nodes	ftplugin/python/pyflakes/pyflakes/checker.py	/^    iter_child_nodes = ast.iter_child_nodes$/;"	v
+itertools	autoload/gundo.py	/^import itertools$/;"	i
+itertools	plugin/gundo.py	/^import itertools$/;"	i
+jumpToChild	plugin/NERD_tree.vim	/^function! s:jumpToChild(direction)$/;"	f
+jumpToFirstChild	plugin/NERD_tree.vim	/^function! s:jumpToFirstChild()$/;"	f
+jumpToLastChild	plugin/NERD_tree.vim	/^function! s:jumpToLastChild()$/;"	f
+jumpToParent	plugin/NERD_tree.vim	/^function! s:jumpToParent()$/;"	f
+jumpToRoot	plugin/NERD_tree.vim	/^function! s:jumpToRoot()$/;"	f
+jumpToSibling	plugin/NERD_tree.vim	/^function! s:jumpToSibling(forward)$/;"	f
+lambda	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; lambda fu: fu', m.UnusedImport)$/;"	i
+lambda	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; lambda: fu')$/;"	i
+license	ftplugin/python/pyflakes/setup.py	/^    license="MIT",$/;"	v
+line	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'import %r from line %r shadowed by loop variable'$/;"	i
+loaded_gundo	plugin/gundo.vim	/^let loaded_gundo = 1"}}}$/;"	v
+loaded_mru	plugin/mru.vim	/^let loaded_mru=1$/;"	v
+loaded_nerd_tree	plugin/NERD_tree.vim	/^let loaded_nerd_tree = 1$/;"	v
+loaded_snips	plugin/snipMate.vim	/^let loaded_snips = 1$/;"	v
+loaded_taglist	ftplugin/txt.vim	/^	let loaded_taglist = 'no'$/;"	v
+loaded_taglist	plugin/taglist.vim	/^            let loaded_taglist = 'no'$/;"	v
+loaded_taglist	plugin/taglist.vim	/^        let loaded_taglist = 'no'$/;"	v
+loaded_taglist	plugin/taglist.vim	/^    let loaded_taglist = 'fast_load_done'$/;"	v
+loaded_taglist	plugin/taglist.vim	/^let loaded_taglist = 'available'$/;"	v
+loop	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'import %r from line %r shadowed by loop variable'$/;"	i
+m	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^from pyflakes import messages as m$/;"	i
+m	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^from pyflakes import messages as m$/;"	i
+m	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^from pyflakes import messages as m, checker$/;"	i
+main	ftplugin/python/pyflakes/pyflakes/scripts/pyflakes.py	/^def main():$/;"	f
+maintainer	ftplugin/python/pyflakes/setup.py	/^    maintainer="Moe Aboulkheir",$/;"	v
+maintainer_email	ftplugin/python/pyflakes/setup.py	/^    maintainer_email="moe@divmod.com",$/;"	v
+make_nodes	autoload/gundo.py	/^def make_nodes():$/;"	f
+make_nodes	plugin/gundo.py	/^def make_nodes():$/;"	f
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = "'from %s import *' used; unable to detect undefined names"$/;"	v	class:ImportStarUsed
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = "local variable %r (defined in enclosing scope on line %r) referenced before assignment"$/;"	v	class:UndefinedLocal
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = '%r imported but unused'$/;"	v	class:UnusedImport
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = ''$/;"	v	class:Message
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'duplicate argument %r in function definition'$/;"	v	class:DuplicateArgument
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'future import(s) %r after other statements'$/;"	v	class:LateFutureImport
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'import %r from line %r shadowed by loop variable'$/;"	v	class:ImportShadowedByLoopVar
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'local variable %r is assigned to but never used'$/;"	v	class:UnusedVariable
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'redefinition of function %r from line %r'$/;"	v	class:RedefinedFunction
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'redefinition of unused %r from line %r'$/;"	v	class:RedefinedWhileUnused
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'undefined name %r in __all__'$/;"	v	class:UndefinedExport
+message	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'undefined name %r'$/;"	v	class:UndefinedName
+message_args	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message_args = ()$/;"	v	class:Message
+messages	ftplugin/python/pyflakes/pyflakes/checker.py	/^from pyflakes import messages$/;"	i
+n	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; n=0; n+=fu')$/;"	i
+name	ftplugin/python/pyflakes/setup.py	/^    name="pyflakes",$/;"	v
+names	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def names(self):$/;"	m	class:ExportBinding
+nextBufferName	plugin/NERD_tree.vim	/^function! s:nextBufferName()$/;"	f
+nodeDepth	ftplugin/python/pyflakes/pyflakes/checker.py	/^    nodeDepth = 0$/;"	v	class:Checker
+normal	autoload/gundo.py	/^normal = lambda s: vim.command('normal %s' % s)$/;"	v
+normal	plugin/gundo.py	/^normal = lambda s: vim.command('normal %s' % s)$/;"	v
+not	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; not fu.bar')$/;"	i
+openBookmark	plugin/NERD_tree.vim	/^function! s:openBookmark(name)$/;"	f
+openEntrySplit	plugin/NERD_tree.vim	/^function! s:openEntrySplit(vertical, forceKeepWindowOpen)$/;"	f
+openExplorer	plugin/NERD_tree.vim	/^function! s:openExplorer()$/;"	f
+openInNewTab	plugin/NERD_tree.vim	/^function! s:openInNewTab(stayCurrentTab)$/;"	f
+openNodeRecursively	plugin/NERD_tree.vim	/^function! s:openNodeRecursively()$/;"	f
+opfunc	plugin/surround.vim	/^function! s:opfunc(type,...) " {{{1$/;"	f
+opfunc2	plugin/surround.vim	/^function! s:opfunc2(arg)$/;"	f
+or	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu or False')$/;"	i
+os	ftplugin/python/pyflakes/pyflakes/checker.py	/^import os.path$/;"	i
+os	ftplugin/python/pyflakes/pyflakes/scripts/pyflakes.py	/^import os$/;"	i
+os.path	ftplugin/python/pyflakes.vim	/^import os.path$/;"	m
+packages	ftplugin/python/pyflakes/setup.py	/^    packages=["pyflakes", "pyflakes.scripts", "pyflakes.test"],$/;"	v
+path	ftplugin/python/pyflakes/pyflakes/checker.py	/^import os.path$/;"	i
+plural	autoload/gundo.py	/^    def plural(t, c):$/;"	f	function:age
+plural	plugin/gundo.py	/^    def plural(t, c):$/;"	f	function:age
+popScope	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def popScope(self):$/;"	m	class:Checker
+previewNode	plugin/NERD_tree.vim	/^function! s:previewNode(openNewWin)$/;"	f
+print	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('from baz import fu; print fu')$/;"	i
+print	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; print fu')$/;"	i
+print	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; print fu.bar[1:]')$/;"	i
+process	plugin/surround.vim	/^function! s:process(string)$/;"	f
+promptToDelBuffer	nerdtree_plugin/fs_menu.vim	/^function! s:promptToDelBuffer(bufnum, msg)$/;"	f
+promptToDelBuffer	plugin/NERD_tree.vim	/^function! s:promptToDelBuffer(bufnum, msg)$/;"	f
+pushClassScope	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def pushClassScope(self):$/;"	m	class:Checker
+pushFunctionScope	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def pushFunctionScope(self):$/;"	m	class:Checker
+putCursorInTreeWin	plugin/NERD_tree.vim	/^function! s:putCursorInTreeWin()$/;"	f
+putCursorOnBookmarkTable	plugin/NERD_tree.vim	/^function! s:putCursorOnBookmarkTable()$/;"	f
+r	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'import %r from line %r shadowed by loop variable'$/;"	i
+range	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (1 for _ in range(1) if fu)')$/;"	i
+range	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (1 for fu in range(1))', m.RedefinedWhileUnused)$/;"	i
+range	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; (fu for _ in range(1))')$/;"	i
+range	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [1 for _ in range(1) if fu]')$/;"	i
+range	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [1 for fu in range(1)]', m.RedefinedWhileUnused)$/;"	i
+range	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; [fu for _ in range(1)]')$/;"	i
+re	ftplugin/python/pyflakes.vim	/^import re$/;"	m
+redraw	plugin/surround.vim	/^function! s:redraw()$/;"	f
+refreshCurrent	plugin/NERD_tree.vim	/^function! s:refreshCurrent()$/;"	f
+refreshRoot	plugin/NERD_tree.vim	/^function! s:refreshRoot()$/;"	f
+reindent	plugin/surround.vim	/^function! s:reindent() " {{{1$/;"	f
+renderBookmarks	plugin/NERD_tree.vim	/^function! s:renderBookmarks()$/;"	f
+renderView	plugin/NERD_tree.vim	/^function! s:renderView()$/;"	f
+renderViewSavingPosition	plugin/NERD_tree.vim	/^function! s:renderViewSavingPosition()$/;"	f
+repeat	plugin/surround.vim	/^function! s:repeat(str,count)$/;"	f
+report	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def report(self, messageClass, *args, **kwargs):$/;"	m	class:Checker
+restoreScreenState	plugin/NERD_tree.vim	/^function! s:restoreScreenState()$/;"	f
+revealBookmark	plugin/NERD_tree.vim	/^function! s:revealBookmark(name)$/;"	f
+runFunction	ftplugin/python/pyflakes/pyflakes/checker.py	/^        def runFunction():$/;"	f	function:Checker.LAMBDA
+s	plugin/surround.vim	/^      vmap  s    <Plug>Vsurround$/;"	m
+s:Bookmark	plugin/NERD_tree.vim	/^let s:Bookmark = {}$/;"	v
+s:KeyMap	plugin/NERD_tree.vim	/^let s:KeyMap = {}$/;"	v
+s:MenuController	plugin/NERD_tree.vim	/^let s:MenuController = {}$/;"	v
+s:MenuItem	plugin/NERD_tree.vim	/^let s:MenuItem = {}$/;"	v
+s:NERDTreeBufName	plugin/NERD_tree.vim	/^let s:NERDTreeBufName = 'NERD_tree_'$/;"	v
+s:NERDTreeSortStarIndex	plugin/NERD_tree.vim	/^let s:NERDTreeSortStarIndex = index(g:NERDTreeSortOrder, '*')$/;"	v
+s:NERD_tree_version	plugin/NERD_tree.vim	/^let s:NERD_tree_version = '4.1.0'$/;"	v
+s:Path	plugin/NERD_tree.vim	/^let s:Path = {}$/;"	v
+s:TBrowser_Config	ftplugin/txt.vim	/^		let s:TBrowser_Config = iconv(s:TBrowser_Config, 'utf8', &fenc)$/;"	v
+s:TBrowser_Config	ftplugin/txt.vim	/^	let s:TBrowser_Config .= '--regex-txt="\/^(([0-9]+\\.){1}([0-9]+\\.?)[ \\t]+)(.+$)\/.   \\1\\4\/c,content\/" '$/;"	v
+s:TBrowser_Config	ftplugin/txt.vim	/^	let s:TBrowser_Config .= '--regex-txt="\/^(([0-9]+\\.){2}([0-9]+\\.?)[ \\t]+)(.+$)\/.       \\1\\4\/c,content\/" '$/;"	v
+s:TBrowser_Config	ftplugin/txt.vim	/^	let s:TBrowser_Config .= '--regex-txt="\/^(([0-9]+\\.){3}([0-9]+\\.?)[ \\t]+)(.+$)\/.           \\1\\4\/c,content\/" '$/;"	v
+s:TBrowser_Config	ftplugin/txt.vim	/^	let s:TBrowser_Config .= '--regex-txt="\/^[ \\t]*(图[ \\t]*[0-9a-zA-Z]+[.: ][ \\t]*.+$)\/\\1\/f,figures\/i" '$/;"	v
+s:TBrowser_Config	ftplugin/txt.vim	/^	let s:TBrowser_Config .= '--regex-txt="\/^[ \\t]*(表[ \\t]*[0-9a-zA-Z]+[.: ][ \\t]*.+$)\/\\1\/t,tables\/i" '$/;"	v
+s:TBrowser_Config	ftplugin/txt.vim	/^let s:TBrowser_Config .= '--regex-txt="\/^([0-9]+\\.?[ \\t]+)(.+$)\/\\1\\2\/c,content\/" '$/;"	v
+s:TBrowser_Config	ftplugin/txt.vim	/^let s:TBrowser_Config .= '--regex-txt="\/^[ \\t]+(figure[ \\t]+[0-9a-zA-Z]+([.: ]([ \\t]*.+)?)?$)\/\\1\/f,figures\/i" '$/;"	v
+s:TBrowser_Config	ftplugin/txt.vim	/^let s:TBrowser_Config .= '--regex-txt="\/^[ \\t]+(table[ \\t]+[0-9a-zA-Z]+([.: ]([ \\t]*.+)?)?$)\/\\1\/t,tables\/i" '$/;"	v
+s:TBrowser_Config	ftplugin/txt.vim	/^let s:TBrowser_Config = ' --langdef=txt --langmap=txt:.txt '$/;"	v
+s:Tlist_Skip_Refresh	plugin/taglist.vim	/^let s:Tlist_Skip_Refresh = 0$/;"	v
+s:TreeDirNode	plugin/NERD_tree.vim	/^let s:TreeDirNode = copy(s:TreeFileNode)$/;"	v
+s:TreeFileNode	plugin/NERD_tree.vim	/^let s:TreeFileNode = {}$/;"	v
+s:cpo_save	ftplugin/txt.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	plugin/mru.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	plugin/surround.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	plugin/taglist.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	plugin/txtbrowser.vim	/^let s:cpo_save = &cpo$/;"	v
+s:did_snip_helper	ftplugin/html_snip_helper.vim	/^let s:did_snip_helper = 1$/;"	v
+s:did_snips_mappings	after/plugin/snipMate.vim	/^let s:did_snips_mappings = 1$/;"	v
+s:esc_filename_chars	plugin/mru.vim	/^let s:esc_filename_chars = ' *?[{`$%#"|!<>();&' . "'\\t\\n"$/;"	v
+s:escape_chars	plugin/NERD_tree.vim	/^    let s:escape_chars =  " \\\\`\\|\\"#%&,?()\\*^<>"$/;"	v
+s:escape_chars	plugin/NERD_tree.vim	/^    let s:escape_chars =  " `\\|\\"#%&,?()\\*^<>"$/;"	v
+s:has_supported_python	autoload/gundo.vim	/^    let s:has_supported_python = 0$/;"	v
+s:has_supported_python	autoload/gundo.vim	/^    let s:has_supported_python = 1$/;"	v
+s:maxoff	indent/python.vim	/^let s:maxoff = 50$/;"	v
+s:menu_char_prefix	plugin/taglist.vim	/^let s:menu_char_prefix =$/;"	v
+s:modes	plugin/supertab.vim	/^  let s:modes = '\/^E\/^Y\/^L\/^N\/^K\/^T\/^I\/^]\/^F\/^D\/^V\/^P\/^U\/^O\/s'$/;"	v
+s:modes	plugin/supertab.vim	/^  let s:modes = s:modes . '\/n\/p'$/;"	v
+s:mru_list_locked	plugin/mru.vim	/^let s:mru_list_locked = 0$/;"	v
+s:next_buffer_number	plugin/NERD_tree.vim	/^let s:next_buffer_number = 1$/;"	v
+s:old_cpo	plugin/NERD_tree.vim	/^let s:old_cpo = &cpo$/;"	v
+s:plugin_path	autoload/gundo.vim	/^let s:plugin_path = escape(expand('<sfile>:p:h'), '\\')$/;"	v
+s:running_windows	plugin/NERD_tree.vim	/^let s:running_windows = has("win16") || has("win32") || has("win64")$/;"	v
+s:save_cpo	plugin/supertab.vim	/^let s:save_cpo=&cpo$/;"	v
+s:snippets	plugin/snipMate.vim	/^let s:snippets = {} | let s:multi_snips = {}$/;"	v
+s:tabHelp	plugin/supertab.vim	/^  let s:tabHelp =$/;"	v
+s:tlist_app_name	plugin/taglist.vim	/^let s:tlist_app_name = "none"$/;"	v
+s:tlist_brief_help	plugin/taglist.vim	/^let s:tlist_brief_help = 1$/;"	v
+s:tlist_cur_file_idx	plugin/taglist.vim	/^let s:tlist_cur_file_idx = -1$/;"	v
+s:tlist_debug	plugin/taglist.vim	/^let s:tlist_debug = 0$/;"	v
+s:tlist_debug_file	plugin/taglist.vim	/^let s:tlist_debug_file = ''$/;"	v
+s:tlist_def_asm_settings	plugin/taglist.vim	/^let s:tlist_def_asm_settings = 'asm;d:define;l:label;m:macro;t:type'$/;"	v
+s:tlist_def_aspperl_settings	plugin/taglist.vim	/^let s:tlist_def_aspperl_settings = 'asp;f:function;s:sub;v:variable'$/;"	v
+s:tlist_def_aspvbs_settings	plugin/taglist.vim	/^let s:tlist_def_aspvbs_settings = 'asp;f:function;s:sub;v:variable'$/;"	v
+s:tlist_def_awk_settings	plugin/taglist.vim	/^let s:tlist_def_awk_settings = 'awk;f:function'$/;"	v
+s:tlist_def_beta_settings	plugin/taglist.vim	/^let s:tlist_def_beta_settings = 'beta;f:fragment;s:slot;v:pattern'$/;"	v
+s:tlist_def_c_settings	plugin/taglist.vim	/^let s:tlist_def_c_settings = 'c;d:macro;g:enum;s:struct;u:union;t:typedef;' .$/;"	v
+s:tlist_def_cobol_settings	plugin/taglist.vim	/^let s:tlist_def_cobol_settings = 'cobol;d:data;f:file;g:group;p:paragraph;' .$/;"	v
+s:tlist_def_cpp_settings	plugin/taglist.vim	/^let s:tlist_def_cpp_settings = 'c++;n:namespace;v:variable;d:macro;t:typedef;' .$/;"	v
+s:tlist_def_cs_settings	plugin/taglist.vim	/^let s:tlist_def_cs_settings = 'c#;d:macro;t:typedef;n:namespace;c:class;' .$/;"	v
+s:tlist_def_csh_settings	plugin/taglist.vim	/^let s:tlist_def_csh_settings = 'sh;f:function'$/;"	v
+s:tlist_def_eiffel_settings	plugin/taglist.vim	/^let s:tlist_def_eiffel_settings = 'eiffel;c:class;f:feature'$/;"	v
+s:tlist_def_erlang_settings	plugin/taglist.vim	/^let s:tlist_def_erlang_settings = 'erlang;d:macro;r:record;m:module;f:function'$/;"	v
+s:tlist_def_expect_settings	plugin/taglist.vim	/^let s:tlist_def_expect_settings = 'tcl;c:class;f:method;p:procedure'$/;"	v
+s:tlist_def_fortran_settings	plugin/taglist.vim	/^let s:tlist_def_fortran_settings = 'fortran;p:program;b:block data;' .$/;"	v
+s:tlist_def_html_settings	plugin/taglist.vim	/^let s:tlist_def_html_settings = 'html;a:anchor;f:javascript function'$/;"	v
+s:tlist_def_java_settings	plugin/taglist.vim	/^let s:tlist_def_java_settings = 'java;p:package;c:class;i:interface;' .$/;"	v
+s:tlist_def_javascript_settings	plugin/taglist.vim	/^let s:tlist_def_javascript_settings = 'javascript;f:function'$/;"	v
+s:tlist_def_lisp_settings	plugin/taglist.vim	/^let s:tlist_def_lisp_settings = 'lisp;f:function'$/;"	v
+s:tlist_def_lua_settings	plugin/taglist.vim	/^let s:tlist_def_lua_settings = 'lua;f:function'$/;"	v
+s:tlist_def_make_settings	plugin/taglist.vim	/^let s:tlist_def_make_settings = 'make;m:macro'$/;"	v
+s:tlist_def_pascal_settings	plugin/taglist.vim	/^let s:tlist_def_pascal_settings = 'pascal;f:function;p:procedure'$/;"	v
+s:tlist_def_perl_settings	plugin/taglist.vim	/^let s:tlist_def_perl_settings = 'perl;c:constant;l:label;p:package;s:subroutine'$/;"	v
+s:tlist_def_php_settings	plugin/taglist.vim	/^let s:tlist_def_php_settings = 'php;c:class;d:constant;v:variable;f:function'$/;"	v
+s:tlist_def_python_settings	plugin/taglist.vim	/^let s:tlist_def_python_settings = 'python;c:class;m:member;f:function'$/;"	v
+s:tlist_def_rexx_settings	plugin/taglist.vim	/^let s:tlist_def_rexx_settings = 'rexx;s:subroutine'$/;"	v
+s:tlist_def_ruby_settings	plugin/taglist.vim	/^let s:tlist_def_ruby_settings = 'ruby;c:class;f:method;F:function;' .$/;"	v
+s:tlist_def_scheme_settings	plugin/taglist.vim	/^let s:tlist_def_scheme_settings = 'scheme;s:set;f:function'$/;"	v
+s:tlist_def_sh_settings	plugin/taglist.vim	/^let s:tlist_def_sh_settings = 'sh;f:function'$/;"	v
+s:tlist_def_slang_settings	plugin/taglist.vim	/^let s:tlist_def_slang_settings = 'slang;n:namespace;f:function'$/;"	v
+s:tlist_def_sml_settings	plugin/taglist.vim	/^let s:tlist_def_sml_settings = 'sml;e:exception;c:functor;s:signature;' .$/;"	v
+s:tlist_def_sql_settings	plugin/taglist.vim	/^let s:tlist_def_sql_settings = 'sql;c:cursor;F:field;P:package;r:record;' .$/;"	v
+s:tlist_def_tcl_settings	plugin/taglist.vim	/^let s:tlist_def_tcl_settings = 'tcl;c:class;f:method;m:method;p:procedure'$/;"	v
+s:tlist_def_vera_settings	plugin/taglist.vim	/^let s:tlist_def_vera_settings = 'vera;c:class;d:macro;e:enumerator;' .$/;"	v
+s:tlist_def_verilog_settings	plugin/taglist.vim	/^let s:tlist_def_verilog_settings = 'verilog;m:module;c:constant;P:parameter;' .$/;"	v
+s:tlist_def_vim_settings	plugin/taglist.vim	/^let s:tlist_def_vim_settings = 'vim;a:autocmds;v:variable;f:function'$/;"	v
+s:tlist_def_yacc_settings	plugin/taglist.vim	/^let s:tlist_def_yacc_settings = 'yacc;l:label'$/;"	v
+s:tlist_def_zsh_settings	plugin/taglist.vim	/^let s:tlist_def_zsh_settings = 'sh;f:function'$/;"	v
+s:tlist_file_count	plugin/taglist.vim	/^let s:tlist_file_count = 0$/;"	v
+s:tlist_file_lnum_idx_cache	plugin/taglist.vim	/^let s:tlist_file_lnum_idx_cache = -1$/;"	v
+s:tlist_file_name_idx_cache	plugin/taglist.vim	/^let s:tlist_file_name_idx_cache = -1$/;"	v
+s:tlist_file_names	plugin/taglist.vim	/^let s:tlist_file_names=''$/;"	v
+s:tlist_ftype_count	plugin/taglist.vim	/^let s:tlist_ftype_count = 0$/;"	v
+s:tlist_menu_empty	plugin/taglist.vim	/^let s:tlist_menu_empty = 1$/;"	v
+s:tlist_msg	plugin/taglist.vim	/^    let s:tlist_msg = ''$/;"	v
+s:tlist_removed_flist	plugin/taglist.vim	/^let s:tlist_removed_flist = ""$/;"	v
+s:tlist_sid	plugin/taglist.vim	/^    let s:tlist_sid = substitute(maparg('<SID>xx'), '<SNR>\\(\\d\\+_\\)xx$',$/;"	v
+s:tlist_win_maximized	plugin/taglist.vim	/^let s:tlist_win_maximized = 0$/;"	v
+s:tlist_winsize_chgd	plugin/taglist.vim	/^let s:tlist_winsize_chgd = -1$/;"	v
+s:tree_markup_reg	plugin/NERD_tree.vim	/^let s:tree_markup_reg = '^[ `|]*[\\-+~]'$/;"	v
+s:tree_up_dir_line	plugin/NERD_tree.vim	/^let s:tree_up_dir_line = '.. (up a dir)'$/;"	v
+s:tree_wid	plugin/NERD_tree.vim	/^let s:tree_wid = 2$/;"	v
+s:types	plugin/supertab.vim	/^  let s:types = s:types . "np"$/;"	v
+s:types	plugin/supertab.vim	/^  let s:types =$/;"	v
+saveScreenState	plugin/NERD_tree.vim	/^function! s:saveScreenState()$/;"	f
+saved_splitbelow	autoload/gundo.vim	/^    let saved_splitbelow = &splitbelow$/;"	v
+scope	ftplugin/python/pyflakes/pyflakes/checker.py	/^    def scope(self):$/;"	m	class:Checker
+scope	ftplugin/python/pyflakes/pyflakes/checker.py	/^    scope = property(scope)$/;"	v	class:Checker
+scripts	ftplugin/python/pyflakes/setup.py	/^    scripts=["bin\/pyflakes"],$/;"	v
+setup	ftplugin/python/pyflakes/setup.py	/^from distutils.core import setup$/;"	i
+setupStatusline	plugin/NERD_tree.vim	/^function! s:setupStatusline()$/;"	f
+setupSyntaxHighlighting	plugin/NERD_tree.vim	/^function! s:setupSyntaxHighlighting()$/;"	f
+shadowed	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'import %r from line %r shadowed by loop variable'$/;"	i
+showMenu	plugin/NERD_tree.vim	/^function! s:showMenu()$/;"	f
+skip	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        skip = "Python 2.6 required for class decorator tests."$/;"	v	class:Python26Tests
+skip	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^        skip = "Python 2.5 required for if-else and with tests"$/;"	v	class:Python25Test
+skip	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^        skip = "Python 2.7 required for dict\/set comprehension tests"$/;"	v	class:Python27Test
+snipMate#expandSnip	autoload/snipMate.vim	/^fun snipMate#expandSnip(snip, col)$/;"	f
+snipMate#jumpTabStop	autoload/snipMate.vim	/^fun snipMate#jumpTabStop(backwards)$/;"	f
+snippets_dir	plugin/snipMate.vim	/^	let snippets_dir = substitute(globpath(&rtp, 'snippets\/'), "\\n", ',', 'g')$/;"	v
+stripMarkupFromLine	plugin/NERD_tree.vim	/^function! s:stripMarkupFromLine(line, removeLeadingSpaces)$/;"	f
+stuff	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^        self.flakes('import fu; fu.bar(stuff=fu)')$/;"	i
+sys	autoload/gundo.py	/^import sys$/;"	i
+sys	ftplugin/python/pyflakes.vim	/^import sys$/;"	m
+sys	ftplugin/python/pyflakes/pyflakes/scripts/pyflakes.py	/^import sys$/;"	i
+sys	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^import sys$/;"	i
+sys	plugin/gundo.py	/^import sys$/;"	i
+tabpagevar	plugin/NERD_tree.vim	/^function! s:tabpagevar(tabnr, var)$/;"	f
+test_aliasedImport	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_aliasedImport(self):$/;"	m	class:Test
+test_assignInForLoop	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_assignInForLoop(self):$/;"	m	class:TestUnusedAssignment
+test_assignInListComprehension	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_assignInListComprehension(self):$/;"	m	class:TestUnusedAssignment
+test_assignRHSFirst	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_assignRHSFirst(self):$/;"	m	class:Test
+test_assignToGlobal	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_assignToGlobal(self):$/;"	m	class:TestUnusedAssignment
+test_assignToMember	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_assignToMember(self):$/;"	m	class:TestUnusedAssignment
+test_assignmentInsideLoop	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_assignmentInsideLoop(self):$/;"	m	class:TestUnusedAssignment
+test_badNestedClass	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_badNestedClass(self):$/;"	m	class:Test
+test_builtins	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_builtins(self):$/;"	m	class:Test
+test_checkPathNonExisting	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^    def test_checkPathNonExisting(self):$/;"	m	class:CheckTests
+test_classFunctionDecorator	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_classFunctionDecorator(self):$/;"	m	class:Test
+test_classNameDefinedPreviously	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_classNameDefinedPreviously(self):$/;"	m	class:Test
+test_classNameUndefinedInClassBody	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_classNameUndefinedInClassBody(self):$/;"	m	class:Test
+test_closedOver	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_closedOver(self):$/;"	m	class:TestUnusedAssignment
+test_comparison	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_comparison(self):$/;"	m	class:Test
+test_containment	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_containment(self):$/;"	m	class:Test
+test_definedAsStarArgs	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_definedAsStarArgs(self):$/;"	m	class:Test
+test_definedByGlobal	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_definedByGlobal(self):$/;"	m	class:Test
+test_definedInGenExp	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_definedInGenExp(self):$/;"	m	class:Test
+test_definedInListComp	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_definedInListComp(self):$/;"	m	class:Test
+test_del	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_del(self):$/;"	m	class:Test
+test_delGlobal	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_delGlobal(self):$/;"	m	class:Test
+test_delUndefined	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_delUndefined(self):$/;"	m	class:Test
+test_dictComprehension	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_dictComprehension(self):$/;"	m	class:Python27Test
+test_differentSubmoduleImport	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_differentSubmoduleImport(self):$/;"	m	class:Test
+test_doubleClosedOver	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_doubleClosedOver(self):$/;"	m	class:TestUnusedAssignment
+test_doubleNestingReportsClosestName	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_doubleNestingReportsClosestName(self):$/;"	m	class:Test
+test_duplicateArgs	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_duplicateArgs(self):$/;"	m	class:Test
+test_duplicateSubmoduleImport	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_duplicateSubmoduleImport(self):$/;"	m	class:Test
+test_ellipsis	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_ellipsis(self):$/;"	m	class:Test
+test_eofSyntaxError	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^    def test_eofSyntaxError(self):$/;"	f
+test_extendedSlice	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_extendedSlice(self):$/;"	m	class:Test
+test_functionDecorator	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_functionDecorator(self):$/;"	m	class:Test
+test_functionNamesAreBoundNow	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_functionNamesAreBoundNow(self):$/;"	m	class:Test
+test_functionsNeedGlobalScope	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_functionsNeedGlobalScope(self):$/;"	m	class:Test
+test_functionsRunLater	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_functionsRunLater(self):$/;"	m	class:Test
+test_futureImport	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_futureImport(self):$/;"	m	class:Test
+test_futureImportFirst	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_futureImportFirst(self):$/;"	m	class:Test
+test_generatorExpression	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_generatorExpression(self):$/;"	m	class:TestUnusedAssignment
+test_globalFromNestedScope	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_globalFromNestedScope(self):$/;"	m	class:Test
+test_globalImportStar	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_globalImportStar(self):$/;"	m	class:Test
+test_globalInGlobalScope	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_globalInGlobalScope(self):$/;"	m	class:Test
+test_identity	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_identity(self):$/;"	m	class:Test
+test_ifexp	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_ifexp(self):$/;"	m	class:Python25Test
+test_ignoreNonImportRedefinitions	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_ignoreNonImportRedefinitions(self):$/;"	m	class:Test
+test_ignoredInClass	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_ignoredInClass(self):$/;"	m	class:TestSpecialAll
+test_ignoredInFunction	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_ignoredInFunction(self):$/;"	m	class:TestSpecialAll
+test_importStar	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_importStar(self):$/;"	m	class:Test
+test_importedInClass	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_importedInClass(self):$/;"	m	class:Test
+test_importingForImportError	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_importingForImportError(self):$/;"	m	class:Test
+test_impossibleContext	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_impossibleContext(self):$/;"	m	class:NameTests
+test_intermediateClassScopeIgnored	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_intermediateClassScopeIgnored(self):$/;"	m	class:Test
+test_laterRedefinedGlobalFromNestedScope	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_laterRedefinedGlobalFromNestedScope(self):$/;"	m	class:Test
+test_laterRedefinedGlobalFromNestedScope2	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_laterRedefinedGlobalFromNestedScope2(self):$/;"	m	class:Test
+test_laterRedefinedGlobalFromNestedScope3	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_laterRedefinedGlobalFromNestedScope3(self):$/;"	m	class:Test
+test_listUnpacking	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_listUnpacking(self):$/;"	m	class:TestUnusedAssignment
+test_localImportStar	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_localImportStar(self):$/;"	m	class:Test
+test_localReferencedBeforeAssignment	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_localReferencedBeforeAssignment(self):$/;"	m	class:Test
+test_loopControl	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_loopControl(self):$/;"	m	class:Test
+test_magicGlobalsBuiltins	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_magicGlobalsBuiltins(self):$/;"	m	class:Test
+test_magicGlobalsFile	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_magicGlobalsFile(self):$/;"	m	class:Test
+test_magicGlobalsName	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_magicGlobalsName(self):$/;"	m	class:Test
+test_magicGlobalsPath	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_magicGlobalsPath(self):$/;"	m	class:Test
+test_methodsDontUseClassScope	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_methodsDontUseClassScope(self):$/;"	m	class:Test
+test_misencodedFile	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^    def test_misencodedFile(self):$/;"	f
+test_missingTrailingNewline	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^    def test_missingTrailingNewline(self):$/;"	m	class:CheckTests
+test_multilineSyntaxError	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^    def test_multilineSyntaxError(self):$/;"	m	class:CheckTests
+test_nestedClass	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_nestedClass(self):$/;"	m	class:Test
+test_nestedClassAndFunctionScope	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_nestedClassAndFunctionScope(self):$/;"	m	class:Test
+test_nestedFunctionsNestScope	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_nestedFunctionsNestScope(self):$/;"	m	class:Test
+test_newAssignment	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_newAssignment(self):$/;"	m	class:Test
+test_nonDefaultFollowsDefaultSyntaxError	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^    def test_nonDefaultFollowsDefaultSyntaxError(self):$/;"	f
+test_nonGlobalDoesNotRedefine	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_nonGlobalDoesNotRedefine(self):$/;"	m	class:Test
+test_nonKeywordAfterKeywordSyntaxError	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^    def test_nonKeywordAfterKeywordSyntaxError(self):$/;"	f
+test_notUsedInNestedScope	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_notUsedInNestedScope(self):$/;"	m	class:Test
+test_packageImport	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_packageImport(self):$/;"	m	class:Test
+test_permissionDenied	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^    def test_permissionDenied(self):$/;"	f
+test_redefinedByClass	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_redefinedByClass(self):$/;"	m	class:Test
+test_redefinedByExcept	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_redefinedByExcept(self):$/;"	m	class:Test
+test_redefinedByFor	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_redefinedByFor(self):$/;"	m	class:Test
+test_redefinedByFunction	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_redefinedByFunction(self):$/;"	m	class:Test
+test_redefinedByGenExp	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_redefinedByGenExp(self):$/;"	m	class:TestSpecialAll
+test_redefinedByListComp	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_redefinedByListComp(self):$/;"	m	class:Test
+test_redefinedBySubclass	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_redefinedBySubclass(self):$/;"	m	class:Test
+test_redefinedClassFunction	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_redefinedClassFunction(self):$/;"	m	class:Test
+test_redefinedFunction	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_redefinedFunction(self):$/;"	m	class:Test
+test_redefinedInClass	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_redefinedInClass(self):$/;"	m	class:Test
+test_redefinedInNestedFunction	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_redefinedInNestedFunction(self):$/;"	m	class:Test
+test_redefinedWhileUnused	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_redefinedWhileUnused(self):$/;"	m	class:Test
+test_setComprehensionAndLiteral	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_setComprehensionAndLiteral(self):$/;"	m	class:Python27Test
+test_shadowedByFor	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_shadowedByFor(self):$/;"	m	class:Test
+test_shadowedByForDeep	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_shadowedByForDeep(self):$/;"	m	class:Test
+test_shadowedByLambda	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_shadowedByLambda(self):$/;"	m	class:Test
+test_shadowedByParameter	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_shadowedByParameter(self):$/;"	m	class:Test
+test_tryingMultipleImports	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_tryingMultipleImports(self):$/;"	m	class:Test
+test_tupleUnpacking	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_tupleUnpacking(self):$/;"	m	class:TestUnusedAssignment
+test_unaryPlus	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_unaryPlus(self):$/;"	m	class:Test
+test_unboundExported	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_unboundExported(self):$/;"	m	class:TestSpecialAll
+test_undefined	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_undefined(self):$/;"	m	class:Test
+test_undefinedBaseClass	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_undefinedBaseClass(self):$/;"	m	class:Test
+test_unpackedParameter	ftplugin/python/pyflakes/pyflakes/test/test_undefined_names.py	/^    def test_unpackedParameter(self):$/;"	m	class:Test
+test_unrecognizable	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_unrecognizable(self):$/;"	m	class:TestSpecialAll
+test_unusedImport	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_unusedImport(self):$/;"	m	class:Test
+test_unusedInNestedScope	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_unusedInNestedScope(self):$/;"	m	class:Test
+test_unusedPackageImport	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_unusedPackageImport(self):$/;"	m	class:Test
+test_unusedVariable	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_unusedVariable(self):$/;"	m	class:TestUnusedAssignment
+test_usedAsClassDecorator	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedAsClassDecorator(self):$/;"	m	class:Python26Tests
+test_usedAsDecorator	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedAsDecorator(self):$/;"	m	class:TestSpecialAll
+test_usedImport	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedImport(self):$/;"	m	class:Test
+test_usedInAssert	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInAssert(self):$/;"	m	class:Test
+test_usedInAssignment	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInAssignment(self):$/;"	m	class:Test
+test_usedInAttributeAssign	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInAttributeAssign(self):$/;"	m	class:Test
+test_usedInBackquote	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInBackquote(self):$/;"	m	class:Test
+test_usedInCall	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInCall(self):$/;"	m	class:Test
+test_usedInClass	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInClass(self):$/;"	m	class:Test
+test_usedInClassBase	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInClassBase(self):$/;"	m	class:Test
+test_usedInDict	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInDict(self):$/;"	m	class:Test
+test_usedInElifConditional	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInElifConditional(self):$/;"	m	class:Test
+test_usedInElse	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInElse(self):$/;"	m	class:Test
+test_usedInExcept	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInExcept(self):$/;"	m	class:Test
+test_usedInExec	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInExec(self):$/;"	m	class:Test
+test_usedInFor	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInFor(self):$/;"	m	class:Test
+test_usedInForElse	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInForElse(self):$/;"	m	class:Test
+test_usedInFunction	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInFunction(self):$/;"	m	class:Test
+test_usedInGenExp	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInGenExp(self):$/;"	m	class:TestSpecialAll
+test_usedInGetattr	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInGetattr(self):$/;"	m	class:Test
+test_usedInGlobal	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInGlobal(self):$/;"	m	class:Test
+test_usedInIfBody	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInIfBody(self):$/;"	m	class:Test
+test_usedInIfConditional	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInIfConditional(self):$/;"	m	class:Test
+test_usedInKeywordArg	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInKeywordArg(self):$/;"	m	class:Test
+test_usedInLambda	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInLambda(self):$/;"	m	class:Test
+test_usedInList	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInList(self):$/;"	m	class:Test
+test_usedInListComp	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInListComp(self):$/;"	m	class:Test
+test_usedInLogic	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInLogic(self):$/;"	m	class:Test
+test_usedInOperators	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInOperators(self):$/;"	m	class:Test
+test_usedInParameterDefault	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInParameterDefault(self):$/;"	m	class:Test
+test_usedInRaise	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInRaise(self):$/;"	m	class:Test
+test_usedInReturn	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInReturn(self):$/;"	m	class:Test
+test_usedInSlice	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInSlice(self):$/;"	m	class:Test
+test_usedInSliceObj	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInSliceObj(self):$/;"	m	class:Test
+test_usedInSubscript	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInSubscript(self):$/;"	m	class:Test
+test_usedInTry	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInTry(self):$/;"	m	class:Test
+test_usedInTryFinally	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInTryFinally(self):$/;"	m	class:Test
+test_usedInTuple	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInTuple(self):$/;"	m	class:Test
+test_usedInWhile	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInWhile(self):$/;"	m	class:Test
+test_usedInYield	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_usedInYield(self):$/;"	m	class:Test
+test_warningSuppressed	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^    def test_warningSuppressed(self):$/;"	m	class:TestSpecialAll
+test_withStatementAttributeName	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementAttributeName(self):$/;"	m	class:Python25Test
+test_withStatementComplicatedTarget	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementComplicatedTarget(self):$/;"	m	class:Python25Test
+test_withStatementListNames	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementListNames(self):$/;"	m	class:Python25Test
+test_withStatementNameDefinedInBody	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementNameDefinedInBody(self):$/;"	m	class:Python25Test
+test_withStatementNoNames	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementNoNames(self):$/;"	m	class:Python25Test
+test_withStatementSingleName	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementSingleName(self):$/;"	m	class:Python25Test
+test_withStatementSingleNameRedefined	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementSingleNameRedefined(self):$/;"	m	class:Python25Test
+test_withStatementSingleNameUndefined	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementSingleNameUndefined(self):$/;"	m	class:Python25Test
+test_withStatementSubscript	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementSubscript(self):$/;"	m	class:Python25Test
+test_withStatementSubscriptUndefined	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementSubscriptUndefined(self):$/;"	m	class:Python25Test
+test_withStatementTupleNames	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementTupleNames(self):$/;"	m	class:Python25Test
+test_withStatementTupleNamesRedefined	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementTupleNamesRedefined(self):$/;"	m	class:Python25Test
+test_withStatementTupleNamesUndefined	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementTupleNamesUndefined(self):$/;"	m	class:Python25Test
+test_withStatementUndefinedInExpression	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementUndefinedInExpression(self):$/;"	m	class:Python25Test
+test_withStatementUndefinedInside	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^    def test_withStatementUndefinedInside(self):$/;"	m	class:Python25Test
+textwrap	ftplugin/python/pyflakes/pyflakes/test/harness.py	/^import textwrap$/;"	i
+time	autoload/gundo.py	/^import time$/;"	i
+time	plugin/gundo.py	/^import time$/;"	i
+tlist_txt_settings	ftplugin/txt.vim	/^let tlist_txt_settings = 'txt;c:content;f:figures;t:tables'$/;"	v
+toggle	plugin/NERD_tree.vim	/^function! s:toggle(dir)$/;"	f
+toggleIgnoreFilter	plugin/NERD_tree.vim	/^function! s:toggleIgnoreFilter()$/;"	f
+toggleShowBookmarks	plugin/NERD_tree.vim	/^function! s:toggleShowBookmarks()$/;"	f
+toggleShowFiles	plugin/NERD_tree.vim	/^function! s:toggleShowFiles()$/;"	f
+toggleShowHidden	plugin/NERD_tree.vim	/^function! s:toggleShowHidden()$/;"	f
+toggleZoom	plugin/NERD_tree.vim	/^function! s:toggleZoom()$/;"	f
+traceTree	ftplugin/python/pyflakes/pyflakes/checker.py	/^    traceTree = False$/;"	v	class:Checker
+treeExistsForBuf	plugin/NERD_tree.vim	/^function! s:treeExistsForBuf()$/;"	f
+treeExistsForTab	plugin/NERD_tree.vim	/^function! s:treeExistsForTab()$/;"	f
+u	ftplugin/python/pyflakes.vim	/^noremap <buffer><silent> u u:PyflakesUpdate<CR>$/;"	m
+unique	plugin/NERD_tree.vim	/^function! s:unique(list)$/;"	f
+unittest	ftplugin/python/pyflakes/pyflakes/test/harness.py	/^from twisted.trial import unittest$/;"	i
+upDir	plugin/NERD_tree.vim	/^function! s:upDir(keepState)$/;"	f
+url	ftplugin/python/pyflakes/setup.py	/^    url="http:\/\/www.divmod.org\/trac\/wiki\/DivmodPyflakes",$/;"	v
+variable	ftplugin/python/pyflakes/pyflakes/messages.py	/^    message = 'import %r from line %r shadowed by loop variable'$/;"	i
+version	ftplugin/python/pyflakes/setup.py	/^    version="0.4.0",$/;"	v
+version_info	ftplugin/python/pyflakes/pyflakes/test/test_imports.py	/^from sys import version_info$/;"	i
+version_info	ftplugin/python/pyflakes/pyflakes/test/test_other.py	/^from sys import version_info$/;"	i
+vim	autoload/gundo.py	/^import vim$/;"	i
+vim	ftplugin/python/pyflakes.vim	/^import vim$/;"	m
+vim	plugin/gundo.py	/^import vim$/;"	i
+walk_nodes	autoload/gundo.py	/^    def walk_nodes(nodes):$/;"	f	function:GundoRenderGraph
+walk_nodes	plugin/gundo.py	/^    def walk_nodes(nodes):$/;"	f	function:GundoRenderGraph
+withStderrTo	ftplugin/python/pyflakes/pyflakes/test/test_script.py	/^def withStderrTo(stderr, f):$/;"	f
+wrap	plugin/surround.vim	/^function! s:wrap(string,char,type,...)$/;"	f
+wrapreg	plugin/surround.vim	/^function! s:wrapreg(reg,char,...)$/;"	f
+write	autoload/gundo.py	/^    def write(self, s):$/;"	m	class:Buffer
+write	plugin/gundo.py	/^    def write(self, s):$/;"	m	class:Buffer
+yS	plugin/surround.vim	/^  nmap      yS   <Plug>YSurround$/;"	m
+ySS	plugin/surround.vim	/^  nmap      ySS  <Plug>YSsurround$/;"	m
+ySs	plugin/surround.vim	/^  nmap      ySs  <Plug>YSsurround$/;"	m
+ys	plugin/surround.vim	/^  nmap      ys   <Plug>Ysurround$/;"	m
+yss	plugin/surround.vim	/^  nmap      yss  <Plug>Yssurround$/;"	m
