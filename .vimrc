@@ -27,6 +27,8 @@
     "http://www.vim.org/scripts/script.php?script_id=3424
 "pep8 is a simple program that just checks if your python code is pep-8 compliant need pep8 is installed and vim-plugin pep8.vim
     "http://www.vim.org/scripts/script.php?script_id=2914
+"pydict  Pydiction allows you to Tab-complete Python code in Vim, including:standard, custom and third-party modules and packages. Plus keywords,
+    "http://www.vim.org/scripts/script.php?script_id=850
 
 "require vim7.3 and python2.7 so compile vim with python's path 
 "./configure --prefix=/usr/local --enable-multibyte --with-features=big --disable-selinux --enable-pythoninterp
@@ -95,7 +97,7 @@ noremap <leader>= 		gg=G
 noremap <leader>w      :w<CR>
 noremap <leader>q      :q<CR>
 noremap <leader>!      :w !sudo tee % >/dev/null<CR>
-noremap <leader>b      :set wrap!<CR>
+"noremap <leader>b      :set wrap!<CR>
 "noremap <leader>8      :set fileencoding=utf-8<cr>:w<cr>
 cabb     8<cr>         :set fileencoding=utf-8<cr>:w<cr>
 noremap <leader>r      :! ./% <CR>
@@ -128,14 +130,14 @@ set wmw=12 " set the min width of a window to 0 so we can maximize others
 set wmh=1 " set the min height of a window to 0 so we can maximize others
 " --- move around splits {
 " move to and maximize the below split
-nnoremap <C-j> <C-W>j<C-W>8+
+nnoremap <C-j> <C-W>j<C-W>
 " move to and maximize the above split
-nnoremap <C-k> <C-W>k<C-W>8+
+nnoremap <C-k> <C-W>k<C-W>
 " move to and maximize the left split
 "nmap <c-h> <c-w>h<c-w><bar>
-nnoremap <c-h> <c-w>h<c-w>8>
+nnoremap <c-h> <c-w>h<c-w>
 " move to and maximize the right split
-nnoremap <c-l> <c-w>l<c-w>8>
+nnoremap <c-l> <c-w>l<c-w>
 "nmap <c-l> <c-w>l<c-w><bar>
 "nnoremap	<C-j>	:wincmd j<CR>
 "nnoremap	<C-k>	:wincmd k<CR>
@@ -378,7 +380,10 @@ set diffopt=filler,vertical   " diffsplit {filename} open the $filename in the n
 "let @#='I<html>A<\hmtl>' " type let @q=' then type <C-R> <C-R> q' store the marco saved in register q. viewing the content of the register q (:reg q)
 autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"pydict
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:pydiction_location='/root/.vim/pydict/complete-dict'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "mru
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -390,6 +395,7 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
+noremap <Leader>b :MiniBufExplorer<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pep8_map='<leader>8' 
 let g:pyflakes_use_quickfix = 0
