@@ -37,56 +37,58 @@
 "}
 "sudo apt-get install vim-gnome 
 "make you can use the system clipboard "+p { the selection content "*p }
-"""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""".
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "The search options affect
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set showcmd	    	" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
-" 匹配括号高亮的时间(单位是十分之一秒)
 set matchtime=5
 set hls
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
-"set lazyredraw
+set lazyredraw
 command! -nargs=1 Silent
             \ | execute ':silent !'.<q-args>
             \ | execute ':redraw!'
-
+set fileencoding=utf-8 "default new fileencoding
+" No sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+" 恢复上次文件打开位置
+set viminfo='10,\"100,:20,%,n~/.viminfo
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "The simple look like
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nu			"set number 
-syntax on
 set background=dark
 set cursorline		
-"set cursorcolumn    " highlight the current column
 set mouse=a		" Enable mouse usage (all modes)
-set scrolloff=3 "始终保持光标上下有至少3行
-set scrolljump=5 "lines to scroll when cursor leaves screen
-
-"command line set
-"{
-    set laststatus=2    " always show the status line
-    set wildmenu
-    set wildmode=list:longest,full
-    " ignore these list file extensions
-    set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,\*.jpg,*.gif,*.png,*.pdf
-    "设置状态行，使其能额外显示文件的编码信息 
-    "set statusline=\ %F\ [buffer:%n]\ \ %m%<%r\ \ \ \ %10l/%L:%c\->%p%%\ \ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",bom\":\"\")}]\ \ \ [%{&ff}/%Y]%=\ PWD:%{CurDir()}
-    set statusline=\ %F\ %m%<%r\ \ %10l/%L:%c\->%p%%\ \ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",bom\":\"\")}]\ \ \ [%{&ff}/%Y]%=\ PWD:%{CurDir()}
-
-    function! CurDir()
-        let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
-        return curdir
-    endfunction
-
-"}
-
+set scrolloff=5 "始终保持光标上下有至少5行
+set wmw=12 " set the min width of a window to 0 so we can maximize others
+set wmh=1 " set the min height of a window to 0 so we can maximize others
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"statusline set
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set laststatus=2    " always show the status line
+set wildmenu
+set wildmode=list:longest,full
+" ignore these list file extensions
+set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,\*.jpg,*.gif,*.png,*.pdf
+"设置状态行，使其能额外显示文件的编码信息 
+set statusline=\ %F\ %m%<%r\ \ %10l/%L:%c\->%p%%\ \ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",bom\":\"\")}]\ \ \ [%{&ff}/%Y]%<\ \ \ \ \ \ \ \ \ \ \ PWD:%{CurDir()}
+function! CurDir()
+    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
+    return curdir
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Tasklist 
-ab fixme FIXME
-ab todo  TODO
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+iab fixme FIXME
+iab todo  TODO
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "the map leader shortcut and the keymap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,11 +99,8 @@ noremap <leader>= 		gg=G
 noremap <leader>w      :w<CR>
 noremap <leader>q      :q<CR>
 noremap <leader>!      :w !sudo tee % >/dev/null<CR>
-"noremap <leader>b      :set wrap!<CR>
-"noremap <leader>8      :set fileencoding=utf-8<cr>:w<cr>
 cabb     8<cr>         :set fileencoding=utf-8<cr>:w<cr>
-noremap <leader>r      :! ./% <CR>
-"noremap <leader>r     :!  ./%< <CR>
+noremap <leader>r      :!chmod +x %<CR>! ./% <CR>
 noremap <leader>e      :MRU<CR>
 noremap <leader>l      :set nohls!<CR>
 noremap <leader>h      :hide<CR>
@@ -115,39 +114,15 @@ noremap <leader>>      <c-w>7>
 noremap <leader><      <c-w>7<
 noremap <C-n>           gt
 noremap <C-p>           gT
-noremap tc             :tabclose<CR>
-noremap tn             :tabedit 
-noremap tm             :tabmove<CR>
 inoremap jj            <ESC>
-"tab键缩进
+"tab for indent
 nmap <tab>         V>
 nmap <S-tab>       V<
 vmap <tab>         >gv
 vmap <S-tab>       <gv
-"move the cursor between the windows
-"多个窗口的切换
-set wmw=12 " set the min width of a window to 0 so we can maximize others
-set wmh=1 " set the min height of a window to 0 so we can maximize others
-" --- move around splits {
-" move to and maximize the below split
-nnoremap <C-j> <C-W>j<C-W>
-" move to and maximize the above split
-nnoremap <C-k> <C-W>k<C-W>
-" move to and maximize the left split
-"nmap <c-h> <c-w>h<c-w><bar>
-nnoremap <c-h> <c-w>h<c-w>
-" move to and maximize the right split
-nnoremap <c-l> <c-w>l<c-w>
-"nmap <c-l> <c-w>l<c-w><bar>
-"nnoremap	<C-j>	:wincmd j<CR>
-"nnoremap	<C-k>	:wincmd k<CR>
-"nnoremap	<C-h>	:wincmd h<CR>
-"nnoremap	<C-l>	:wincmd l<CR>
-
-" 在文件名上按gf时，在新的tab中打开
+"function like <c-w>f just open the file on new tab instead of current window
 map gf :tabnew <cfile><cr>
-
-"the shortcut  for cmdline
+"the shortcut  for cmdline like bash behavior
 cnoremap <C-A>      <Home>
 cnoremap <C-E>      <End>
 cnoremap <C-K>      <C-U>
@@ -157,44 +132,44 @@ cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
 cnoremap <C-D> <del>
 cnoremap <C-H> <backspace>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文本格式和排版
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"the plugin setup
+syntax on
 filetype plugin on
 filetype plugin indent on
-set sw=4			"set softswitch to 4
-set tabstop=4		"set tab to 4 
+set sw=4			             "set softswitch to 4
+set tabstop=4		             "set tab to 4 
 set softtabstop=4
-set expandtab      	"expand tab to 4 space
-set virtualedit=onemore         " allow for cursor beyond last character
-set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
-"set textwidth=70
+set expandtab      	             "expand tab to 4 space
+set virtualedit=onemore          " allow for cursor beyond last character
+set shortmess+=filmnrxoOtT       " abbrev. of messages (avoids 'hit enter')
+set textwidth=80
 set autoindent 
 set smartindent
-"set cindent                " C/C++风格缩进
-set nowrap                 " Set no auto newline
-set iskeyword+=_,$,@,%,#,- " 带有如下符号的单词不要被换行分割
-set linebreak             "设置是否自动断行
-set fo+=mB                "打开断行模块对亚洲语言支持
-set smarttab               " 只在行和段开始处使用制表符,其他位置扩展成空格
-set backspace=2            " 使回格键（backspace）正常处理indent, eol, start等
+set nowrap                       " Set no auto newline
+set iskeyword+=_,$,@,%,#,-       " 带有如下符号的单词不要被换行分割
+set linebreak                    "设置是否自动断行
+set fo+=mB                       "打开断行模块对亚洲语言支持
+set smarttab                     " 只在行和段开始处使用制表符,其他位置扩展成空格
+set backspace=2                  " 使回格键（backspace）正常处理indent, eol, start等
 set nocompatible	
 set history=1000
-set viminfo+=!      " make sure it can save viminfo 确保命令历史被记录在viminfo文件中.
-set autoread        " Set to auto read when a file is changed from the outside
-set autowrite		" Automatically save before commands like :next and :make
-set autochdir       "Auto change the global dir of the current windows
-" 设置字符集编码，默认使用utf8
+set viminfo+=!                   " make sure it can save viminfo 确保命令历史被记录在viminfo文件中.
+set autoread                     " Set to auto read when a file is changed from the outside
+set autowrite		             " Automatically save before commands like :next and :make
+set autochdir                    "Auto change the global dir of the current windows
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"For windows and gui
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if (has("win32") || has("win64") || has("win32unix"))
     let g:isWin = 1
 else
     let g:isWin = 0
 endif
 if (g:isWin)
-    "设置行距
-    set lsp=0     
+    set lsp=0     "设置行距
     set encoding=utf-8
     set termencoding=utf-8
     set fileencodings=ucs-bom,utf-8,chinese,gb2312
@@ -202,9 +177,7 @@ if (g:isWin)
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
     language messages zh_cn.utf-8
-    set swapfile
     set backup                      " backups are nice ...
-	set background=dark 
     "set guifont=Courier_New:h10:cANSI            "英文字体 字符集可以省略不写
     set guifont=Lucida_Sans_Typewriter:h10.5w6.5:cANSI  "英文字体 字符集可以省略不写.空格用_代替,h字高,w字宽.float型
     set guifontwide="幼圆:h11w2:cGB2312"                "中文字体，字体大小，字符集
@@ -221,13 +194,6 @@ else
     set encoding=utf8
     set fileencodings=utf8,gb2312,gb18030,ucs-bom,latin1
 endif
-"新文件编码
-set fileencoding=utf-8
-" No sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
 
 if has("gui_running")
     let g:isGUI = 1
@@ -257,11 +223,11 @@ if (g:isGUI)
     "set guifontwide=文泉驿等宽微米黑:11
 	hi StatusLine      guifg=yellow gui=reverse,bold guibg=black
 	hi StatusLineNC    guifg=lightgray gui=reverse,bold guibg=black
-	"hi Normal guifg=#d0d0d0 guibg=#202020 gui=NONE 
 endif
 
-" Really useful!
-"  In visual mode when you press * or # to search for the current selection
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"In visual mode when you press * or # to search for the current selection
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{
     vnoremap <silent> * :call VisualSearch('f')<CR>
     vnoremap <silent> # :call VisualSearch('b')<CR>
@@ -284,7 +250,6 @@ endif
         let @/ = l:pattern
         let @" = l:saved_reg
     endfunction
-
     function! CmdLine(str)
         exe "menu Foo.Bar :" . a:str
         emenu Foo.Bar
@@ -292,11 +257,7 @@ endif
     endfunction
 
 "}
-"输入配置
-
-" 关闭中文标点
 let g:vimim_disable_chinese_punctuation=1
-"中英文之间不加空格
 let g:vimim_disable_seamless_english_input=1
 " paste from clipboard
 noremap <leader>p     <ESC>:call Paste()<CR><ESC>
@@ -318,14 +279,9 @@ endfunction
 iab idate <c-r>=strftime("%Y-%m-%d")<CR>
 iab inow  <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
 iab itime <c-r>=strftime("%H:%M")<CR>
-iab igmail lijun877@gmail.com
+iab imail lijun877@gmail.com
 iab iname  LiJunYa
 
-" 恢复上次文件打开位置
-set viminfo='10,\"100,:20,%,n~/.viminfo
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
-" 快捷输入
 " 自动完成括号和引号
 inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
 inoremap <leader>2 []<esc>:let leavechar="]"<cr>i
@@ -351,31 +307,12 @@ inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
    noremap <C-u>5 yypVr^
    inoremap <C-u>5 <esc>yypVr^A
 "}
-
-
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting options of mksession.
-set sessionoptions+=resize,winpos
-autocmd VimEnter * call LoadSession()
-autocmd VimLeave * call SaveSession()
-
-function! SaveSession()
-if (filereadable("Session.vim"))
-    execute 'mksession!'
-endif
-endfunction
-function! LoadSession()
-if argc() == 0
-    silent! execute 'source Session.vim'
-endif
-endfunction
-"fold save the fold setting automaticlly
-"silent execute '!mkdir -p $HOME/.vim/view'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set sessionoptions+=resize,winpos
 "set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
-"au BufWinLeave * silent! mkview
-"au BufWinEnter * silent! loadview
 "}
-
 set diffopt=filler,vertical   " diffsplit {filename} open the $filename in the new windows vertically and compare the with the current file.
 "let @#='I<html>A<\hmtl>' " type let @q=' then type <C-R> <C-R> q' store the marco saved in register q. viewing the content of the register q (:reg q)
 autocmd! bufwritepost *.vimrc source $HOME/.vimrc
@@ -383,7 +320,7 @@ autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "pydict
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pydiction_location='/root/.vim/pydict/complete-dict'
+let g:pydiction_location='~/.vim/pydict/complete-dict'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "mru
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -395,7 +332,16 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-noremap <Leader>b :MiniBufExplorer<cr>
+let g:miniBufExplTabWrap = 1 " make tabs show complete (no broken on two lines)
+let g:miniBufExplMaxSize = 1 " <max lines: defualt 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers.
+"for buffers that have NOT CHANGED and are NOT VISIBLE.
+highlight MBENormal ctermfg=LightBlue guibg=LightGray guifg=DarkGray
+" buffers that have NOT CHANGED and are VISIBLE
+highlight MBEVisibleNormal term=bold cterm=bold gui=bold guibg=Gray guifg=Black ctermbg=Blue ctermfg=Green
+" for buffers that HAVE CHANGED and are NOT VISIBLE
+highlight MBEChanged ctermfg=DarkRed guibg=Red guifg=DarkRed
+" buffers that HAVE CHANGED and are VISIBLE
+highlight MBEVisibleChanged term=bold cterm=bold gui=bold guibg=DarkRed guifg=Black ctermbg=Blue ctermfg=Red
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pep8_map='<leader>8' 
 let g:pyflakes_use_quickfix = 0
@@ -476,12 +422,12 @@ autocmd FileType python runtime! autoload/pythoncomplete.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme desert
 " 状态行颜色
-hi StatusLine     guifg=yellow guibg=black gui=reverse,bold "当前窗口的状态栏颜色
+hi StatusLine      guifg=yellow guibg=black gui=reverse,bold 
+hi StatusLine      ctermfg=yellow  cterm=bold,reverse
 hi search          ctermfg=black ctermbg=Magenta 
 hi search          guifg=black guibg=Magenta 
 hi wildmenu        ctermbg=magenta
 "当前窗口的状态栏颜色
-hi StatusLine      ctermfg=yellow  cterm=bold,reverse
 hi modemsg         ctermfg=1
 "hi CursorLine     ctermfg=DarkYellow  guibg=DarkYellow
 "设置自动补全跳出菜单颜色,pmenusel是选择时的颜色.note:guifg guibg only effected when vim has the gui
@@ -528,8 +474,7 @@ endfunction
 autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql  cindent list "comments=sr:/*,mb:*,ex:*/,://
 autocmd FileType c,cpp,java,perl,sh set foldmethod=indent foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 "highlight characters after column 80.
-autocmd FileType c,cpp :match ErrorMsg /\%>80v.\+/  
-set makeprg=gcc\ -Wall\ %\ -o\ %<
+autocmd FileType c,cpp :match ErrorMsg /\%>80v.\+/  set makeprg=gcc\ -Wall\ %\ -o\ %<
 " 下述代码在windows下使用会报错需要去掉./这两个字符
 " C的编译和运行,编译失败还是会运行,需改进
 "{
