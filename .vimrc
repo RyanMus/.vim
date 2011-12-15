@@ -100,7 +100,7 @@ noremap <leader>w      :w<CR>
 noremap <leader>q      :q<CR>
 noremap <leader>!      :w !sudo tee % >/dev/null<CR>
 cabb     8<cr>         :set fileencoding=utf-8<cr>:w<cr>
-noremap <leader>r      :!chmod +x %<CR>! ./% <CR>
+noremap <leader>r      :!chmod +x %<CR>:! ./% <CR>
 noremap <leader>e      :MRU<CR>
 noremap <leader>l      :set nohls!<CR>
 noremap <leader>h      :hide<CR>
@@ -205,15 +205,6 @@ if has("gui_running")
     set linespace=3 "row space.(两行的间距, 只对gvim有效.)
     "Ctrl+S实现保存，如果未命名文件名会提示你选择保存路径和文件名
     map <silent> <C-S> :if expand("%") == ""<CR>:browse confirm w<CR>:else<CR>:confirm w<CR>:endif<CR>
-    noremap <M-1> 1gt
-    noremap <M-2> 2gt
-    noremap <M-3> 3gt
-    noremap <M-4> 4gt
-    noremap <M-5> 5gt
-    noremap <M-6> 6gt
-    noremap <M-7> 7gt
-    noremap <M-8> 8gt
-    noremap <M-9> 9gt
 else
     let g:isGUI = 0
 endif
@@ -283,30 +274,27 @@ iab imail lijun877@gmail.com
 iab iname  LiJunYa
 
 " 自动完成括号和引号
-inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
-inoremap <leader>2 []<esc>:let leavechar="]"<cr>i
-inoremap <leader>3 {}<esc>:let leavechar="}"<cr>i
-inoremap <leader>4 {<esc>o}<esc>:let leavechar="}"<cr>O
-inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
-inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
-" Writing Restructured Text (Sphinx Documentation) 
-"{
-   " Ctrl-u 1: underline Parts w/ #'s
-   noremap <C-u>1 yyPVr#yyjp
-   inoremap <C-u>1 <esc>yyPVr#yyjpA
-   " Ctrl-u 2: underline Chapters w/ *'s
-   noremap <C-u>2 yyPVr*yyjp
-   inoremap <C-u>2 <esc>yyPVr*yyjpA
-   " Ctrl-u 3: underline Section Level 1 w/ ='s
-   noremap <C-u>3 yypVr=
-   inoremap <C-u>3 <esc>yypVr=A
-   " Ctrl-u 4: underline Section Level 2 w/ -'s
-   noremap <C-u>4 yypVr-
-   inoremap <C-u>4 <esc>yypVr-A
-   " Ctrl-u 5: underline Section Level 3 w/ ^'s
-   noremap <C-u>5 yypVr^
-   inoremap <C-u>5 <esc>yypVr^A
-"}
+autocmd Filetype python inoremap = <esc>li = <esc>i 
+autocmd Filetype python inoremap + <esc>li + <esc>i 
+autocmd Filetype python inoremap * <esc>li * <esc>i 
+inoremap ( ()<ESC>i
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap { {}<ESC>i
+inoremap } <c-r>=ClosePair('}')<CR>
+inoremap [ []<ESC>i
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap < <><ESC>i
+inoremap > <c-r>=ClosePair('>')<CR>
+inoremap " ""<ESC>i
+inoremap ' ''<ESC>i
+inoremap ` ``<ESC>i
+function! ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+        return "\<Right>"
+    else
+        return a:char
+    endif
+endf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting options of mksession.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
