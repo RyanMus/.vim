@@ -79,7 +79,7 @@ set wildmode=list:longest,full
 " ignore these list file extensions
 set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,\*.jpg,*.gif,*.png,*.pdf
 "设置状态行，使其能额外显示文件的编码信息 
-set statusline=\ %F\ %m%<%r\ \ %10l/%L:%c\->%p%%\ \ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",bom\":\"\")}]\ \ \ [%{&ff}/%Y]%<\ \ \ \ \ \ \ \ \ \ \ PWD:%{CurDir()}
+set statusline=\ %F\ %m%<%r\ \ %10l/%L:%c\->%p%%\ \ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",bom\":\"\")}]\ \ \ [%{&ff}/%Y]%<\ \ \ \ \ \ \ \ \ \ \ PWD:%{CurDir()}\ \ \ \ %{strftime('%H:%M\ %p')}
 function! CurDir()
     let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
     return curdir
@@ -114,7 +114,6 @@ noremap <leader>>      <c-w>7>
 noremap <leader><      <c-w>7<
 noremap <C-n>           gt
 noremap <C-p>           gT
-inoremap jj            <ESC>
 "tab for indent
 nmap <tab>         V>
 nmap <S-tab>       V<
@@ -148,7 +147,7 @@ set textwidth=80
 set autoindent 
 set smartindent
 set nowrap                       " Set no auto newline
-set iskeyword+=_,$,@,%,#,-       " 带有如下符号的单词不要被换行分割
+set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分割
 set linebreak                    "设置是否自动断行
 set fo+=mB                       "打开断行模块对亚洲语言支持
 set smarttab                     " 只在行和段开始处使用制表符,其他位置扩展成空格
@@ -159,6 +158,7 @@ set viminfo+=!                   " make sure it can save viminfo 确保命令历
 set autoread                     " Set to auto read when a file is changed from the outside
 set autowrite		             " Automatically save before commands like :next and :make
 set autochdir                    "Auto change the global dir of the current windows
+set paste
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "For windows and gui
@@ -251,6 +251,15 @@ endif
 let g:vimim_disable_chinese_punctuation=1
 let g:vimim_disable_seamless_english_input=1
 " paste from clipboard
+if (g:isWin)
+    function! Yank()
+        execute "normal \"+yy"
+    endfunction
+else
+    function! Yank()
+        execute "normal \"*yy"
+    endfunction
+endif
 noremap <leader>p     <ESC>:call Paste()<CR><ESC>
 inoremap <leader>p    <ESC>:call Paste()<CR><ESC>
 noremap <leader>y     "+yy
@@ -259,13 +268,8 @@ vnoremap Y             gg"*yG
 function! Paste()
     execute "set paste"
     execute "normal \"+p"
-    execute "set nopaste"
     execute "normal l"
 endfunction
-function! Yank()
-    execute "normal \"+yy"
-endfunction
-
 "插入模式缩写
 iab idate <c-r>=strftime("%Y-%m-%d")<CR>
 iab inow  <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
@@ -274,10 +278,10 @@ iab imail lijun877@gmail.com
 iab iname  LiJunYa
 
 " 自动完成括号和引号
-autocmd Filetype python inoremap = <esc>li = <esc>i 
+autocmd Filetype python inoremap = <c-[>li = <esc>i 
 autocmd Filetype python inoremap + <esc>li + <esc>i 
 autocmd Filetype python inoremap * <esc>li * <esc>i 
-inoremap ( ()<ESC>i
+inoremap ( ()<c-[>i
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap { {}<ESC>i
 inoremap } <c-r>=ClosePair('}')<CR>
