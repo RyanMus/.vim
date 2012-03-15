@@ -463,7 +463,7 @@ endfunction
 "程序相关的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
-autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql  cindent list "comments=sr:/*,mb:*,ex:*/,://
+autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql  cindent "comments=sr:/*,mb:*,ex:*/,://
 autocmd FileType c,cpp,java,perl,sh set foldmethod=indent foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 "highlight characters after column 80.
 autocmd FileType c,cpp :match ErrorMsg /\%>80v.\+/  set makeprg=gcc\ -Wall\ %\ -o\ %<
