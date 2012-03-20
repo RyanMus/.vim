@@ -298,7 +298,7 @@ function! ClosePair(char)
     else
         return a:char
     endif
-endf
+endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting options of mksession.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
