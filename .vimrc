@@ -41,30 +41,22 @@
 "The search options affect
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set showcmd	    	" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set matchtime=5
 set hls
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
-set lazyredraw
+set nolazyredraw 	"Don't redraw while executing macros'"
 command! -nargs=1 Silent
             \ | execute ':silent !'.<q-args>
             \ | execute ':redraw!'
 set fileencoding=utf-8 "default new fileencoding
-" No sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
 " 恢复上次文件打开位置
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "The simple look like
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nu			"set number 
-set background=dark
+set number			
 set cursorline		
 set mouse=a		" Enable mouse usage (all modes)
 set scrolloff=5 "始终保持光标上下有至少5行
@@ -85,35 +77,29 @@ function! CurDir()
     return curdir
 endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Tasklist 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab fixme FIXME
-iab todo  TODO
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "the map leader shortcut and the keymap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
 let mapleader = ","
 let g:mapleader = ","
-noremap <space> 	    :
-noremap <leader>= 		gg=G
 noremap <leader>w      :w<CR>
 noremap <leader>q      :q<CR>
 noremap <leader>!      :w !sudo tee % >/dev/null<CR>
 cabb     8<cr>         :set fileencoding=utf-8<cr>:w<cr>
-noremap <leader>r      :!chmod +x %<CR>:! ./% <CR>
+noremap <leader>r      :! ./% <CR>
 noremap <leader>e      :MRU<CR>
 noremap <leader>l      :set nohls!<CR>
-noremap <leader>h      :hide<CR>
 noremap <leader>n      :NERDTreeToggle<CR>
 noremap <leader>t      :TlistToggle<CR>
-noremap! <leader>d     :TaskList<CR>
-noremap <leader>m      :mksession! Session.vim
+noremap <leader>s      :mksession! Session.vim
 noremap =              <c-w>7+
 noremap -              <c-w>7-
-noremap <leader>>      <c-w>7>
-noremap <leader><      <c-w>7<
 noremap <C-n>           gt
 noremap <C-p>           gT
+noremap <space>         :
 "tab for indent
 nmap <tab>         V>
 nmap <S-tab>       V<
@@ -130,7 +116,7 @@ cnoremap <C-N> <Down>
 cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
 cnoremap <C-D> <del>
-cnoremap <C-H> <backspace>
+map 0 ^
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文本格式和排版
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -141,25 +127,20 @@ set sw=4			             "set softswitch to 4
 set tabstop=4		             "set tab to 4 
 set softtabstop=4
 set expandtab      	             "expand tab to 4 space
-set virtualedit=onemore          " allow for cursor beyond last character
+"set virtualedit=onemore          " allow for cursor beyond last character
 set shortmess+=filmnrxoOtT       " abbrev. of messages (avoids 'hit enter')
 set textwidth=80
 set autoindent 
 set smartindent
 set nowrap                       " Set no auto newline
 set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分割
-set linebreak                    "设置是否自动断行
 set fo+=mB                       "打开断行模块对亚洲语言支持
-set smarttab                     " 只在行和段开始处使用制表符,其他位置扩展成空格
 set backspace=2                  " 使回格键（backspace）正常处理indent, eol, start等
 set nocompatible	
 set history=1000
 set viminfo+=!                   " make sure it can save viminfo 确保命令历史被记录在viminfo文件中.
 set autoread                     " Set to auto read when a file is changed from the outside
-set autowrite		             " Automatically save before commands like :next and :make
 set autochdir                    "Auto change the global dir of the current windows
-set paste
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "For windows and gui
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -177,22 +158,10 @@ if (g:isWin)
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
     language messages zh_cn.utf-8
-    set backup                      " backups are nice ...
     "set guifont=Courier_New:h10:cANSI            "英文字体 字符集可以省略不写
     set guifont=Lucida_Sans_Typewriter:h10.5w6.5:cANSI  "英文字体 字符集可以省略不写.空格用_代替,h字高,w字宽.float型
     set guifontwide="幼圆:h11w2:cGB2312"                "中文字体，字体大小，字符集
     let Tlist_Ctags_Cmd='c:\ctags58\ctags.exe'
-else
-    "the backup file and swap file in the specified directory
-    set swapfile
-    set backup                      " backups are nice ...
-    set backupdir=$HOME/.vimbackup//  " but not when they clog .
-    set directory=$HOME/.vimswap//  " Same for swap files
-    "Creating directories if they don't exist
-    silent execute '!mkdir -p $HOME/.vimbackup'
-    silent execute '!mkdir -p $HOME/.vimswap'
-    set encoding=utf8
-    set fileencodings=utf8,gb2312,gb18030,ucs-bom,latin1
 endif
 
 if has("gui_running")
@@ -205,78 +174,39 @@ if has("gui_running")
     set linespace=3 "row space.(两行的间距, 只对gvim有效.)
     "Ctrl+S实现保存，如果未命名文件名会提示你选择保存路径和文件名
     map <silent> <C-S> :if expand("%") == ""<CR>:browse confirm w<CR>:else<CR>:confirm w<CR>:endif<CR>
-else
-    let g:isGUI = 0
-endif
-if (g:isGUI)
-    set cursorline
     "set guifont=DejaVu\ Sans\ Mono:11
     "set guifontwide=文泉驿等宽微米黑:11
 	hi StatusLine      guifg=yellow gui=reverse,bold guibg=black
 	hi StatusLineNC    guifg=lightgray gui=reverse,bold guibg=black
+else
+    let g:isGUI = 0
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"In visual mode when you press * or # to search for the current selection
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{
-    vnoremap <silent> * :call VisualSearch('f')<CR>
-    vnoremap <silent> # :call VisualSearch('b')<CR>
-
-    function! VisualSearch(direction) range
-        let l:saved_reg = @"
-        execute "normal! vgvy"
-
-        let l:pattern = escape(@", '\\/.*$^~[]')
-        let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-        if a:direction == 'b'
-            execute "normal ?" . l:pattern . "^M"
-        elseif a:direction == 'gv'
-            call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-        elseif a:direction == 'f'
-            execute "normal /" . l:pattern . "^M"
-        endif
-
-        let @/ = l:pattern
-        let @" = l:saved_reg
-    endfunction
-    function! CmdLine(str)
-        exe "menu Foo.Bar :" . a:str
-        emenu Foo.Bar
-        unmenu Foo
-    endfunction
-
-"}
 let g:vimim_disable_chinese_punctuation=1
 let g:vimim_disable_seamless_english_input=1
 " paste from clipboard
 if (g:isWin)
     function! Yank()
-        execute "normal \"+yy"
+        execute "normal \"+y"
     endfunction
 else
     function! Yank()
-        execute "normal \"*yy"
+        execute "normal \"*y"
     endfunction
 endif
+noremap Y            <ESC>:call Yank()<CR><ESC>
 noremap <leader>p     <ESC>:call Paste()<CR><ESC>
-inoremap <leader>p    <ESC>:call Paste()<CR><ESC>
 noremap <leader>y     "+yy
-inoremap <leader>y     <ESC>"+yy
-vnoremap Y             gg"*yG
 function! Paste()
     execute "set paste"
     execute "normal \"+p"
     execute "normal l"
+    execute "set nopaste"
 endfunction
 "插入模式缩写
 iab idate <c-r>=strftime("%Y-%m-%d")<CR>
 iab inow  <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
-iab itime <c-r>=strftime("%H:%M")<CR>
 iab imail lijun877@gmail.com
-iab iname  LiJunYa
-
 " 自动完成括号和引号
 autocmd Filetype python inoremap = <c-[>li = <esc>i 
 autocmd Filetype python inoremap + <esc>li + <esc>i 
@@ -287,8 +217,6 @@ inoremap { {}<ESC>i
 inoremap } <c-r>=ClosePair('}')<CR>
 inoremap [ []<ESC>i
 inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap < <><ESC>i
-inoremap > <c-r>=ClosePair('>')<CR>
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 inoremap ` ``<ESC>i
@@ -318,23 +246,7 @@ let g:pydiction_location='~/.vim/pydict/complete-dict'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let MRU_Max_Entries = 100
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"minibuffer
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplTabWrap = 1 " make tabs show complete (no broken on two lines)
-let g:miniBufExplMaxSize = 1 " <max lines: defualt 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers.
-"for buffers that have NOT CHANGED and are NOT VISIBLE.
-highlight MBENormal ctermfg=LightBlue guibg=LightGray guifg=DarkGray
-" buffers that have NOT CHANGED and are VISIBLE
-highlight MBEVisibleNormal term=bold cterm=bold gui=bold guibg=Gray guifg=Black ctermbg=Blue ctermfg=Green
-" for buffers that HAVE CHANGED and are NOT VISIBLE
-highlight MBEChanged ctermfg=DarkRed guibg=Red guifg=DarkRed
-" buffers that HAVE CHANGED and are VISIBLE
-highlight MBEVisibleChanged term=bold cterm=bold gui=bold guibg=DarkRed guifg=Black ctermbg=Blue ctermfg=Red
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:pep8_map='<leader>8' 
 let g:pyflakes_use_quickfix = 0
 "Gundo设置
@@ -390,12 +302,11 @@ let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.ini','\.lnk','\.xlsx']
 " 自动补全设置supertab snippmate omincomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = "context"
-"The current completion type is only retained for the current completion.  Once you have chosen a completion
 "result or exited the completion mode, the default completion type is restored.
 let g:SuperTabRetainCompletionDuration = 'completion' "could be 'insert' 'session'
 let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 set completeopt=menuone,preview,longest
-let g:SuperTabLongestHighlight = '1' "若设置为1 ,预先选中一个补全选项,可以直接回车使用这个补全选项
+let g:SuperTabLongestHighlight = '0' "若设置为1 ,预先选中一个补全选项,可以直接回车使用这个补全选项
 let g:SuperTabMidWordCompletion = '0' "启用/禁止在字中间启用completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " omincomplete
@@ -403,12 +314,12 @@ let g:SuperTabMidWordCompletion = '0' "启用/禁止在字中间启用completion
 set ofu=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python runtime! autoload/pythoncomplete.vim
-""autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "The Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -430,9 +341,9 @@ hi PmenuSel        guifg=black guibg=Magenta
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "TxtBrowser的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufRead,BufNewFile *.pp setlocal ft=pp nu 
+au BufRead,BufNewFile *.pp setlocal ft=pp 
 au BufRead,BufNewFile *  setfiletype txt
-au BufRead,BufNewFile *.log setlocal ft=txt nu 
+au BufRead,BufNewFile *.log setlocal ft=txt 
 au FileType txt set formatoptions=tcr2mB nocindent textwidth=79 nofoldenable  comments& 
 let g:default_web_browser='firefox'
 "若firefox出现,already running cannot open new windows的错误时.先关闭firefox然后删除 "~/.mozilla/firefox/.parentlock 这个文件即可
@@ -442,57 +353,10 @@ au filetype txt let Tlist_Sort_Type = "order"
 "noremap <leader>u  <ESC>:w<CR>:TlistUpdate<CR>
 noremap <leader>g  <ESC>:TGoto<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"文件管理调用
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! Ranger()
-    " Get a temp file name without creating it
-    let tmpfile = substitute(system('mktemp -u'), '\n', '', '')
-    " Launch ranger, passing it the temp file name
-    silent exec '!RANGER_RETURN_FILE='.tmpfile.' ranger'
-    " If the temp file has been written by ranger
-    if filereadable(tmpfile)
-        " Get the selected file name from the temp file
-        let filetoedit = system('cat '.tmpfile)
-        exec 'edit '.filetoedit
-        call delete(tmpfile)
-    endif
-    redraw!
-endfunction
-"nmap <leader>f :call Ranger()<cr>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "程序相关的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
-au BufRead,BufNewFile haproxy* set ft=haproxy
-autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql  cindent "comments=sr:/*,mb:*,ex:*/,://
+autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql  cindent 
 autocmd FileType c,cpp,java,perl,sh set foldmethod=indent foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 "highlight characters after column 80.
-autocmd FileType c,cpp :match ErrorMsg /\%>80v.\+/  set makeprg=gcc\ -Wall\ %\ -o\ %<
-" 下述代码在windows下使用会报错需要去掉./这两个字符
-" C的编译和运行,编译失败还是会运行,需改进
-"{
-    noremap <leader>c :call CompileRunGcc()<CR>
-    func! CompileRunGcc()
-        exec "w"
-        exec "!gcc -Wall % -o %<" 
-        "exec "! ./%<"
-    endfunc
-
-        " C++的编译和运行
-        map <F6> :call CompileRunGpp()<CR>
-    func! CompileRunGpp()
-        exec "w"
-        exec "!g++ % -o %<"
-        exec "! ./%<"
-    endfunc
-"}
-"你的工作目录下有Makefile文件, 只需输入:make命令就可以进行编译了; 
-"没有Makefile文件,make的时候会调用 'makeprg'里参数进行编译.
-"在quickfix模式里经常用到的命令有:
-"    :cn 跳到下一个错误 ( :help :cn )
-"    :cp 跳到上一个错误 ( :help :cp )
-"    :cl 列出所有错误 ( :help :cl )
-"    :cw 如果有错误列表, 则打开quickfix窗口 ( :help :cw )
-"    :col 到前一个旧的错误列表 ( :help :col )
-"    :cnew 到后一个较新的错误列表 ( :help :cnew )
-set cscopequickfix=s-,c-,d-,i-,t-,e-
+autocmd FileType c,cpp,python :match ErrorMsg /\%>80v.\+/  set makeprg=gcc\ -Wall\ %\ -o\ %<
