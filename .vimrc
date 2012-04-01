@@ -1,35 +1,7 @@
 "plugin 
 "{
-"require Exuberant ctags for the taglist.vim  sudo apt-get install exuberant-ctags
-"http://ctags.sourceforge.net/ place the directory in c:\
-"taglist :Source code browser (supports C/C++, java, perl, python, tcl, sql,php, etc) 
-    "http://www.vim.org/scripts/script.php?script_id=273
-"TxtBrowser : Browse plain text easily (show the title tag and syntax highlight) 
-    "http://www.vim.org/scripts/script.php?script_id=2899
-"sippmate  
-    "http://www.vim.org/scripts/script.php?script_id=2540
-"The NERD tree : A tree explorer plugin for navigating the filesystem
-    "http://www.vim.org/scripts/script.php?script_id=1658
-"Supertab aims to provide tab completion to satisfy all your insert completion needs
-    ":SuperTabHelp command which opens a temporary buffer listing all the available types and the ability to easily switch to that type. 
-"MRU : Most recently used files in your file menu
-    "http://www.vim.org/scripts/script.php?script_id=194
-"python.vim : for adjust the indent performance for python file
-    "vimpdb.vim,vimpdb.py : for debug python scripts,need vim complied with python .verified with :python print "hello world"
-    "http://www.vim.org/scripts/script.php?script_id=974
-"tasklist.vim : mark some of your code as TODO or FIXME!
-    "http://code.google.com/p/vimpdb/
-"Gundo is a Vim plugin for visualizing your undo tree to make it usable.  need vim7.3 and python support.
-    "http://www.vim.org/scripts/script.php?script_id=3304
-"pyflakes-vim highlights common Python errors like misspelling a variable name on the fly. It also warns about unused imports, redefined functions, etc
-    "http://www.vim.org/scripts/script.php?script_id=2441
-"pytest.vim  A simple way of running your tests (with py.test) from within VIM
-    "http://www.vim.org/scripts/script.php?script_id=3424
 "pep8 is a simple program that just checks if your python code is pep-8 compliant need pep8 is installed and vim-plugin pep8.vim
     "http://www.vim.org/scripts/script.php?script_id=2914
-"pydict  Pydiction allows you to Tab-complete Python code in Vim, including:standard, custom and third-party modules and packages. Plus keywords,
-    "http://www.vim.org/scripts/script.php?script_id=850
-
 "require vim7.3 and python2.7 so compile vim with python's path 
 "./configure --prefix=/usr/local --enable-multibyte --with-features=big --disable-selinux --enable-pythoninterp
 "--with-python-config-dir=/usr/local/lib/python2.7/config/  --enable-gui=no  
@@ -37,6 +9,45 @@
 "}
 "sudo apt-get install vim-gnome 
 "make you can use the system clipboard "+p { the selection content "*p }
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+"vundle setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+ set nocompatible               " be iMproved                                       
+ filetype off                   " required!                                         
+
+ set rtp+=~/.vim/bundle/vundle/                                                     
+ call vundle#rc()
+
+ " let Vundle manage Vundle
+     " required! 
+ Bundle 'gmarik/vundle'
+
+ " My Bundles here:
+ "
+ " original repos on github
+ Bundle 'tpope/vim-fugitive'
+ "non github repos
+"require Exuberant ctags for the taglist.vim  sudo apt-get install exuberant-ctags
+ Bundle 'taglist.vim'
+ Bundle 'TxtBrowser'
+ Bundle 'bufexplorer.zip'
+ Bundle 'AutoComplPop'
+ Bundle 'snipMate'
+ Bundle 'MRU'
+"pytest.vim  A simple way of running your tests (with py.test) from within VIM
+ Bundle "alfredodeza/pytest.vim.git"
+"pyflakes-vim highlights common Python errors like misspelling a variable name on the fly. It also warns about unused imports, redefined functions, etc
+ Bundle 'pyflakes.vim'
+ Bundle 'python.vim'
+ Bundle 'vim-scripts/Pydiction.git'                                                                                                                                          
+"tasklist.vim : mark some of your code as TODO or FIXME!
+ Bundle 'vim-scripts/TaskList.vim.git'           
+"Gundo is a Vim plugin for visualizing your undo tree to make it usable.  need vim7.3 and python support.
+ Bundle 'Gundo'
+ Bundle 'ervandew/supertab.git'
+ Bundle 'The-NERD-tree'
+ Bundle 'closetag.vim'
+ Bundle 'matchit.zip'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "The search options affect
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -85,16 +96,17 @@ noremap <C-H> <C-W>h
 noremap <C-L> <C-W>l
 let mapleader = ","
 let g:mapleader = ","
-noremap <leader>w      :w<CR>
-noremap <leader>q      :q<CR>
-noremap <leader>!      :w !sudo tee % >/dev/null<CR>
-cabb     8<cr>         :set fileencoding=utf-8<cr>:w<cr>
-noremap <leader>r      :! ./% <CR>
-noremap <leader>e      :MRU<CR>
-noremap <leader>l      :set nohls!<CR>
-noremap <leader>n      :NERDTreeToggle<CR>
-noremap <leader>t      :TlistToggle<CR>
-noremap <leader>s      :mksession! Session.vim
+noremap  <leader>w      :w<CR>
+noremap  <leader>q      :q<CR>
+noremap  <leader>!      :w !sudo tee % >/dev/null<CR>
+noremap  <leader>8      :set fileencoding=utf-8<cr>:w<cr>
+noremap  <leader>r      :! ./% <CR>
+noremap  <leader>e      :MRU<CR>
+noremap  <leader>l      :set nohls!<CR>
+noremap  <leader>n      :NERDTreeToggle<CR>
+noremap  <leader>t     :TlistToggle<CR>
+noremap  <leader>d     :TaskList<CR>
+noremap   <leader>s      :mksession! Session.vim
 noremap =              <c-w>7+
 noremap -              <c-w>7-
 noremap <C-n>           gt
@@ -129,10 +141,8 @@ set softtabstop=4
 set expandtab      	             "expand tab to 4 space
 "set virtualedit=onemore          " allow for cursor beyond last character
 set shortmess+=filmnrxoOtT       " abbrev. of messages (avoids 'hit enter')
-set textwidth=80
 set autoindent 
 set smartindent
-set nowrap                       " Set no auto newline
 set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分割
 set fo+=mB                       "打开断行模块对亚洲语言支持
 set backspace=2                  " 使回格键（backspace）正常处理indent, eol, start等
@@ -240,7 +250,7 @@ autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "pydict
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pydiction_location='~/.vim/pydict/complete-dict'
+let g:pydiction_location='~/.vim/bundle/Pydiction/complete-dict'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "mru
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -297,21 +307,20 @@ let NERDTreeShowLineNumbers=0
 let NERDTreeWinSize = 22
 " A 可使NERDTree窗口最大化Toggle it.
 "过滤文件,使用正则表达式
-let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.ini','\.lnk','\.xlsx']
+let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.ini','\.lnk','\.xlsx','\.tar.gz','\.tgz','\.zip']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 自动补全设置supertab snippmate omincomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = "context"
 "result or exited the completion mode, the default completion type is restored.
-let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-set completeopt=menuone,preview,longest
-let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
+set completeopt=menu,preview,longest
+let g:SuperTabLongestEnhanced =1
 let g:SuperTabLongestHighlight = '0' "若设置为1 ,预先选中一个补全选项,可以直接回车使用这个补全选项
 let g:SuperTabMidWordCompletion = '0' "禁止在字中间启用completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " omincomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set ofu=syntaxcomplete#Complete
+"set ofu=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python runtime! autoload/pythoncomplete.vim
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -356,7 +365,7 @@ noremap <leader>g  <ESC>:TGoto<CR>
 "程序相关的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
-autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql  cindent 
+autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql cindent textwidth=80 
 autocmd FileType c,cpp,java,perl,sh set foldmethod=indent foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 "highlight characters after column 80.
-autocmd FileType c,cpp,python :match ErrorMsg /\%>80v.\+/  set makeprg=gcc\ -Wall\ %\ -o\ %<
+autocmd FileType c,cpp,python :match ErrorMsg /\%>80v.\+/  
