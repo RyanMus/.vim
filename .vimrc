@@ -303,11 +303,11 @@ let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.ini','\.lnk','\.xlsx']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = "context"
 "result or exited the completion mode, the default completion type is restored.
-let g:SuperTabRetainCompletionDuration = 'completion' "could be 'insert' 'session'
 let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 set completeopt=menuone,preview,longest
+let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
 let g:SuperTabLongestHighlight = '0' "若设置为1 ,预先选中一个补全选项,可以直接回车使用这个补全选项
-let g:SuperTabMidWordCompletion = '0' "启用/禁止在字中间启用completion
+let g:SuperTabMidWordCompletion = '0' "禁止在字中间启用completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " omincomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
