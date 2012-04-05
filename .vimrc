@@ -33,7 +33,7 @@
  Bundle 'bufexplorer.zip'
  Bundle 'AutoComplPop'
  Bundle 'snipMate'
- Bundle 'MRU'
+ Bundle 'mru.vim'
 "pytest.vim  A simple way of running your tests (with py.test) from within VIM
  Bundle "alfredodeza/pytest.vim.git"
 "pyflakes-vim highlights common Python errors like misspelling a variable name on the fly. It also warns about unused imports, redefined functions, etc
@@ -104,7 +104,7 @@ noremap  <leader>r      :! ./% <CR>
 noremap  <leader>e      :MRU<CR>
 noremap  <leader>l      :set nohls!<CR>
 noremap  <leader>n      :NERDTreeToggle<CR>
-noremap  <leader>t     :TlistToggle<CR>
+noremap!  <leader>t     :TlistToggle<CR>
 noremap  <leader>d     :TaskList<CR>
 noremap   <leader>s      :mksession! Session.vim
 noremap =              <c-w>7+
