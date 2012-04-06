@@ -3,32 +3,19 @@
 "require Exuberant ctags for the taglist.vim  sudo apt-get install exuberant-ctags
 "http://ctags.sourceforge.net/ place the directory in c:\
 "taglist :Source code browser (supports C/C++, java, perl, python, tcl, sql,php, etc) 
-    "http://www.vim.org/scripts/script.php?script_id=273
 "TxtBrowser : Browse plain text easily (show the title tag and syntax highlight) 
-    "http://www.vim.org/scripts/script.php?script_id=2899
 "sippmate  
-    "http://www.vim.org/scripts/script.php?script_id=2540
 "The NERD tree : A tree explorer plugin for navigating the filesystem
-    "http://www.vim.org/scripts/script.php?script_id=1658
 "Supertab aims to provide tab completion to satisfy all your insert completion needs
-    ":SuperTabHelp command which opens a temporary buffer listing all the available types and the ability to easily switch to that type. 
 "MRU : Most recently used files in your file menu
-    "http://www.vim.org/scripts/script.php?script_id=194
 "python.vim : for adjust the indent performance for python file
     "vimpdb.vim,vimpdb.py : for debug python scripts,need vim complied with python .verified with :python print "hello world"
-    "http://www.vim.org/scripts/script.php?script_id=974
 "tasklist.vim : mark some of your code as TODO or FIXME!
-    "http://code.google.com/p/vimpdb/
 "Gundo is a Vim plugin for visualizing your undo tree to make it usable.  need vim7.3 and python support.
-    "http://www.vim.org/scripts/script.php?script_id=3304
 "pyflakes-vim highlights common Python errors like misspelling a variable name on the fly. It also warns about unused imports, redefined functions, etc
-    "http://www.vim.org/scripts/script.php?script_id=2441
 "pytest.vim  A simple way of running your tests (with py.test) from within VIM
-    "http://www.vim.org/scripts/script.php?script_id=3424
 "pep8 is a simple program that just checks if your python code is pep-8 compliant need pep8 is installed and vim-plugin pep8.vim
-    "http://www.vim.org/scripts/script.php?script_id=2914
 "pydict  Pydiction allows you to Tab-complete Python code in Vim, including:standard, custom and third-party modules and packages. Plus keywords,
-    "http://www.vim.org/scripts/script.php?script_id=850
 
 "require vim7.3 and python2.7 so compile vim with python's path 
 "./configure --prefix=/usr/local --enable-multibyte --with-features=big --disable-selinux --enable-pythoninterp
@@ -129,10 +116,8 @@ set softtabstop=4
 set expandtab      	             "expand tab to 4 space
 "set virtualedit=onemore          " allow for cursor beyond last character
 set shortmess+=filmnrxoOtT       " abbrev. of messages (avoids 'hit enter')
-set textwidth=80
 set autoindent 
 set smartindent
-set nowrap                       " Set no auto newline
 set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分割
 set fo+=mB                       "打开断行模块对亚洲语言支持
 set backspace=2                  " 使回格键（backspace）正常处理indent, eol, start等
@@ -204,12 +189,15 @@ function! Paste()
     execute "set nopaste"
 endfunction
 "插入模式缩写
+iab todo TODO
+iab fixme FIXME
 iab idate <c-r>=strftime("%Y-%m-%d")<CR>
 iab inow  <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
 iab imail lijun877@gmail.com
 " 自动完成括号和引号
-autocmd Filetype python inoremap = <c-[>li = <esc>i 
 autocmd Filetype python inoremap + <esc>li + <esc>i 
+autocmd Filetype python inoremap - <esc>li - <esc>i 
+autocmd Filetype python inoremap = <c-[>li = <esc>i 
 autocmd Filetype python inoremap * <esc>li * <esc>i 
 inoremap ( ()<c-[>i
 inoremap ) <c-r>=ClosePair(')')<CR>
@@ -297,7 +285,7 @@ let NERDTreeShowLineNumbers=0
 let NERDTreeWinSize = 22
 " A 可使NERDTree窗口最大化Toggle it.
 "过滤文件,使用正则表达式
-let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.ini','\.lnk','\.xlsx']
+let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.ini','\.lnk','\.xlsx','\.tar.gz','\.tgz','\.zip']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 自动补全设置supertab snippmate omincomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -355,7 +343,7 @@ noremap <leader>g  <ESC>:TGoto<CR>
 "程序相关的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
-autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql  cindent 
+autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql cindent textwidth=80 
 autocmd FileType c,cpp,java,perl,sh set foldmethod=indent foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 "highlight characters after column 80.
-autocmd FileType c,cpp,python :match ErrorMsg /\%>80v.\+/  set makeprg=gcc\ -Wall\ %\ -o\ %<
+autocmd FileType c,cpp,python :match IncSearch /\%>80v.\+/  
