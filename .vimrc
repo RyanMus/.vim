@@ -1,3 +1,8 @@
+"""""""""""""""""""""""""""
+"Install 
+""""""""""""
+"git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"execute command bundleInstall! in vim 
 "plugin 
 "{
 "pep8 is a simple program that just checks if your python code is pep-8 compliant need pep8 is installed and vim-plugin pep8.vim
@@ -105,6 +110,7 @@ noremap  <leader>e      :MRU<CR>
 noremap  <leader>l      :set nohls!<CR>
 noremap  <leader>n      :NERDTreeToggle<CR>
 noremap  <leader>t     :TlistToggle<CR>
+noremap  <leader>d     :TaskList<CR>
 noremap   <leader>s      :mksession! Session.vim
 noremap =              <c-w>7+
 noremap -              <c-w>7-
@@ -367,4 +373,4 @@ noremap <leader>g  <ESC>:TGoto<CR>
 autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql cindent textwidth=80 
 autocmd FileType c,cpp,java,perl,sh set foldmethod=indent foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 "highlight characters after column 80.
-autocmd FileType c,cpp,python :match ErrorMsg /\%>80v.\+/  
+autocmd FileType c,cpp,python :match IncSearch /\%>80v.\+/  
