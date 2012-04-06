@@ -104,8 +104,7 @@ noremap  <leader>r      :! ./% <CR>
 noremap  <leader>e      :MRU<CR>
 noremap  <leader>l      :set nohls!<CR>
 noremap  <leader>n      :NERDTreeToggle<CR>
-noremap!  <leader>t     :TlistToggle<CR>
-noremap  <leader>d     :TaskList<CR>
+noremap  <leader>t     :TlistToggle<CR>
 noremap   <leader>s      :mksession! Session.vim
 noremap =              <c-w>7+
 noremap -              <c-w>7-
