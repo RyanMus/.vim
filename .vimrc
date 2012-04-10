@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""
 "Install 
 """"""""""""
-"git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"env GIT_SSL_NO_VERIFY=true git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 "execute command bundleInstall! in vim 
 "plugin 
 "{
