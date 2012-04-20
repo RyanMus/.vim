@@ -143,6 +143,7 @@ if (g:isWin)
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
     language messages zh_cn.utf-8
+    au GUIEnter * simalt ~x                       "max windows "
     "set guifont=Courier_New:h10:cANSI            "英文字体 字符集可以省略不写
     set guifont=Lucida_Sans_Typewriter:h10.5w6.5:cANSI  "英文字体 字符集可以省略不写.空格用_代替,h字高,w字宽.float型
     set guifontwide="幼圆:h11w2:cGB2312"                "中文字体，字体大小，字符集
@@ -189,8 +190,6 @@ function! Paste()
     execute "set nopaste"
 endfunction
 "插入模式缩写
-iab todo TODO
-iab fixme FIXME
 iab idate <c-r>=strftime("%Y-%m-%d")<CR>
 iab inow  <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
 iab imail lijun877@gmail.com
