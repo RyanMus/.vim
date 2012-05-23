@@ -36,6 +36,7 @@ set nolazyredraw 	"Don't redraw while executing macros'"
 command! -nargs=1 Silent
             \ | execute ':silent !'.<q-args>
             \ | execute ':redraw!'
+set fileencodings=ucs-bom,utf-8,chinese,gb2312,gb18030,Big5
 set fileencoding=utf-8 "default new fileencoding
 " 恢复上次文件打开位置
 set viminfo='10,\"100,:20,%,n~/.viminfo
@@ -138,7 +139,7 @@ if (g:isWin)
     set lsp=0     "设置行距
     set encoding=utf-8
     set termencoding=utf-8
-    set fileencodings=ucs-bom,utf-8,chinese,gb2312
+    set fileencodings=ucs-bom,utf-8,chinese,gb2312,gb18030,Big5
     set langmenu=zh_CN.utf-8
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
