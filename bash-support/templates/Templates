@@ -1,0 +1,19 @@
+§
+§ =============================================================
+§ ========== USER MACROS ======================================
+§ =============================================================
+§
+|AUTHOR|    = Collin Lee
+|AUTHORREF| =  
+|EMAIL|     = lijun877@gmail.com 
+|COMPANY|   = SeeGame.COM 
+|COPYRIGHT| = Copyright (c) |2012|, |AUTHOR|
+§
+§ =============================================================
+§ ========== FILE INCLUDES ====================================
+§ =============================================================
+§
+|includefile| = bash.comments.template
+|includefile| = bash.statements.template
+|includefile| = bash.paramsub.template
+§

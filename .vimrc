@@ -16,6 +16,8 @@
 "pytest.vim  A simple way of running your tests (with py.test) from within VIM
 "pep8 is a simple program that just checks if your python code is pep-8 compliant need pep8 is installed and vim-plugin pep8.vim
 "pydict  Pydiction allows you to Tab-complete Python code in Vim, including:standard, custom and third-party modules and packages. Plus keywords,
+"c.vim : C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc. 
+"http://www.vim.org/scripts/script.php?script_id=213
 
 "require vim7.3 and python2.7 so compile vim with python's path 
 "./configure --prefix=/usr/local --enable-multibyte --with-features=big --disable-selinux --enable-pythoninterp
@@ -89,10 +91,11 @@ noremap <C-n>           gt
 noremap <C-p>           gT
 noremap <space>         :
 "tab for indent
-nmap <tab>         V>
-nmap <S-tab>       V<
-vmap <tab>         >gv
-vmap <S-tab>       <gv
+nmap <c-i>         <c-]> 
+"nmap <tab>         V>
+"nmap <S-tab>       V<
+"vmap <tab>         >gv
+"vmap <S-tab>       <gv
 "function like <c-w>f just open the file on new tab instead of current window
 map gf :tabnew <cfile><cr>
 "the shortcut  for cmdline like bash behavior
@@ -157,10 +160,10 @@ if has("gui_running")
     set guitablabel=%N:\ %f "tab栏显示的格式:位置:文件名
     set t_Co=256
     set background=dark
+    map <silent> <C-S> :if expand("%") == ""<CR>:browse confirm w<CR>:else<CR>:confirm w<CR>:endif<CR>
     set linespace=5 "row space.
     set linespace=3 "row space.(两行的间距, 只对gvim有效.)
     "Ctrl+S实现保存，如果未命名文件名会提示你选择保存路径和文件名
-    map <silent> <C-S> :if expand("%") == ""<CR>:browse confirm w<CR>:else<CR>:confirm w<CR>:endif<CR>
     "set guifont=DejaVu\ Sans\ Mono:11
     "set guifontwide=文泉驿等宽微米黑:11
 	hi StatusLine      guifg=yellow gui=reverse,bold guibg=black
@@ -259,17 +262,17 @@ let Tlist_Exit_OnlyWindow = 1
 "auto open Tlist when vim open
 let Tlist_Auto_Open = 0 
 " 不要显示折叠树
-let Tlist_Enable_Fold_Column = 0
+"let Tlist_Enable_Fold_Column = 0
 " taglist 窗口宽度
 let Tlist_WinWidth = 22
 " no inc the width of the windows
-let Tlist_Inc_Winwidth = 1 
+"let Tlist_Inc_Winwidth = 1 
 " Close tag folds for inactive buffers.
 let Tlist_File_Fold_Auto_Close = 1 
 "To process files even when the taglist window is not open.
 let Tlist_Process_File_Always = 1
 "display the tags defined only in the current buffer
-let Tlist_Show_One_File = 1 
+"let Tlist_Show_One_File = 1 
 "打开taglist并且切换焦点到taglist窗口
 let Tlist_GainFocus_On_ToggleOpen=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
