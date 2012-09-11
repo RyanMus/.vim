@@ -3,15 +3,15 @@
 """"""""""""
 "env GIT_SSL_NO_VERIFY=true git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 "execute command bundleInstall! in vim 
-"plugin 
-"{
-"pep8 is a simple program that just checks if your python code is pep-8 compliant need pep8 is installed and vim-plugin pep8.vim
-    "http://www.vim.org/scripts/script.php?script_id=2914
+"if encounter error :
+    "git config --global http.sslVerify false
+"yum install ack
+"yum install python-pep8
+"yum install cscope
 "require vim7.3 and python2.7 so compile vim with python's path 
 "./configure --prefix=/usr/local --enable-multibyte --with-features=big --disable-selinux --enable-pythoninterp
 "--with-python-config-dir=/usr/local/lib/python2.7/config/  --enable-gui=no  
 "need more pep8 and py.test to code and test python 
-"}
 "sudo apt-get install vim-gnome 
 "make you can use the system clipboard "+p { the selection content "*p }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
