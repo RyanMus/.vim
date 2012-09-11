@@ -18,7 +18,7 @@
 "vundle setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
  set nocompatible               " be iMproved                                       
- filetype off                   " required!                                         
+ filetype on                   " required!                                         
 
  set rtp+=~/.vim/bundle/vundle/                                                     
  call vundle#rc()
@@ -35,17 +35,20 @@
 "require Exuberant ctags for the taglist.vim  sudo apt-get install exuberant-ctags
  Bundle 'taglist.vim'
  Bundle 'TxtBrowser'
- Bundle 'bufexplorer.zip'
  Bundle 'AutoComplPop'
  Bundle 'snipMate'
  Bundle 'mru.vim'
 "pytest.vim  A simple way of running your tests (with py.test) from within VIM
  Bundle "alfredodeza/pytest.vim.git"
+ "need install pep8 yum install Python-pep8"
+ Bundle 'pep8'
 "pyflakes-vim highlights common Python errors like misspelling a variable name on the fly. It also warns about unused imports, redefined functions, etc
  Bundle 'pyflakes.vim'
  Bundle 'python.vim'
- Bundle 'vim-scripts/Pydiction.git'                                                                                                                                          
-"tasklist.vim : mark some of your code as TODO or FIXME!
+ Bundle 'sontek/rope-vim.git'
+ Bundle 'mileszs/ack.vim.git'
+ "Bundle 'vim-scripts/Pydiction.git'                                                                                                                                          
+ "tasklist.vim : mark some of your code as TODO or FIXME!
  Bundle 'vim-scripts/TaskList.vim.git'           
 "Gundo is a Vim plugin for visualizing your undo tree to make it usable.  need vim7.3 and python support.
  Bundle 'Gundo'
@@ -87,7 +90,7 @@ set wildmode=list:longest,full
 " ignore these list file extensions
 set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,\*.jpg,*.gif,*.png,*.pdf
 "设置状态行，使其能额外显示文件的编码信息 
-set statusline=\ %F\ %m%<%r\ \ %10l/%L:%c\->%p%%\ \ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",bom\":\"\")}]\ \ \ [%{&ff}/%Y]%<\ \ \ \ \ \ \ \ \ \ \ PWD:%{CurDir()}\ \ \ \ %{strftime('%H:%M\ %p')}
+set statusline=\ %F\ %m%<%r\ \ %10l/%L:%c\->%p%%\ \ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",bom\":\"\")}]\ \ \ [%{&ff}/%Y]%<\ \ \ \ \ \ \ \ \ \ \ PWD:%{CurDir()}\ \ \ \ %{strftime('%H:%M\ %p')}\ \ \ \ \ \ \ %{fugitive#statusline()}
 function! CurDir()
     let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
     return curdir
@@ -104,14 +107,15 @@ let g:mapleader = ","
 noremap  <leader>w      :w<CR>
 noremap  <leader>q      :q<CR>
 noremap  <leader>!      :w !sudo tee % >/dev/null<CR>
-noremap  <leader>8      :set fileencoding=utf-8<cr>:w<cr>
+noremap  <leader>tf     :set fileencoding=utf-8<cr>:w<cr>
 noremap  <leader>r      :! ./% <CR>
 noremap  <leader>e      :MRU<CR>
 noremap  <leader>l      :set nohls!<CR>
 noremap  <leader>n      :NERDTreeToggle<CR>
-noremap  <leader>t     :TlistToggle<CR>
-noremap  <leader>d     :TaskList<CR>
-noremap   <leader>s      :mksession! Session.vim
+noremap  <leader>t      :TlistToggle<CR>
+noremap  <leader>td     :TaskList<CR>
+noremap  <leader>tp     :set paste!<CR>
+noremap   <leader>s     <Esc>:Ack!
 noremap =              <c-w>7+
 noremap -              <c-w>7-
 noremap <C-n>           gt
@@ -223,9 +227,14 @@ iab idate <c-r>=strftime("%Y-%m-%d")<CR>
 iab inow  <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
 iab imail lijun877@gmail.com
 " 自动完成括号和引号
-autocmd Filetype python inoremap = <c-[>li = <esc>i 
-autocmd Filetype python inoremap + <esc>li + <esc>i 
-autocmd Filetype python inoremap * <esc>li * <esc>i 
+autocmd Filetype python  inoremap + <esc>a + <esc>i
+autocmd Filetype python  inoremap - <esc>a - <esc>i
+autocmd Filetype python  inoremap = <esc>a = <esc>i
+autocmd Filetype python  inoremap * <esc>a * <esc>i
+autocmd Filetype python  inoremap > <esc>a > <esc>i
+autocmd Filetype python  inoremap < <esc>a < <esc>i
+autocmd Filetype python  abb pdb import pdb; pdb.set_trace()
+inoremap  <esc>  <esc>l:set nopaste<cr>
 inoremap ( ()<c-[>i
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap { {}<ESC>i
@@ -251,15 +260,18 @@ endfunction
 set diffopt=filler,vertical   " diffsplit {filename} open the $filename in the new windows vertically and compare the with the current file.
 "let @#='I<html>A<\hmtl>' " type let @q=' then type <C-R> <C-R> q' store the marco saved in register q. viewing the content of the register q (:reg q)
 autocmd! bufwritepost *.vimrc source $HOME/.vimrc
-
+"rope-vim settings" 
+map <leader>d :RopeGotoDefinition<CR>
+map <leader>r :RopeRename<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "pydict
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pydiction_location='~/.vim/bundle/Pydiction/complete-dict'
+"let g:pydiction_location='~/.vim/bundle/Pydiction/complete-dict'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "mru
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let MRU_Max_Entries = 100
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'  " For Unix
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:pep8_map='<leader>8' 
@@ -364,13 +376,12 @@ let g:default_web_browser='firefox'
 let TxtBrowser_Title_Level = 3 "定义标题级数
 let TxtBrowser_Dict_Url='http://www.iciba.com/text' "定义单词搜索引擎
 au filetype txt let Tlist_Sort_Type = "order"
-"noremap <leader>u  <ESC>:w<CR>:TlistUpdate<CR>
 noremap <leader>g  <ESC>:TGoto<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "程序相关的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
-autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql cindent textwidth=80 
+autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql cindent textwidth=79 
 autocmd FileType c,cpp,java,perl,sh set foldmethod=indent foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 "highlight characters after column 80.
-autocmd FileType c,cpp,python :match IncSearch /\%>80v.\+/  
+autocmd FileType c,cpp,python :match IncSearch /\%>79v.\+/  
