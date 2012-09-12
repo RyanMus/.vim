@@ -98,6 +98,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "the map leader shortcut and the keymap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap jk <esc>
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
 noremap <C-H> <C-W>h
