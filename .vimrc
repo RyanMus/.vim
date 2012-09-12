@@ -226,12 +226,9 @@ iab idate <c-r>=strftime("%Y-%m-%d")<CR>
 iab inow  <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
 iab imail lijun877@gmail.com
 " 自动完成括号和引号
-autocmd Filetype python  inoremap + <esc>a + <esc>i
-autocmd Filetype python  inoremap - <esc>a - <esc>i
-autocmd Filetype python  inoremap = <esc>a = <esc>i
-autocmd Filetype python  inoremap * <esc>a * <esc>i
-autocmd Filetype python  inoremap > <esc>a > <esc>i
-autocmd Filetype python  inoremap < <esc>a < <esc>i
+autocmd Filetype python inoremap = <c-[>a =  <esc>i
+autocmd Filetype python inoremap + <esc>a +  <esc>i
+autocmd Filetype python inoremap * <esc>a * <esc>i 
 autocmd Filetype python  abb pdb import pdb; pdb.set_trace()
 inoremap  <esc>  <esc>l:set nopaste<cr>
 inoremap ( ()<c-[>i
