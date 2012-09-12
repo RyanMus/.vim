@@ -1,16 +1,14 @@
 """""""""""""""""""""""""""
 "Install 
 """"""""""""
-"env GIT_SSL_NO_VERIFY=true git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-"execute command bundleInstall! in vim 
+"1. yum install  -y ack python-pep8 cscope python-devel
+"2. env GIT_SSL_NO_VERIFY=true git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"3. execute command bundleInstall! in vim 
 "if encounter error :
     "git config --global http.sslVerify false
-"yum install ack
-"yum install python-pep8
-"yum install cscope
 "require vim7.3 and python2.7 so compile vim with python's path 
-"./configure --prefix=/usr/local --enable-multibyte --with-features=big --disable-selinux --enable-pythoninterp
-"--with-python-config-dir=/usr/local/lib/python2.7/config/  --enable-gui=no  
+"4. ./configure --prefix=/usr/local --enable-multibyte --with-features=big --disable-selinux --enable-pythoninterp --with-python-config-dir=/usr/local/lib/python2.7/config/  --enable-gui=no  
+"5. echo "alias vim='/usr/local/bin/vim'" >> /etc/bashrc ; source /etc/bashrc
 "need more pep8 and py.test to code and test python 
 "sudo apt-get install vim-gnome 
 "make you can use the system clipboard "+p { the selection content "*p }
