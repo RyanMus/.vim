@@ -44,16 +44,18 @@
  Bundle 'pyflakes.vim'
  Bundle 'python.vim'
  Bundle 'sontek/rope-vim.git'
+ Bundle 'surround.vim'
  Bundle 'mileszs/ack.vim.git'
- "Bundle 'vim-scripts/Pydiction.git'                                                                                                                                          
+ Bundle 'vim-scripts/Pydiction.git'                                                                                                                                          
  "tasklist.vim : mark some of your code as TODO or FIXME!
  Bundle 'vim-scripts/TaskList.vim.git'           
 "Gundo is a Vim plugin for visualizing your undo tree to make it usable.  need vim7.3 and python support.
  Bundle 'Gundo'
  Bundle 'ervandew/supertab.git'
  Bundle 'The-NERD-tree'
- Bundle 'closetag.vim'
+ "Bundle 'closetag.vim'
  Bundle 'matchit.zip'
+ Bundle 'lambacck/python_matchit.git'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "The search options affect
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -226,27 +228,7 @@ iab idate <c-r>=strftime("%Y-%m-%d")<CR>
 iab inow  <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
 iab imail lijun877@gmail.com
 " 自动完成括号和引号
-autocmd Filetype python inoremap = <c-[>a =  <esc>i
-autocmd Filetype python inoremap + <esc>a +  <esc>i
-autocmd Filetype python inoremap * <esc>a * <esc>i 
 autocmd Filetype python  abb pdb import pdb; pdb.set_trace()
-inoremap  <esc>  <esc>l:set nopaste<cr>
-inoremap ( ()<c-[>i
-inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap { {}<ESC>i
-inoremap } <c-r>=ClosePair('}')<CR>
-inoremap [ []<ESC>i
-inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
-inoremap ` ``<ESC>i
-function! ClosePair(char)
-    if getline('.')[col('.') - 1] == a:char
-        return "\<Right>"
-    else
-        return a:char
-    endif
-endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting options of mksession.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
