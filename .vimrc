@@ -12,13 +12,13 @@
 "need more pep8 and py.test to code and test python 
 "sudo apt-get install vim-gnome 
 "make you can use the system clipboard "+p { the selection content "*p }
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vundle setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
- set nocompatible               " be iMproved                                       
- filetype on                   " required!                                         
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ set nocompatible               " be iMproved
+ filetype on                   " required!
 
- set rtp+=~/.vim/bundle/vundle/                                                     
+ set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
 
  " let Vundle manage Vundle
@@ -35,7 +35,11 @@
  Bundle 'TxtBrowser'
  Bundle 'AutoComplPop'
  Bundle 'snipMate'
+ Bundle 'scrooloose/syntastic.git'
  Bundle 'mru.vim'
+ Bundle 'surround.vim'
+ Bundle 'repeat.vim'
+ Bundle 'mileszs/ack.vim.git'
 "pytest.vim  A simple way of running your tests (with py.test) from within VIM
  Bundle "alfredodeza/pytest.vim.git"
  "need install pep8 yum install Python-pep8"
@@ -44,8 +48,6 @@
  Bundle 'pyflakes.vim'
  Bundle 'python.vim'
  Bundle 'sontek/rope-vim.git'
- Bundle 'surround.vim'
- Bundle 'mileszs/ack.vim.git'
  Bundle 'vim-scripts/Pydiction.git'                                                                                                                                          
  "tasklist.vim : mark some of your code as TODO or FIXME!
  Bundle 'vim-scripts/TaskList.vim.git'           
@@ -106,10 +108,13 @@ noremap <C-L> <C-W>l
 let mapleader = ","
 let g:mapleader = ","
 noremap  <leader>w      :w<CR>
+noremap  <leader>f      :Ack 
+noremap  <leader>gs     :Git status<CR>
+noremap  <leader>ga     :Git add -A .<CR>
+noremap  <leader>gc     :Git commit -m "
 noremap  <leader>q      :q<CR>
 noremap  <leader>!      :w !sudo tee % >/dev/null<CR>
 noremap  <leader>tf     :set fileencoding=utf-8<cr>:w<cr>
-noremap  <leader>r      :! ./% <CR>
 noremap  <leader>e      :MRU<CR>
 noremap  <leader>l      :set nohls!<CR>
 noremap  <leader>n      :NERDTreeToggle<CR>
@@ -244,7 +249,7 @@ map <leader>r :RopeRename<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "pydict
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:pydiction_location='~/.vim/bundle/Pydiction/complete-dict'
+let g:pydiction_location='~/.vim/bundle/Pydiction/complete-dict'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "mru
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
