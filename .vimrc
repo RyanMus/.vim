@@ -107,7 +107,10 @@ noremap <C-H> <C-W>h
 noremap <C-L> <C-W>l
 let mapleader = ","
 let g:mapleader = ","
+noremap  en      :cn<CR>
+noremap  ep      :cp<CR>
 noremap  <leader>w      :w<CR>
+noremap  <leader>!      :w !sudo tee "%"<CR>
 noremap  <leader>f      :Ack 
 noremap  <leader>gs     :Git status<CR>
 noremap  <leader>ga     :Git add -A .<CR>
@@ -315,7 +318,7 @@ let g:SuperTabDefaultCompletionType = "context"
 "result or exited the completion mode, the default completion type is restored.
 set completeopt=menu,preview,longest
 let g:SuperTabLongestEnhanced =1
-let g:SuperTabLongestHighlight = '0' "若设置为1 ,预先选中一个补全选项,可以直接回车使用这个补全选项
+let g:SuperTabLongestHighlight = '1' "若设置为1 ,预先选中一个补全选项,可以直接回车使用这个补全选项
 let g:SuperTabMidWordCompletion = '0' "禁止在字中间启用completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " omincomplete
@@ -343,10 +346,11 @@ hi wildmenu        ctermbg=magenta
 hi modemsg         ctermfg=1
 "hi CursorLine     ctermfg=DarkYellow  guibg=DarkYellow
 "设置自动补全跳出菜单颜色,pmenusel是选择时的颜色.note:guifg guibg only effected when vim has the gui
-hi Pmenu           ctermbg=7 ctermfg=0  cterm=reverse
-hi PmenuSel        ctermbg=Magenta ctermfg=0 
-hi Pmenu           guibg=yellow guifg=black  cterm=reverse
-hi PmenuSel        guifg=black guibg=Magenta
+hi! Pmenu           ctermbg=7 ctermfg=0  cterm=reverse
+hi! PmenuSel        ctermbg=Magenta ctermfg=0 
+hi! Pmenu           guibg=yellow guifg=black  cterm=reverse
+hi! PmenuSel        guifg=black guibg=Magenta
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "TxtBrowser的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -364,7 +368,7 @@ noremap <leader>g  <ESC>:TGoto<CR>
 "程序相关的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
-autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql cindent textwidth=79 
+autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql textwidth=79 
 autocmd FileType c,cpp,java,perl,sh set foldmethod=indent foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 "highlight characters after column 80.
 autocmd FileType c,cpp,python :match IncSearch /\%>79v.\+/  
