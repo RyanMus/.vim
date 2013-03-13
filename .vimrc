@@ -170,6 +170,12 @@ set viminfo+=!                   " make sure it can save viminfo 确保命令历
 set autoread                     " Set to auto read when a file is changed from the outside
 set autochdir                    "Auto change the global dir of the current windows
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"abbrevation
+abb echor echo -e "\033[31m msg \033[0m"  
+abb echop echo -e "\033[45m msg \033[0m"
+abb echob echo -e "\033[44m msg \033[0m"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "For windows and gui
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if (has("win32") || has("win64") || has("win32unix"))
