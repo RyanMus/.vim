@@ -235,8 +235,6 @@ endfunction
 iab idate <c-r>=strftime("%Y-%m-%d")<CR>
 iab inow  <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
 iab imail lijun877@gmail.com
-" 自动完成括号和引号
-autocmd Filetype python  abb pdb import pdb; pdb.set_trace()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting options of mksession.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -310,7 +308,7 @@ let NERDTreeShowLineNumbers=0
 let NERDTreeWinSize = 22
 " A 可使NERDTree窗口最大化Toggle it.
 "过滤文件,使用正则表达式
-let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.ini','\.lnk','\.xlsx','\.tar.gz','\.tgz','\.zip']
+let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.lnk','\.xlsx','\.tar.gz','\.tgz','\.zip']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 自动补全设置supertab snippmate omincomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -368,6 +366,7 @@ noremap <leader>g  <ESC>:TGoto<CR>
 "程序相关的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
+autocmd Filetype python  abb pdb import pdb; pdb.set_trace()
 autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql textwidth=79 
 autocmd FileType c,cpp,java,perl,sh set foldmethod=indent foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 "highlight characters after column 80.
