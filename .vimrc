@@ -37,6 +37,7 @@
     Bundle 'mru.vim'
     Bundle 'surround.vim'
     Bundle 'repeat.vim'
+    Bundle 'ksauzz/haproxy.vim.git'
     Bundle 'mileszs/ack.vim.git'
     "pytest.vim  A simple way of running your tests (with py.test) from within VIM
     Bundle "alfredodeza/pytest.vim.git"
@@ -112,9 +113,8 @@
         noremap  <leader>!      :w !sudo tee "%"<CR>
         noremap  <leader>x      :PyLintAuto<CR>
         noremap  <leader>f      :Ack 
-        noremap  <leader>gs     :Git status<CR>
-        noremap  <leader>ga     :Git add -A .<CR>
-        noremap  <leader>gc     :Git commit -m "
+        noremap  cn             :cn<CR>
+        noremap  cp             :cp<CR>
         noremap  <leader>q      :q<CR>
         noremap  <leader>!      :w !sudo tee % >/dev/null<CR>
         noremap  <leader>8     :set fileencoding=utf-8<cr>:w<cr>
@@ -335,14 +335,14 @@
 
 "{{{ omincomplete
     "set ofu=syntaxcomplete#Complete
-    autocmd FileType python set omnifunc=pythoncomplete#Complete
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType python runtime! autoload/pythoncomplete.vim
-    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-    autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-    autocmd FileType c set omnifunc=ccomplete#Complete
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+    autocmd FileType c setlocal omnifunc=ccomplete#Complete
 "}}}
 
 "{{{The Colors
@@ -363,12 +363,10 @@
     hi! PmenuSel        guifg=black guibg=Magenta
 "}}}
 
-
 "{{{TxtBrowser的设定
     au BufRead,BufNewFile *.pp setlocal ft=pp 
-    au BufRead,BufNewFile *  setfiletype txt
-    au BufRead,BufNewFile *.log setlocal ft=txt 
-    au FileType txt set formatoptions=tcr2mB nocindent textwidth=79 nofoldenable  comments& 
+    au BufRead,BufNewFile *.log set ft=txt 
+    au FileType txt setlocal formatoptions=tcr2mB nocindent textwidth=79 nofoldenable  comments& 
     let g:default_web_browser='firefox'
     "若firefox出现,already running cannot open new windows的错误时.先关闭firefox然后删除 "~/.mozilla/firefox/.parentlock 这个文件即可
     let TxtBrowser_Title_Level = 3 "定义标题级数
@@ -377,16 +375,15 @@
     noremap <leader>g  <ESC>:TGoto<CR>
 "}}}
 
-
 "{{{程序相关的设定
     "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
     autocmd Filetype python  abb pdb import pdb; pdb.set_trace()
-    autocmd FileType python set foldmethod=indent foldlevel=99 formatoptions=croql textwidth=79 
-    autocmd FileType c,cpp,java,perl,sh set foldmethod=indent foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
+    autocmd FileType python setlocal foldmethod=indent foldlevel=99 formatoptions=croql textwidth=79 
+    autocmd FileType c,cpp,java,perl,sh setlocal foldmethod=marker foldmark={,} foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
     "highlight characters after column 80.
     autocmd FileType c,cpp,python :match IncSearch /\%>79v.\+/  
 "}}}
-"
+
 " Python-Mode {{{
 
 let g:pymode_rope_autoimport_modules = ["os", "shutil", "datetime"]
@@ -397,6 +394,7 @@ let g:pymode_rope_goto_def_newwin = 0
 let g:pymode_rope_always_show_complete_menu = 0
 
 " }}}
+
 " Fugitive {{{
 
 nnoremap <leader>gd :Gdiff<cr>
@@ -404,20 +402,14 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>ga :Gadd<cr>
 nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gco :Gcheckout<cr>
-nnoremap <leader>gci :Gcommit<cr>
+nnoremap <leader>gr :Gread<cr>
+nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gm :Gmove<cr>
-nnoremap <leader>gr :Gremove<cr>
-nnoremap <leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
+nnoremap <leader>gl :! git gl -18<cr>:wincmd \|<cr>
 
 augroup ft_fugitive
     au!
 
     au BufNewFile,BufRead .git/index setlocal nolist
 augroup END
-
-" "Hub"
-nnoremap <leader>H :Gbrowse<cr>
-vnoremap <leader>H :Gbrowse<cr>
-
-" }}}
+"}}}
