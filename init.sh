@@ -1,6 +1,6 @@
 #!/bin/bash
 git config --global http.sslVerify false
-yum install  -y ack python-pep8 cscope python-devel bc ncurses-devel make gcc glibc wget unzip
+yum install  -y ack python-pep8 cscope python-devel bc ncurses-devel make gcc glibc wget unzip ctags
 version=`vim  --version |head -1 |awk '{print $5}' |tr -d [[:alpha:]]`
 #if vim version little than 7.3 install the lastest version
 iflatest=`echo "$version >= 7.3"|bc`
