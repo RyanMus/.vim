@@ -32,3 +32,4 @@ env GIT_SSL_NO_VERIFY=true git clone https://github.com/gmarik/vundle.git ~/.vim
 ln -s .vim/.vimrc 
 #execute command bundleInstall in vim 
 vim -c "BundleInstall"
+sed -i 's/<Leader>t/<Leader>ts/' ~/.vim/bundle/TaskList.vim/plugin/tasklist.vim
