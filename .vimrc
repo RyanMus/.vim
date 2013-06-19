@@ -379,7 +379,7 @@
     "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
     autocmd Filetype python  abb pdb import pdb; pdb.set_trace()
     autocmd FileType python setlocal foldmethod=indent foldlevel=99 formatoptions=croql textwidth=79 
-    autocmd FileType c,cpp,java,perl,sh setlocal foldmethod=marker foldmark={,} foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
+    autocmd FileType c,cpp,java,perl,sh setlocal foldmethod=marker foldmarker={,} foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
     "highlight characters after column 80.
     autocmd FileType c,cpp,python :match IncSearch /\%>79v.\+/  
 "}}}
