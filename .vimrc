@@ -369,6 +369,7 @@
     autocmd Filetype python  abb pdb import pdb; pdb.set_trace()
     autocmd FileType python setlocal foldmethod=indent foldlevel=99 formatoptions=croql textwidth=79 
     autocmd FileType c,cpp,java,perl,sh setlocal foldmethod=marker foldmarker={,} foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
+    autocmd FileType vim setlocal  foldmethod=marker foldmarker={{{,}}}
     "highlight characters after column 80.
     autocmd FileType c,cpp,python :match IncSearch /\%>79v.\+/  
 "}}}
