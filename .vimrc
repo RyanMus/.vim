@@ -30,7 +30,7 @@
     "non github repos
     "require Exuberant ctags for the taglist.vim  sudo apt-get install exuberant-ctags
     Bundle 'taglist.vim'
-    Bundle 'TxtBrowser'
+    "Bundle 'TxtBrowser'
     Bundle 'AutoComplPop'
     Bundle 'snipMate'
     Bundle 'scrooloose/syntastic.git'
@@ -259,7 +259,7 @@
 
     "{{{rope-vim settings" 
         map <leader>d :RopeGotoDefinition<CR>
-        nnoremap <leader>r :RopeRename<CR>
+        nnoremap <leader>m :RopeRename<CR>
 "}}}
 
 "{{{pydict
@@ -363,17 +363,6 @@
     hi! PmenuSel        guifg=black guibg=Magenta
 "}}}
 
-"{{{TxtBrowser的设定
-    au BufRead,BufNewFile *.pp setlocal ft=pp 
-    au BufRead,BufNewFile *.log set ft=txt 
-    au FileType txt setlocal formatoptions=tcr2mB nocindent textwidth=79 nofoldenable  comments& 
-    let g:default_web_browser='firefox'
-    "若firefox出现,already running cannot open new windows的错误时.先关闭firefox然后删除 "~/.mozilla/firefox/.parentlock 这个文件即可
-    let TxtBrowser_Title_Level = 3 "定义标题级数
-    let TxtBrowser_Dict_Url='http://www.iciba.com/text' "定义单词搜索引擎
-    au filetype txt let Tlist_Sort_Type = "order"
-    noremap <leader>g  <ESC>:TGoto<CR>
-"}}}
 
 "{{{程序相关的设定
     "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
@@ -392,6 +381,17 @@ let g:pymode_rope_vim_completion = 1
 let g:pymode_rope_guess_project = 1
 let g:pymode_rope_goto_def_newwin = 0
 let g:pymode_rope_always_show_complete_menu = 0
+let g:pymode_run_key = '<leader>r'
+" Key for set/unset breakpoint
+let g:pymode_breakpoint_key = '<leader>b'
+
+
+" Highlight "print" as function
+let g:pymode_syntax_print_as_function = 1
+
+" Enable pymode's custom syntax highlighting
+let g:pymode_syntax = 1
+
 
 " }}}
 
