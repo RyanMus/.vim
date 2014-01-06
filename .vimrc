@@ -30,6 +30,13 @@
     "non github repos
     "require Exuberant ctags for the taglist.vim  sudo apt-get install exuberant-ctags
     Bundle 'taglist.vim'
+    Bundle 'rayburgemeestre/phpfolding.vim'
+    Bundle 'tomtom/checksyntax_vim'
+    Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'php.vim'
+    Bundle 'Shougo/vimproc.vim'
+    Bundle 'Shougo/unite.vim'
+    Bundle 'm2mdas/phpcomplete-extended'
     "Bundle 'TxtBrowser'
     Bundle 'AutoComplPop'
     Bundle 'snipMate'
@@ -37,7 +44,6 @@
     Bundle 'mru.vim'
     Bundle 'surround.vim'
     Bundle 'repeat.vim'
-    Bundle 'ksauzz/haproxy.vim.git'
     Bundle 'mileszs/ack.vim.git'
     "pytest.vim  A simple way of running your tests (with py.test) from within VIM
     Bundle "alfredodeza/pytest.vim.git"
@@ -324,6 +330,7 @@
 
 "{{{ 自动补全设置supertab snippmate omincomplete
     "let g:SuperTabDefaultCompletionType = "context"
+    "let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     let g:SuperTabDefaultCompletionType = "<c-n>"
     "result or exited the completion mode, the default completion type is restored.
     set completeopt=longest,menuone,preview
@@ -341,7 +348,8 @@
     autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+    "autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+    autocmd FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
     autocmd FileType c setlocal omnifunc=ccomplete#Complete
 "}}}
 
