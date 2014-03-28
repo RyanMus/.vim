@@ -36,21 +36,18 @@
     Bundle 'php.vim'
     Bundle 'Shougo/vimproc.vim'
     Bundle 'Shougo/unite.vim'
-    Bundle 'm2mdas/phpcomplete-extended'
+    "Bundle 'm2mdas/phpcomplete-extended'
     "Bundle 'TxtBrowser'
     Bundle 'AutoComplPop'
     Bundle 'snipMate'
     Bundle 'scrooloose/syntastic.git'
     Bundle 'mru.vim'
     Bundle 'surround.vim'
-    Bundle 'repeat.vim'
     Bundle 'mileszs/ack.vim.git'
     "pytest.vim  A simple way of running your tests (with py.test) from within VIM
     Bundle "alfredodeza/pytest.vim.git"
     "need install pep8 yum install Python-pep8"
-    Bundle 'python.vim'
     Bundle 'klen/python-mode'
-    Bundle 'sontek/rope-vim.git'
     Bundle 'vim-scripts/Pydiction.git'                                                                                                                                          
     "tasklist.vim : mark some of your code as TODO or FIXME!
     Bundle 'vim-scripts/TaskList.vim.git'           
@@ -117,8 +114,7 @@
         noremap  ep      :cp<CR>
         noremap  <leader>w      :w<CR>
         noremap  <leader>!      :w !sudo tee "%"<CR>
-        noremap  <leader>x      :PyLintAuto<CR>
-        noremap  <leader>f      :Ack 
+        noremap  <leader>x      :PymodeLintAuto<CR>
         noremap  cn             :cn<CR>
         noremap  cp             :cp<CR>
         noremap  <leader>q      :q<CR>
@@ -263,11 +259,6 @@
         autocmd! bufwritepost *.vimrc source $HOME/.vimrc
     "}}}
 
-    "{{{rope-vim settings" 
-        map <leader>d :RopeGotoDefinition<CR>
-        nnoremap <leader>m :RopeRename<CR>
-"}}}
-
 "{{{pydict
     let g:pydiction_location='~/.vim/bundle/Pydiction/complete-dict'
 "}}}
@@ -371,7 +362,6 @@
     hi! PmenuSel        guifg=black guibg=Magenta
 "}}}
 
-
 "{{{程序相关的设定
     "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
     autocmd Filetype python  abb pdb import pdb; pdb.set_trace()
@@ -386,22 +376,26 @@
 
 let g:pymode_rope_autoimport_modules = ["os", "shutil", "datetime"]
 let g:pymode_lint_cwindow = 0 "do not open quikfix windows when find error
+let g:pymode_lint_ignore = "C010"
 let g:pymode_rope_vim_completion = 1
 let g:pymode_rope_guess_project = 1
 let g:pymode_rope_goto_def_newwin = 0
+let g:pymode_rope_autoimport_import_after_complete = 0
 let g:pymode_rope_always_show_complete_menu = 0
 let g:pymode_run_key = '<leader>r'
+let g:pymode_rope_goto_definition_bind = '<leader>d'
+let g:pymode_rope_goto_definition_cmd = 'new'
 " Key for set/unset breakpoint
 let g:pymode_breakpoint_key = '<leader>b'
-
-
+let g:pymode_rope_rename_bind = '<leader>rn'
 " Highlight "print" as function
 let g:pymode_syntax_print_as_function = 1
-
+let g:pymode_rope = 1
+let g:pymode_rope_regenerate_on_write = 1
+let g:pymode_rope_completion_bind = '<Tab>'
+let g:pymode_folding = 1
 " Enable pymode's custom syntax highlighting
 let g:pymode_syntax = 1
-
-
 " }}}
 
 " Fugitive {{{
