@@ -416,3 +416,4 @@ augroup ft_fugitive
     au BufNewFile,BufRead .git/index setlocal nolist
 augroup END
 "}}}
+hi Folded               ctermfg=gray        ctermbg=Black           cterm=bold
