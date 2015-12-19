@@ -1,4 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/etc/libvirt/qemu'
-let g:netrw_dirhist_2='/etc/httpd/conf'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/lijunya/codelife/xqj/trunk/web/channels'
+let g:netrw_dirhist_2='/Users/lijunya/codelife/xqj/trunk/web/channels/api.open.xqj18.com'
+let g:netrw_dirhist_3='/Users/lijunya/codelife/xqj/trunk/web/channels/api.open.xqj18.com/application'
+let g:netrw_dirhist_4='/Users/lijunya/codelife/xqj/trunk/web/channels/api.open.xqj18.com/application/controllers'

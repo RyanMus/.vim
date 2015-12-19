@@ -1,17 +1,3 @@
-"""""""""""""""""""""""""""
-"Install 
-""""""""""""
-"1. yum install  -y ack python-pep8 cscope python-devel
-"2. env GIT_SSL_NO_VERIFY=true git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-"3. execute command bundleInstall! in vim 
-"if encounter error :
-    "git config --global http.sslVerify false
-"require vim7.3 and python2.7 so compile vim with python's path 
-"4. ./configure --prefix=/usr/local --enable-multibyte --with-features=big --disable-selinux --enable-pythoninterp --with-python-config-dir=/usr/local/lib/python2.7/config/  --enable-gui=no  
-"5. echo "alias vim='/usr/local/bin/vim'" >> /etc/bashrc ; source /etc/bashrc
-"need more pep8 and py.test to code and test python 
-"sudo apt-get install vim-gnome 
-"make you can use the system clipboard "+p { the selection content "*p }
 "{{{vundle setting
     set nocompatible               " be iMproved
     filetype on                   " required!
@@ -22,43 +8,51 @@
     " let Vundle manage Vundle
      " required! 
     Bundle 'gmarik/vundle'
-
-    " My Bundles here:
-    "
-    " original repos on github
     Bundle 'tpope/vim-fugitive'
     "non github repos
-    "require Exuberant ctags for the taglist.vim  sudo apt-get install exuberant-ctags
     Bundle 'taglist.vim'
-    Bundle 'rayburgemeestre/phpfolding.vim'
-    Bundle 'tomtom/checksyntax_vim'
-    Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'php.vim'
-    Bundle 'Shougo/vimproc.vim'
     Bundle 'Shougo/unite.vim'
-    "Bundle 'm2mdas/phpcomplete-extended'
-    "Bundle 'TxtBrowser'
-    Bundle 'AutoComplPop'
-    Bundle 'snipMate'
-    Bundle 'scrooloose/syntastic.git'
-    Bundle 'mru.vim'
-    Bundle 'surround.vim'
-    Bundle 'mileszs/ack.vim.git'
-    "pytest.vim  A simple way of running your tests (with py.test) from within VIM
-    Bundle "alfredodeza/pytest.vim.git"
-    "need install pep8 yum install Python-pep8"
-    Bundle 'klen/python-mode'
-    Bundle 'vim-scripts/Pydiction.git'                                                                                                                                          
-    "tasklist.vim : mark some of your code as TODO or FIXME!
-    Bundle 'vim-scripts/TaskList.vim.git'           
-    "Gundo is a Vim plugin for visualizing your undo tree to make it usable.  need vim7.3 and python support.
-    Bundle 'Gundo'
-    Bundle 'ervandew/supertab.git'
-    Bundle 'The-NERD-tree'
-    "Bundle 'closetag.vim'
-    Bundle 'matchit.zip'
-    Bundle 'lambacck/python_matchit.git'
-"}}}
+    Bundle 'easymotion/vim-easymotion'
+
+    "{{{ for easymotion move fast 
+        map  / <Plug>(easymotion-sn)
+        omap / <Plug>(easymotion-tn)
+        map  n <Plug>(easymotion-next)
+        map  N <Plug>(easymotion-prev)
+        nmap w <Plug>(easymotion-w)
+        nmap b <Plug>(easymotion-b)
+        nmap s <Plug>(easymotion-sn)
+    "}}}
+
+    "{{{for php
+        Bundle 'php.vim'
+        "Bundle 'rayburgemeestre/phpfolding.vim'
+        "Bundle 'm2mdas/phpcomplete-extended'
+    "}}}
+
+    "{{{for python
+        "need install pep8 yum install Python-pep8"
+        Bundle 'klen/python-mode'
+        Bundle 'vim-scripts/Pydiction.git'     
+        Bundle 'lambacck/python_matchit.git'
+    "}}} 
+
+    "{{{ "productivly
+        Bundle 'scrooloose/syntastic.git'
+        Bundle "vim-scripts/matchit.zip"
+        Bundle 'mru.vim'
+        Bundle 'surround.vim'
+        "Gundo is a Vim plugin for visualizing your undo tree to make it usable.  need vim7.3 and python support.
+        Bundle 'Gundo'
+        Bundle 'mileszs/ack.vim.git'
+        Bundle 'The-NERD-tree'
+    "}}}
+
+    "{{{ autocomplete
+        Bundle 'ervandew/supertab.git'
+        "Bundle 'AutoComplPop'
+        Bundle 'snipMate'
+    "}}}
 
 "{{{The search options affect
     set showcmd	    	" Show (partial) command in status line.
@@ -81,8 +75,7 @@
     set number			
     set cursorline		
     set mouse=a		" Enable mouse usage (all modes)
-    set scrolloff=5 "始终保持光标上下有至少5行
-    set sidescroll=3 
+    set scrolloff=10 "始终保持光标上下有至少5行
     set sidescrolloff=10 
     set wmw=12 " set the min width of a window to 0 so we can maximize others
     set wmh=1 " set the min height of a window to 0 so we can maximize others
@@ -103,7 +96,6 @@
     "}}}
 
     "{{{the map leader shortcut and the keymap
-        inoremap jk <esc>
         noremap <C-J> <C-W>j
         noremap <C-K> <C-W>k
         noremap <C-H> <C-W>h
@@ -114,17 +106,14 @@
         noremap  ep      :cp<CR>
         noremap  <leader>w      :w<CR>
         noremap  <leader>!      :w !sudo tee "%"<CR>
-        noremap  <leader>x      :PymodeLintAuto<CR>
         noremap  cn             :cn<CR>
         noremap  cp             :cp<CR>
         noremap  <leader>q      :q<CR>
         noremap  <leader>!      :w !sudo tee % >/dev/null<CR>
         noremap  <leader>8     :set fileencoding=utf-8<cr>:w<cr>
         noremap  <leader>e      :MRU<CR>
-        noremap  <leader>l      :set nohls!<CR>
         noremap  <leader>n      :NERDTreeToggle<CR>
         noremap  <leader>t      :TlistToggle<CR>
-        noremap  <leader>td     :TaskList<CR>
         noremap  <leader>tp     :set paste!<CR>
         noremap  <leader>s     <Esc>:Ack!
         noremap =              <c-w>10+
@@ -187,67 +176,22 @@
         iab inow  <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
         iab imail lijun877@gmail.com
     "}}}
-
-    "{{{For windows and gui
-        if (has("win32") || has("win64") || has("win32unix"))
-            let g:isWin = 1
-        else
-            let g:isWin = 0
-        endif
-        if (g:isWin)
-            set lsp=0     "设置行距
-            set encoding=utf-8
-            set termencoding=utf-8
-            set fileencodings=ucs-bom,utf-8,chinese,gb2312
-            set langmenu=zh_CN.utf-8
-            source $VIMRUNTIME/delmenu.vim
-            source $VIMRUNTIME/menu.vim
-            language messages zh_cn.utf-8
-            "set guifont=Courier_New:h10:cANSI            "英文字体 字符集可以省略不写
-            set guifont=Lucida_Sans_Typewriter:h10.5w6.5:cANSI  "英文字体 字符集可以省略不写.空格用_代替,h字高,w字宽.float型
-            set guifontwide="幼圆:h11w2:cGB2312"                "中文字体，字体大小，字符集
-            let Tlist_Ctags_Cmd='c:\ctags58\ctags.exe'
-        endif
-
-        if has("gui_running")
-            let g:isGUI = 1
-            set guioptions=
-            set guitablabel=%N:\ %f "tab栏显示的格式:位置:文件名
-            set t_Co=256
-            set background=dark
-            set linespace=5 "row space.
-            set linespace=3 "row space.(两行的间距, 只对gvim有效.)
-            "Ctrl+S实现保存，如果未命名文件名会提示你选择保存路径和文件名
-            map <silent> <C-S> :if expand("%") == ""<CR>:browse confirm w<CR>:else<CR>:confirm w<CR>:endif<CR>
-            "set guifont=DejaVu\ Sans\ Mono:11
-            "set guifontwide=文泉驿等宽微米黑:11
-            hi StatusLine      guifg=yellow gui=reverse,bold guibg=black
-            hi StatusLineNC    guifg=lightgray gui=reverse,bold guibg=black
-        else
-            let g:isGUI = 0
-        endif
-
-        let g:vimim_disable_chinese_punctuation=1
-        let g:vimim_disable_seamless_english_input=1
-        " paste from clipboard
-        if (g:isWin)
-            function! Yank()
-                execute "normal \"+y"
-            endfunction
-        else
-            function! Yank()
-                execute "normal \"*y"
-            endfunction
-        endif
-        noremap Y            <ESC>:call Yank()<CR><ESC>
-        noremap <leader>p     <ESC>:call Paste()<CR><ESC>
-        noremap <leader>y     "+yy
-        function! Paste()
-            execute "set paste"
-            execute "normal \"+p"
-            execute "normal l"
-            execute "set nopaste"
-        endfunction
+    let g:vimim_disable_chinese_punctuation=1
+    let g:vimim_disable_seamless_english_input=1
+    " paste from clipboard
+    function! Yank()
+        execute "normal \"+y"
+    endfunction
+    function! Paste()
+        execute "set paste"
+        execute "normal \"+p"
+        execute "normal l"
+        execute "set nopaste"
+    endfunction
+    
+    noremap Y            <ESC>:call Yank()<CR><ESC>
+    noremap <leader>p     <ESC>:call Paste()<CR><ESC>
+    noremap <leader>y     "+yy
     "}}}
 
     "{{{setting options of mksession.
@@ -278,7 +222,7 @@
 
 "{{{ CTags的设定
     "ctags的bin文件路径
-    let Tlist_Ctags_Cmd='/usr/bin/ctags'
+    "let Tlist_Ctags_Cmd='/usr/bin/ctags'
     " 按照名称排序
     let Tlist_Sort_Type = "name"
     " 在右侧显示窗口
@@ -288,15 +232,15 @@
     " 如果只有一个buffer，kill窗口也kill掉buffer
     let Tlist_Exit_OnlyWindow = 1
     "auto open Tlist when vim open
-    let Tlist_Auto_Open = 0 
+    "let Tlist_Auto_Open = 0 
     " 不要显示折叠树
     let Tlist_Enable_Fold_Column = 0
     " taglist 窗口宽度
-    let Tlist_WinWidth = 22
+    let Tlist_WinWidth = 27
     " no inc the width of the windows
     let Tlist_Inc_Winwidth = 1 
     " Close tag folds for inactive buffers.
-    let Tlist_File_Fold_Auto_Close = 1 
+    let Tlist_File_Fold_Auto_Close = 0 
     "To process files even when the taglist window is not open.
     let Tlist_Process_File_Always = 1
     "display the tags defined only in the current buffer
@@ -313,7 +257,7 @@
     " 总是显示行号
     let NERDTreeShowLineNumbers=0
     " NERDTree 窗口大小
-    let NERDTreeWinSize = 22
+    let NERDTreeWinSize = 25
     " A 可使NERDTree窗口最大化Toggle it.
     "过滤文件,使用正则表达式
     let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.lnk','\.xlsx','\.tar.gz','\.tgz','\.zip']
@@ -321,25 +265,23 @@
 
 "{{{ 自动补全设置supertab snippmate omincomplete
     "let g:SuperTabDefaultCompletionType = "context"
-    "let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-    let g:SuperTabDefaultCompletionType = "<c-n>"
+    let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+    "let g:SuperTabDefaultCompletionType = "<c-n>"
     "result or exited the completion mode, the default completion type is restored.
     set completeopt=longest,menuone,preview
     set complete=.,w,b,u,t
     let g:SuperTabLongestEnhanced =1
     let g:SuperTabLongestHighlight = '1' "若设置为1 ,预先选中一个补全选项,可以直接回车使用这个补全选项
-    let g:SuperTabMidWordCompletion = '0' "禁止在字中间启用completion
+    let g:SuperTabMidWordCompletion = '1' "禁止在字中间启用completion
 "}}}
 
 "{{{ omincomplete
-    "set ofu=syntaxcomplete#Complete
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType python runtime! autoload/pythoncomplete.vim
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    "autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
     autocmd FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
     autocmd FileType c setlocal omnifunc=ccomplete#Complete
 "}}}
@@ -349,9 +291,8 @@
     " 状态行颜色
     hi StatusLine      guifg=yellow guibg=black gui=reverse,bold 
     hi StatusLine      ctermfg=yellow  cterm=bold,reverse
-    hi search          ctermfg=black ctermbg=Magenta 
-    hi search          guifg=black guibg=Magenta 
-    hi wildmenu        ctermbg=magenta
+    hi search          ctermfg=black ctermbg=green 
+    hi wildmenu        ctermbg=green
     "当前窗口的状态栏颜色
     hi modemsg         ctermfg=1
     "hi CursorLine     ctermfg=DarkYellow  guibg=DarkYellow
@@ -373,7 +314,6 @@
 "}}}
 
 " Python-Mode {{{
-
 let g:pymode_rope_autoimport_modules = ["os", "shutil", "datetime"]
 let g:pymode_lint_cwindow = 0 "do not open quikfix windows when find error
 let g:pymode_lint_ignore = "C010"
@@ -398,6 +338,23 @@ let g:pymode_folding = 1
 let g:pymode_syntax = 1
 " }}}
 
+" syntastic setting {{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"check for php
+let g:syntastic_php_checkers = ['php', 'phpcs']
+
+"check for python
+let g:syntastic_python_checkers = ['pylint','pep8']
+"}}}
+
 " Fugitive {{{
 
 nnoremap <leader>gd :Gdiff<cr>
@@ -416,4 +373,3 @@ augroup ft_fugitive
     au BufNewFile,BufRead .git/index setlocal nolist
 augroup END
 "}}}
-hi Folded               ctermfg=gray        ctermbg=Black           cterm=bold
