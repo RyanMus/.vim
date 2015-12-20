@@ -10,7 +10,6 @@
     Bundle 'gmarik/vundle'
     Bundle 'tpope/vim-fugitive'
     Bundle 'taglist.vim'
-    Bundle 'Shougo/unite.vim'
     Bundle 'easymotion/vim-easymotion'
     Bundle 'Shougo/neocomplete.vim'
     Bundle 'Shougo/neosnippet'
@@ -59,11 +58,6 @@
         Bundle 'Gundo'
         Bundle 'mileszs/ack.vim.git'
         Bundle 'The-NERD-tree'
-    "}}}
-
-    "{{{ autocomplete
-        "Bundle 'ervandew/supertab.git'
-        Bundle 'snipMate'
     "}}}
 
 "{{{The search options affect
@@ -314,9 +308,9 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "{{{ for neosnippet 
 " Plugin key-mappings.
 
-imap <C-l>     <Plug>(neosnippet_expand_or_jump)
-smap <C-l>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-l>     <Plug>(neosnippet_expand_target)
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 "imap <expr><TAB>
