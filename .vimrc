@@ -93,22 +93,6 @@
     set wmh=1 " set the min height of a window to 0 so we can maximize others
 "}}}
 
-"{{{statusline set
-    hi StatusLine      guifg=yellow guibg=black gui=reverse,bold 
-    hi StatusLine      ctermfg=yellow  cterm=bold,reverse
-    set laststatus=2    " always show the status line
-    set wildmenu
-    set wildmode=list:longest,full
-    " ignore these list file extensions
-    set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,\*.jpg,*.gif,*.png,*.pdf
-    "设置状态行，使其能额外显示文件的编码信息 
-    set statusline=\ %F\ %m%<%r\ \ %10l/%L:%c\->%p%%\ \ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",bom\":\"\")}]\ \ \ [%{&ff}/%Y]%<\ \ \ \ \ \ \ \ \ \ \ PWD:%{CurDir()}\ \ \ \ %{strftime('%H:%M\ %p')}\ \ \ \ \ \ \ %{fugitive#statusline()}
-    function! CurDir()
-        let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
-            return curdir
-        endfunction
-    "}}}
-
     "{{{the map leader shortcut and the keymap
         let mapleader = ","
         let g:mapleader = ","
@@ -422,4 +406,18 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
         au!
         au BufNewFile,BufRead .git/index setlocal nolist
     augroup END
+"}}}
+"{{{statusline set
+    hi StatusLine      ctermfg=yellow  cterm=bold,reverse
+    set laststatus=2    " always show the status line
+    set wildmenu
+    set wildmode=list:longest,full
+    " ignore these list file extensions
+    set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,\*.jpg,*.gif,*.png,*.pdf
+    "设置状态行，使其能额外显示文件的编码信息 
+    set statusline=\ %F\ %m%<%r\ \ %10l/%L:%c\->%p%%\ \ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",bom\":\"\")}]\ \ \ [%{&ff}/%Y]%<\ \ \ \ \ \ \ \ \ \ \ PWD:%{CurDir()}\ \ \ \ %{strftime('%H:%M\ %p')}\ \ \ \ \ \ \ %{fugitive#statusline()}
+    function! CurDir()
+        let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
+            return curdir
+        endfunction
 "}}}
