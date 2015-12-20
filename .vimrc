@@ -9,10 +9,14 @@
      " required! 
     Bundle 'gmarik/vundle'
     Bundle 'tpope/vim-fugitive'
-    "non github repos
     Bundle 'taglist.vim'
     Bundle 'Shougo/unite.vim'
     Bundle 'easymotion/vim-easymotion'
+    Bundle 'Shougo/neocomplete.vim'
+    Bundle 'Shougo/neosnippet'
+    Bundle 'Shougo/neosnippet-snippets'
+    Bundle 'ctrlpvim/ctrlp.vim'
+    Bundle 'rizzatti/dash.vim'
 
     "{{{ for easymotion move fast 
         map  / <Plug>(easymotion-sn)
@@ -24,16 +28,25 @@
         nmap s <Plug>(easymotion-sn)
     "}}}
 
+    "{{{ for ctrlp 
+        let g:ctrlp_by_filename = 1
+        let g:ctrlp_open_new_file = 'v'
+        let g:ctrlp_open_multiple_files = 'v'
+        let g:ctrlp_working_path_mode = 'ra'
+		set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+		let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+        let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+    "}}}
+
     "{{{for php
         Bundle 'php.vim'
-        "Bundle 'rayburgemeestre/phpfolding.vim'
+        Bundle 'rayburgemeestre/phpfolding.vim'
         "Bundle 'm2mdas/phpcomplete-extended'
     "}}}
 
     "{{{for python
         "need install pep8 yum install Python-pep8"
         Bundle 'klen/python-mode'
-        Bundle 'vim-scripts/Pydiction.git'     
         Bundle 'lambacck/python_matchit.git'
     "}}} 
 
@@ -49,8 +62,7 @@
     "}}}
 
     "{{{ autocomplete
-        Bundle 'ervandew/supertab.git'
-        "Bundle 'AutoComplPop'
+        "Bundle 'ervandew/supertab.git'
         Bundle 'snipMate'
     "}}}
 
@@ -82,6 +94,8 @@
 "}}}
 
 "{{{statusline set
+    hi StatusLine      guifg=yellow guibg=black gui=reverse,bold 
+    hi StatusLine      ctermfg=yellow  cterm=bold,reverse
     set laststatus=2    " always show the status line
     set wildmenu
     set wildmode=list:longest,full
@@ -96,52 +110,39 @@
     "}}}
 
     "{{{the map leader shortcut and the keymap
-        noremap <C-J> <C-W>j
-        noremap <C-K> <C-W>k
-        noremap <C-H> <C-W>h
-        noremap <C-L> <C-W>l
         let mapleader = ","
         let g:mapleader = ","
-        noremap  en      :cn<CR>
-        noremap  ep      :cp<CR>
         noremap  <leader>w      :w<CR>
         noremap  <leader>!      :w !sudo tee "%"<CR>
-        noremap  cn             :cn<CR>
-        noremap  cp             :cp<CR>
         noremap  <leader>q      :q<CR>
         noremap  <leader>!      :w !sudo tee % >/dev/null<CR>
-        noremap  <leader>8     :set fileencoding=utf-8<cr>:w<cr>
+        noremap  <leader>8      :set fileencoding=utf-8<cr>:w<cr>
         noremap  <leader>e      :MRU<CR>
         noremap  <leader>n      :NERDTreeToggle<CR>
+        nnoremap <leader>u      :GundoToggle<CR>
         noremap  <leader>t      :TlistToggle<CR>
         noremap  <leader>tp     :set paste!<CR>
-        noremap  <leader>s     <Esc>:Ack!
-        noremap =              <c-w>10+
-        noremap -              <c-w>10-
-        noremap <leader>>             <c-w>10>
-        noremap <leader><             <c-w>10<
+        noremap  <leader>s      <Esc>:Ack!
+        noremap  <leader>f      :CtrlP<CR>
+        noremap K               :Dash<CR>
+        noremap =               <c-w>10+
+        noremap -               <c-w>10-
+        noremap <leader>>       <c-w>10>
+        noremap <leader><       <c-w>10<
         noremap <C-n>           gt
         noremap <C-p>           gT
-        nnoremap <space>         za
-        vnoremap <space>         za
-        nnoremap n               nzz
-        nnoremap N               Nzz
+        nnoremap <space>        za
+        vnoremap <space>        za
         "tab for indent
         nmap <tab>         V>
         nmap <S-tab>       V<
         vmap <tab>         >gv
         vmap <S-tab>       <gv
-        "function like <c-w>f just open the file on new tab instead of current window
         map gf :tabnew <cfile><cr>
         "the shortcut  for cmdline like bash behavior
-        cnoremap <C-A>      <Home>
-        cnoremap <C-E>      <End>
-        cnoremap <C-K>      <C-U>
         cnoremap <C-P> <Up>
         cnoremap <C-N> <Down>
-        cnoremap <C-F> <Right>
         cnoremap <C-B> <Left>
-        cnoremap <C-D> <del>
         map 0 ^
     "}}}
 
@@ -178,20 +179,10 @@
     "}}}
     let g:vimim_disable_chinese_punctuation=1
     let g:vimim_disable_seamless_english_input=1
-    " paste from clipboard
-    function! Yank()
-        execute "normal \"+y"
-    endfunction
-    function! Paste()
-        execute "set paste"
-        execute "normal \"+p"
-        execute "normal l"
-        execute "set nopaste"
-    endfunction
-    
-    noremap Y            <ESC>:call Yank()<CR><ESC>
-    noremap <leader>p     <ESC>:call Paste()<CR><ESC>
-    noremap <leader>y     "+yy
+
+    vmap y :w !pbcopy<CR><CR>
+    nmap yy :.w !pbcopy<CR><CR>
+    nmap p :r !pbpaste<CR>
     "}}}
 
     "{{{setting options of mksession.
@@ -203,10 +194,6 @@
         autocmd! bufwritepost *.vimrc source $HOME/.vimrc
     "}}}
 
-"{{{pydict
-    let g:pydiction_location='~/.vim/bundle/Pydiction/complete-dict'
-"}}}
-
 "{{{mru
     let MRU_Max_Entries = 100
     let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'  " For Unix
@@ -217,7 +204,6 @@
     let g:gundo_preview_height = 20
     let g:gundo_right = 0
     let g:gundo_help = 0
-    nnoremap <leader>u :GundoToggle<CR>
 "}}}
 
 "{{{ CTags的设定
@@ -263,50 +249,116 @@
     let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.lnk','\.xlsx','\.tar.gz','\.tgz','\.zip']
 "}}}
 
-"{{{ 自动补全设置supertab snippmate omincomplete
-    "let g:SuperTabDefaultCompletionType = "context"
-    let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-    "let g:SuperTabDefaultCompletionType = "<c-n>"
-    "result or exited the completion mode, the default completion type is restored.
-    set completeopt=longest,menuone,preview
-    set complete=.,w,b,u,t
-    let g:SuperTabLongestEnhanced =1
-    let g:SuperTabLongestHighlight = '1' "若设置为1 ,预先选中一个补全选项,可以直接回车使用这个补全选项
-    let g:SuperTabMidWordCompletion = '1' "禁止在字中间启用completion
+"{{{ for neocomplete
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions',
+    \ 'css' : $VIMFILES.'/dict/css.dic',
+    \ 'php' : $VIMFILES.'/dict/php.dic',
+    \ 'javascript' : $VIMFILES.'/dict/javascript.dic'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+let g:neocomplete#enable_auto_select = 0
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "}}}
 
-"{{{ omincomplete
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType python runtime! autoload/pythoncomplete.vim
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
-    autocmd FileType c setlocal omnifunc=ccomplete#Complete
+
+"{{{ for neosnippet 
+" Plugin key-mappings.
+
+imap <C-l>     <Plug>(neosnippet_expand_or_jump)
+smap <C-l>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-l>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 "}}}
 
 "{{{The Colors
     colorscheme desert
     " 状态行颜色
-    hi StatusLine      guifg=yellow guibg=black gui=reverse,bold 
-    hi StatusLine      ctermfg=yellow  cterm=bold,reverse
     hi search          ctermfg=black ctermbg=green 
-    hi wildmenu        ctermbg=green
+    "hi wildmenu        ctermbg=green
     "当前窗口的状态栏颜色
-    hi modemsg         ctermfg=1
-    "hi CursorLine     ctermfg=DarkYellow  guibg=DarkYellow
+    "hi modemsg         ctermfg=1
     "设置自动补全跳出菜单颜色,pmenusel是选择时的颜色.note:guifg guibg only effected when vim has the gui
-    hi! Pmenu           ctermbg=7 ctermfg=0  cterm=reverse
+    hi! Pmenu           ctermbg=7 ctermfg=0  
     hi! PmenuSel        ctermbg=Magenta ctermfg=0 
-    hi! Pmenu           guibg=yellow guifg=black  cterm=reverse
-    hi! PmenuSel        guifg=black guibg=Magenta
 "}}}
 
 "{{{程序相关的设定
     "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
     autocmd Filetype python  abb pdb import pdb; pdb.set_trace()
-    autocmd FileType python setlocal foldmethod=indent foldlevel=99 formatoptions=croql textwidth=79 
+    autocmd FileType python php setlocal foldmethod=indent foldlevel=99 formatoptions=croql textwidth=79 
     autocmd FileType c,cpp,java,perl,sh setlocal foldmethod=marker foldmarker={,} foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
     autocmd FileType vim setlocal  foldmethod=marker foldmarker={{{,}}}
     "highlight characters after column 80.
@@ -314,62 +366,60 @@
 "}}}
 
 " Python-Mode {{{
-let g:pymode_rope_autoimport_modules = ["os", "shutil", "datetime"]
-let g:pymode_lint_cwindow = 0 "do not open quikfix windows when find error
-let g:pymode_lint_ignore = "C010"
-let g:pymode_rope_vim_completion = 1
-let g:pymode_rope_guess_project = 1
-let g:pymode_rope_goto_def_newwin = 0
-let g:pymode_rope_autoimport_import_after_complete = 0
-let g:pymode_rope_always_show_complete_menu = 0
-let g:pymode_run_key = '<leader>r'
-let g:pymode_rope_goto_definition_bind = '<leader>d'
-let g:pymode_rope_goto_definition_cmd = 'new'
-" Key for set/unset breakpoint
-let g:pymode_breakpoint_key = '<leader>b'
-let g:pymode_rope_rename_bind = '<leader>rn'
-" Highlight "print" as function
-let g:pymode_syntax_print_as_function = 1
-let g:pymode_rope = 1
-let g:pymode_rope_regenerate_on_write = 1
-let g:pymode_rope_completion_bind = '<Tab>'
-let g:pymode_folding = 1
-" Enable pymode's custom syntax highlighting
-let g:pymode_syntax = 1
+    let g:pymode_rope_autoimport_modules = ["os", "shutil", "datetime"]
+    let g:pymode_lint_cwindow = 0 "do not open quikfix windows when find error
+    let g:pymode_lint_ignore = "C010"
+    let g:pymode_rope_vim_completion = 1
+    let g:pymode_rope_guess_project = 1
+    let g:pymode_rope_goto_def_newwin = 0
+    let g:pymode_rope_autoimport_import_after_complete = 0
+    let g:pymode_rope_always_show_complete_menu = 0
+    let g:pymode_run_key = '<leader>r'
+    let g:pymode_rope_goto_definition_bind = '<leader>d'
+    let g:pymode_rope_goto_definition_cmd = 'new'
+    " Key for set/unset breakpoint
+    let g:pymode_breakpoint_key = '<leader>b'
+    let g:pymode_rope_rename_bind = '<leader>rn'
+    " Highlight "print" as function
+    let g:pymode_syntax_print_as_function = 1
+    let g:pymode_rope = 1
+    let g:pymode_rope_regenerate_on_write = 1
+    let g:pymode_rope_completion_bind = '<Tab>'
+    let g:pymode_folding = 1
+    " Enable pymode's custom syntax highlighting
+    let g:pymode_syntax = 1
 " }}}
 
 " syntastic setting {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
 
-"check for php
-let g:syntastic_php_checkers = ['php', 'phpcs']
+    "check for php
+    let g:syntastic_php_checkers = ['php', 'phpcs']
 
-"check for python
-let g:syntastic_python_checkers = ['pylint','pep8']
+    "check for python
+    let g:syntastic_python_checkers = ['pylint','pep8']
 "}}}
 
 " Fugitive {{{
+    nnoremap <leader>gd :Gdiff<cr>
+    nnoremap <leader>gs :Gstatus<cr>
+    nnoremap <leader>gw :Gwrite<cr>
+    nnoremap <leader>ga :Gadd<cr>
+    nnoremap <leader>gb :Gblame<cr>
+    nnoremap <leader>gr :Gread<cr>
+    nnoremap <leader>gc :Gcommit<cr>
+    nnoremap <leader>gm :Gmove<cr>
+    nnoremap <leader>gl :! git gl -18<cr>:wincmd \|<cr>
 
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>ga :Gadd<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gr :Gread<cr>
-nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>gm :Gmove<cr>
-nnoremap <leader>gl :! git gl -18<cr>:wincmd \|<cr>
-
-augroup ft_fugitive
-    au!
-
-    au BufNewFile,BufRead .git/index setlocal nolist
-augroup END
+    augroup ft_fugitive
+        au!
+        au BufNewFile,BufRead .git/index setlocal nolist
+    augroup END
 "}}}
