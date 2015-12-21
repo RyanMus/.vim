@@ -29,6 +29,7 @@
 
     "{{{ for ctrlp 
         let g:ctrlp_by_filename = 1
+        let g:ctrlp_map = '<c-;>'
         let g:ctrlp_open_new_file = 'v'
         let g:ctrlp_open_multiple_files = 'v'
         let g:ctrlp_working_path_mode = 'ra'
@@ -90,6 +91,10 @@
     "{{{the map leader shortcut and the keymap
         let mapleader = ","
         let g:mapleader = ","
+        noremap  <c-j>          <c-w>j
+        noremap  <c-k>          <c-w>k
+        noremap  <c-h>          <c-w>h
+        noremap  <c-l>          <c-w>l
         noremap  <leader>w      :w<CR>
         noremap  <leader>!      :w !sudo tee "%"<CR>
         noremap  <leader>q      :q<CR>
