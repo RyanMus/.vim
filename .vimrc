@@ -16,6 +16,7 @@
     Bundle 'Shougo/neosnippet-snippets'
     Bundle 'ctrlpvim/ctrlp.vim'
     Bundle 'rizzatti/dash.vim'
+    Bundle 'fatih/vim-go'
 
     "{{{ for easymotion move fast 
         map  / <Plug>(easymotion-sn)
@@ -39,9 +40,10 @@
     "}}}
 
     "{{{for php
+        Bundle "Shougo/vimproc.vim"
         Bundle 'php.vim'
         Bundle 'rayburgemeestre/phpfolding.vim'
-        "Bundle 'm2mdas/phpcomplete-extended'
+        Bundle 'm2mdas/phpcomplete-extended'
     "}}}
 
     "{{{for python
@@ -162,10 +164,6 @@
     "}}}
     let g:vimim_disable_chinese_punctuation=1
     let g:vimim_disable_seamless_english_input=1
-
-    vmap y :w !pbcopy<CR><CR>
-    nmap yy :.w !pbcopy<CR><CR>
-    nmap p :r !pbpaste<CR>
     "}}}
 
     "{{{setting options of mksession.
@@ -295,6 +293,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -308,7 +307,6 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "}}}
-
 
 "{{{ for neosnippet 
 " Plugin key-mappings.
@@ -419,4 +417,13 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
         let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
             return curdir
         endfunction
+"}}}
+"golang setting {{{
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_fields = 1
+    let g:go_highlight_structs = 1
+    let g:go_highlight_interfaces = 1
+    let g:go_highlight_operators = 1
+    let g:go_highlight_build_constraints = 1
 "}}}
