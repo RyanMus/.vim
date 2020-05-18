@@ -5,3 +5,6 @@
 *.swo
 plugged/*
 .VimballRecord
+tags
+dirs
+vim-plugin-nerdcommenter.html

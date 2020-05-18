@@ -262,7 +262,7 @@ set nu
 "}}}
 
 " Fugitive {{{
-    nnoremap <leader>gd :Gdiff<cr>
+    nnoremap <leader>gd :Gvdiff<cr>
     nnoremap <leader>gs :Gstatus<cr>
     nnoremap <leader>gw :Gwrite<cr>
     nnoremap <leader>ga :Gadd<cr>
@@ -534,6 +534,7 @@ hi StatusLine      ctermfg=yellow  cterm=bold,reverse
 hi! Pmenu           ctermbg=7 ctermfg=0  
 hi! PmenuSel        ctermbg=Magenta ctermfg=0 
 hi search          ctermfg=black ctermbg=green 
+"highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
 " Enable folder icons
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
