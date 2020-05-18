@@ -1,22 +1,97 @@
-"{{{vundle setting
-    set nocompatible               " be iMproved
-    filetype on                   " required!
+"
+" vim-plug: Vim plugin manager
+" ============================
+"
+" Download plug.vim and put it in ~/.vim/autoload
+"
+"   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"
+" Edit your .vimrc
+"
+"   call plug#begin('~/.vim/plugged')
+"
+"   " Make sure you use single quotes
+"
+"   " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+"   Plug 'junegunn/vim-easy-align'
+"
+"   " Any valid git URL is allowed
+"   Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+"
+"   " Multiple Plug commands can be written in a single line using | separators
+"   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+"
+"   " On-demand loading
+"   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"   Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"
+"   " Using a non-master branch
+"   Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+"
+"   " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+"   Plug 'fatih/vim-go', { 'tag': '*' }
+"
+"   " Plugin options
+"   Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+"
+"   " Plugin outside ~/.vim/plugged with post-update hook
+"   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"
+"   " Unmanaged plugin (manually installed and updated)
+"   Plug '~/my-prototype-plugin'
+"
+"   " Initialize plugin system
+"   call plug#end()
+"
+" Then reload .vimrc and :PlugInstall to install plugins.
+"
+" Plug options:
+"
+"| Option                  | Description                                      |
+"| ----------------------- | ------------------------------------------------ |
+"| `branch`/`tag`/`commit` | Branch/tag/commit of the repository to use       |
+"| `rtp`                   | Subdirectory that contains Vim plugin            |
+"| `dir`                   | Custom directory for the plugin                  |
+"| `as`                    | Use different name for the plugin                |
+"| `do`                    | Post-update hook (string or funcref)             |
+"| `on`                    | On-demand loading: Commands or `<Plug>`-mappings |
+"| `for`                   | On-demand loading: File types                    |
+"| `frozen`                | Do not update unless explicitly specified        |
+"
+" More information: https://github.com/junegunn/vim-plug
 
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+"{{{
+    call plug#begin('~/.vim/plugged')
+    Plug  'tpope/vim-fugitive'
+    Plug  'vim-scripts/taglist.vim'
+    Plug  'easymotion/vim-easymotion'
+    Plug  'Shougo/neocomplete.vim'
+    Plug  'Shougo/neosnippet'
+    Plug  'Shougo/neosnippet-snippets'
+    Plug  'rizzatti/dash.vim'
+    "{{{for php
+        Plug "Shougo/vimproc.vim"
+        Plug 'rayburgemeestre/phpfolding.vim'
+        Plug 'm2mdas/phpcomplete-extended'
+    "}}}
 
-    " let Vundle manage Vundle
-     " required! 
-    Bundle 'gmarik/vundle'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'taglist.vim'
-    Bundle 'easymotion/vim-easymotion'
-    Bundle 'Shougo/neocomplete.vim'
-    Bundle 'Shougo/neosnippet'
-    Bundle 'Shougo/neosnippet-snippets'
-    Bundle 'ctrlpvim/ctrlp.vim'
-    Bundle 'rizzatti/dash.vim'
-    Bundle 'fatih/vim-go'
+    "{{{for python
+        "need install pep8 yum install Python-pep8"
+        Plug 'klen/python-mode'
+        Plug 'lambacck/python_matchit.git'
+    "}}} 
+
+    "{{{ "productivly
+        Plug 'scrooloose/syntastic.git'
+        Plug "vim-scripts/matchit.zip"
+        Plug 'mru.vim'
+        Plug 'tpope/vim-surround'
+        "Gundo is a Vim plugin for visualizing your undo tree to make it usable.  need vim7.3 and python support.
+        Plug 'sjl/gundo.vim'
+        Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    "}}}
+    call plug#end()
 
     "{{{ for easymotion move fast 
         map  / <Plug>(easymotion-sn)
@@ -26,41 +101,6 @@
         nmap w <Plug>(easymotion-w)
         nmap b <Plug>(easymotion-b)
         nmap s <Plug>(easymotion-sn)
-    "}}}
-
-    "{{{ for ctrlp 
-        let g:ctrlp_by_filename = 1
-        let g:ctrlp_map = '<c-;>'
-        let g:ctrlp_open_new_file = 'v'
-        let g:ctrlp_open_multiple_files = 'v'
-        let g:ctrlp_working_path_mode = 'ra'
-		set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-		let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-        let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-    "}}}
-
-    "{{{for php
-        Bundle "Shougo/vimproc.vim"
-        Bundle 'php.vim'
-        Bundle 'rayburgemeestre/phpfolding.vim'
-        Bundle 'm2mdas/phpcomplete-extended'
-    "}}}
-
-    "{{{for python
-        "need install pep8 yum install Python-pep8"
-        Bundle 'klen/python-mode'
-        Bundle 'lambacck/python_matchit.git'
-    "}}} 
-
-    "{{{ "productivly
-        Bundle 'scrooloose/syntastic.git'
-        Bundle "vim-scripts/matchit.zip"
-        Bundle 'mru.vim'
-        Bundle 'surround.vim'
-        "Gundo is a Vim plugin for visualizing your undo tree to make it usable.  need vim7.3 and python support.
-        Bundle 'Gundo'
-        Bundle 'mileszs/ack.vim.git'
-        Bundle 'The-NERD-tree'
     "}}}
 
 "{{{The search options affect
@@ -84,7 +124,7 @@
     set number			
     set cursorline		
     set mouse=a		" Enable mouse usage (all modes)
-    set scrolloff=10 "始终保持光标上下有至少5行
+    set scrolloff=15 "始终保持光标上下有至少5行
     set sidescrolloff=10 
     set wmw=12 " set the min width of a window to 0 so we can maximize others
     set wmh=1 " set the min height of a window to 0 so we can maximize others
@@ -100,22 +140,17 @@
         noremap  <leader>w      :w<CR>
         noremap  <leader>!      :w !sudo tee "%"<CR>
         noremap  <leader>q      :q<CR>
-        noremap  <leader>!      :w !sudo tee % >/dev/null<CR>
         noremap  <leader>8      :set fileencoding=utf-8<cr>:w<cr>
         noremap  <leader>e      :MRU<CR>
         noremap  <leader>n      :NERDTreeToggle<CR>
         nnoremap <leader>u      :GundoToggle<CR>
         noremap  <leader>t      :TlistToggle<CR>
         noremap  <leader>tp     :set paste!<CR>
-        noremap  <leader>s      <Esc>:Ack!
-        noremap  <leader>f      :CtrlP<CR>
         noremap K               :Dash<CR>
         noremap =               <c-w>10+
         noremap -               <c-w>10-
         noremap <leader>>       <c-w>10>
         noremap <leader><       <c-w>10<
-        noremap <C-n>           gt
-        noremap <C-p>           gT
         nnoremap <space>        za
         vnoremap <space>        za
         "tab for indent
@@ -187,34 +222,6 @@
     let g:gundo_help = 0
 "}}}
 
-"{{{ CTags的设定
-    "ctags的bin文件路径
-    "let Tlist_Ctags_Cmd='/usr/bin/ctags'
-    " 按照名称排序
-    let Tlist_Sort_Type = "name"
-    " 在右侧显示窗口
-    let Tlist_Use_Right_Window = 1
-    " 压缩方式 Remove extra information and blank lines from the taglist window.
-    let Tlist_Compact_Format = 1
-    " 如果只有一个buffer，kill窗口也kill掉buffer
-    let Tlist_Exit_OnlyWindow = 1
-    "auto open Tlist when vim open
-    "let Tlist_Auto_Open = 0 
-    " 不要显示折叠树
-    let Tlist_Enable_Fold_Column = 0
-    " taglist 窗口宽度
-    let Tlist_WinWidth = 27
-    " no inc the width of the windows
-    let Tlist_Inc_Winwidth = 1 
-    " Close tag folds for inactive buffers.
-    let Tlist_File_Fold_Auto_Close = 0 
-    "To process files even when the taglist window is not open.
-    let Tlist_Process_File_Always = 1
-    "display the tags defined only in the current buffer
-    let Tlist_Show_One_File = 1 
-    "打开taglist并且切换焦点到taglist窗口
-    let Tlist_GainFocus_On_ToggleOpen=1
-"}}}
 
 "{{{ NERDTree的设定
     " 如果用t T i 打开文件后自动退出NERDTree,
@@ -224,10 +231,10 @@
     " 总是显示行号
     let NERDTreeShowLineNumbers=0
     " NERDTree 窗口大小
-    let NERDTreeWinSize = 25
+    let NERDTreeWinSize = 30
     " A 可使NERDTree窗口最大化Toggle it.
     "过滤文件,使用正则表达式
-    let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.lnk','\.xlsx','\.tar.gz','\.tgz','\.zip']
+    let NERDTreeIgnore=['\.pdf$','\.doc','\.wmv','\.flv','\.lnk','\.xlsx','\.tar.gz','\.tgz','\.zip, \.png, \.jpeg']
 "}}}
 
 "{{{ for neocomplete
@@ -241,16 +248,6 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions',
-    \ 'css' : $VIMFILES.'/dict/css.dic',
-    \ 'php' : $VIMFILES.'/dict/php.dic',
-    \ 'javascript' : $VIMFILES.'/dict/javascript.dic'
-        \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
@@ -427,3 +424,5 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
     let g:go_highlight_operators = 1
     let g:go_highlight_build_constraints = 1
 "}}}
+noremap <C-n>           gt
+noremap <C-p>           gT

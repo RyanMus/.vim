@@ -1,3 +1,7 @@
 .netrwhist 
 *.pyc
 *.swp
+*.swn
+*.swo
+plugged/*
+.VimballRecord

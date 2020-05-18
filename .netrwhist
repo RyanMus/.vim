@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/lijunya/codelife/xqj/trunk/web/channels'
-let g:netrw_dirhist_2='/Users/lijunya/codelife/xqj/trunk/web/channels/api.open.xqj18.com'
-let g:netrw_dirhist_3='/Users/lijunya/codelife/xqj/trunk/web/channels/api.open.xqj18.com/application'
-let g:netrw_dirhist_4='/Users/lijunya/codelife/xqj/trunk/web/channels/api.open.xqj18.com/application/controllers'
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/lijunya/Downloads'
+let g:netrw_dirhist_4='/Users/lijunya/codelife/noah-devops/ReleaseJob'
+let g:netrw_dirhist_3='/Users/lijunya/Downloads/mq_jarvis'
+let g:netrw_dirhist_2='/Users/lijunya/Downloads/mq_jarvis/rescv'
+let g:netrw_dirhist_1='/Users/lijunya/Downloads/mq_jarvis'
