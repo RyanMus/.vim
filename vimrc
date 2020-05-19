@@ -100,6 +100,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'Townk/vim-autoclose'
 " Surround
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 " Indent text object
 Plug 'michaeljsmith/vim-indent-object'
 " Indentation based movements
@@ -400,17 +401,10 @@ let g:neomake_virtualtext_current_error = 0
 " file finder mapping
 nmap ,f :Files<CR>
 " tags (symbols) in current file finder mapping
-nmap ,g :BTag<CR>
-" the same, but with the word under the cursor pre filled
-nmap ,wg :execute ":BTag " . expand('<cword>')<CR>
 " tags (symbols) in all files finder mapping
-nmap ,G :Tags<CR>
+nmap ,g :Tags<CR>
 " the same, but with the word under the cursor pre filled
-nmap ,wG :execute ":Tags " . expand('<cword>')<CR>
-" general code finder in current file mapping
-nmap ,b :BLines<CR>
-" the same, but with the word under the cursor pre filled
-nmap ,wb :execute ":BLines " . expand('<cword>')<CR>
+nmap ,wg :execute ":Tags " . expand('<cword>')<CR>
 " general code finder in all files mapping
 nmap ,F :Lines<CR>
 " the same, but with the word under the cursor pre filled
@@ -534,7 +528,7 @@ hi StatusLine      ctermfg=yellow  cterm=bold,reverse
 hi! Pmenu           ctermbg=7 ctermfg=0  
 hi! PmenuSel        ctermbg=Magenta ctermfg=0 
 hi search          ctermfg=black ctermbg=green 
-"highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
 " Enable folder icons
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -548,3 +542,5 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 let NERDTreeDirArrowExpandable = "\u00a0"
 let NERDTreeDirArrowCollapsible = "\u00a0"
 let NERDTreeNodeDelimiter = "\x07"
+
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
