@@ -1,4 +1,5 @@
 #!/bin/bash
+1111
 brew install ack wget python ctags ag ranger tig 
 brew install lua 
 brew install luajit
