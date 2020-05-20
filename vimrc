@@ -190,7 +190,7 @@ if using_vim
     syntax on
     let mapleader = ","
     let g:mapleader = ","
-    inoremap  <c-i>         <esc>
+    inoremap  <c-i>         <esc>2l
     noremap  <c-j>          <c-w>j
     noremap  <c-k>          <c-w>k
     noremap  <c-h>          <c-w>h
@@ -204,7 +204,6 @@ if using_vim
     noremap  <leader>e      :MRU<CR>
     nnoremap <leader>u      :GundoToggle<CR>
     noremap  <leader>tp     :set paste!<CR>
-    noremap K               :Dash<CR>
     noremap =               <c-w>15+
     noremap -               <c-w>15-
     noremap <leader>>       <c-w>15>
@@ -243,14 +242,21 @@ if using_vim
     endif
 end
 
+" 恢复上次文件打开位置
+"set viminfo='10,\"100,:20,%,n~/.vim/dirs/viminfo
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+set fo+=mB                       "打开断行模块对亚洲语言支持
+set backspace=2                  " 使回格键（backspace）正常处理indent, eol, start等
 " tabs and spaces handling
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-
 " show line numbers
 set nu
+set autoread                     " Set to auto read when a file is changed from the outside
+set autowrite                    " Set to auto write when a file is changed from the outside
+set autochdir                    "Auto change the global dir of the current windows
 
 "{{{ for easymotion move fast 
     noremap  / <Plug>(easymotion-sn)
@@ -458,15 +464,39 @@ let g:choosewin_overlay_enable = 1
 " UPDATE it to reflect your preferences, it will speed up opening files
 let g:signify_vcs_list = ['git']
 " mappings to jump to changed blocks
-nmap <leader>sn <plug>(signify-next-hunk)
-nmap <leader>sp <plug>(signify-prev-hunk)
+nmap <leader>j <plug>(signify-next-hunk)
+nmap <leader>k <plug>(signify-prev-hunk)
+
+let g:neomake_warning_sign = {
+ \   'text': '~',
+ \   'texthl': 'NeomakeWarningSign',
+ \ }
+
 " nicer colors
-highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
-highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+hi DiffAdd           cterm=bold ctermbg=none ctermfg=7
+hi DiffDelete        cterm=bold ctermbg=none ctermfg=7
+hi DiffChange        cterm=bold ctermbg=none ctermfg=7
+hi SignifySignAdd    cterm=bold ctermbg=237  ctermfg=7
+hi SignifySignDelete cterm=bold ctermbg=237  ctermfg=7
+hi SignifySignChange cterm=bold ctermbg=237  ctermfg=7
+hi! NeomakeErrorSignDefault   ctermfg=red ctermbg=none
+hi! NeomakeWarningSign ctermfg=cyan ctermbg=none
+
+hi! StatusLine      ctermfg=yellow  cterm=bold,reverse
+hi! Pmenu           ctermbg=7 ctermfg=0  
+hi! PmenuSel        ctermbg=Magenta ctermfg=0 
+hi search           ctermfg=black ctermbg=green 
+hi! PmenuSbar       ctermbg=Magenta ctermfg=7
+hi! PmenuThumb      ctermbg=Magenta ctermfg=7
+
+hi! jediFat ctermbg=Magenta ctermfg=7 cterm=reverse
+hi TabLineSel     ctermfg=7 cterm=NONE
+hi! TabLine        ctermfg=7 cterm=reverse ctermbg=none
+hi! ToolbarLine   ctermfg=Magenta ctermbg=none
+hi! ToolbarFill   cterm=none term=none
+hi! SignColumn    cterm=bold ctermfg=Magenta ctermbg=none
+
+
 
 " Autoclose ------------------------------
 
@@ -524,11 +554,7 @@ endif
 if filereadable(expand(custom_configs_path))
   execute "source " . custom_configs_path
 endif
-hi StatusLine      ctermfg=yellow  cterm=bold,reverse
-hi! Pmenu           ctermbg=7 ctermfg=0  
-hi! PmenuSel        ctermbg=Magenta ctermfg=0 
-hi search          ctermfg=black ctermbg=green 
-highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+
 " Enable folder icons
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1

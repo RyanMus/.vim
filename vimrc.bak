@@ -373,8 +373,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
 
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
 
@@ -402,7 +400,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
     augroup END
 "}}}
 "{{{statusline set
-    hi StatusLine      ctermfg=yellow  cterm=bold,reverse
+    hi! StatusLine      ctermfg=yellow  cterm=bold,reverse
     set laststatus=2    " always show the status line
     set wildmenu
     set wildmode=list:longest,full
