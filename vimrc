@@ -425,6 +425,7 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option({
 \   'ignore_case': v:true,
 \   'smart_case': v:true,
+\   'auto_complete_delay': 200,
 \})
 " complete with words from any opened file
 let g:context_filetype#same_filetypes = {}
@@ -520,7 +521,7 @@ endif
 " Airline ------------------------------
 
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'luna'
+let g:airline_theme = 'deus'
 let g:airline#extensions#whitespace#enabled = 0
 
 " Fancy Symbols!!
@@ -561,12 +562,5 @@ let g:DevIconsEnableFoldersOpenClose = 1
 
 " Fix directory colors
 highlight! link NERDTreeFlags NERDTreeDir
-
-" Remove expandable arrow
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
-let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
-let NERDTreeDirArrowExpandable = "\u00a0"
-let NERDTreeDirArrowCollapsible = "\u00a0"
-let NERDTreeNodeDelimiter = "\x07"
 
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
