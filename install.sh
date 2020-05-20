@@ -1,5 +1,5 @@
 #!/bin/bash
-#this is line from branch c
+#this line from branch plug
 brew install ack wget python ctags ag ranger tig 
 brew install lua 
 brew install luajit

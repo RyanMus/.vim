@@ -278,6 +278,8 @@ set autochdir                    "Auto change the global dir of the current wind
     nnoremap <leader>gc :Gcommit<cr>
     nnoremap <leader>gm :Gmove<cr>
     nnoremap <leader>gl :! git gl -18<cr>:wincmd \|<cr>
+    nnoremap <leader>gg :diffget //2<cr>
+    nnoremap <leader>gh :diffget //3<cr>
 
     augroup ft_fugitive
         au!
