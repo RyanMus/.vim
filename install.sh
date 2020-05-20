@@ -1,9 +1,5 @@
 #!/bin/bash
-<<<<<<< HEAD
-asdfsfsd
-=======
 1111
->>>>>>> plug
 brew install ack wget python ctags ag ranger tig 
 brew install lua 
 brew install luajit
