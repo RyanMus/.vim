@@ -117,6 +117,9 @@ Plug 't9md/vim-choosewin'
 Plug 'fisadev/vim-isort'
 " Highlight matching html tags
 Plug 'valloric/MatchTagAlways'
+" colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'kien/rainbow_parentheses.vim' 
 " Generate html in a simple way
 Plug 'mattn/emmet-vim'
 " Git integration
@@ -204,6 +207,8 @@ if using_vim
     noremap  <leader>e      :MRU<CR>
     nnoremap <leader>u      :GundoToggle<CR>
     noremap  <leader>tp     :set paste!<CR>
+    noremap  <leader>x     :TaskList<cr>
+    noremap  <leader>z     :RainbowParenthesesToggle<cr>
     noremap =               <c-w>15+
     noremap -               <c-w>15-
     noremap <leader>>       <c-w>15>
@@ -288,19 +293,20 @@ set autochdir                    "Auto change the global dir of the current wind
 "}}}
 
 "{{{mru
-    let MRU_Max_Entries = 100
+    let MRU_Max_Entries = 50
     let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'  " For Unix
 "}}}
 
 "{{{Gundo设置
-    let g:gundo_width = 40
-    let g:gundo_preview_height = 20
+    let g:gundo_width = 30
+    let g:gundo_preview_height = 30
     let g:gundo_right = 0
     let g:gundo_help = 0
 "}}}
 
 " remove ugly vertical lines on window division
 set fillchars+=vert:\ 
+
 
 " use 256 colors when possible
 if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
@@ -309,8 +315,25 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     endif
     colorscheme vim-monokai-tasty
 else
-    colorscheme desert
+    "let &t_Co = 8
+    "colorscheme desert
+    let &t_Co = 128
+    colorscheme gruvbox
 endif
+
+" setting for gruvbox 
+set background=dark   "Setting dark/light mode 
+" Changes dark mode contrast. Overrides g:gruvbox_contrast option. Possible values are soft, medium and hard.
+let g:gruvbox_contrast_dark = "hard"
+
+" parenthesis{([])}
+"au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+let g:rbpt_max = 16
+
+
 
 " needed so deoplete can auto select the first suggestion
 set completeopt+=noinsert
@@ -373,9 +396,6 @@ set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,*.pyo,*.jpg,*.gif,*.png,*.pdf
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowLineNumbers=0
 
-" Fix directory colors
-highlight! link NERDTreeFlags NERDTreeDir
-
 " Autorefresh on tree focus
 function! NERDTreeRefresh()
     if &filetype == "nerdtree"
@@ -385,10 +405,6 @@ endfunction
 
 autocmd BufEnter * call NERDTreeRefresh()
 
-" Tasklist ------------------------------
-
-" show pending tasks list
-map <F2> :TaskList<CR>
 
 " Neomake ------------------------------
 
@@ -485,19 +501,19 @@ hi SignifySignChange cterm=bold ctermbg=237  ctermfg=7
 hi! NeomakeErrorSignDefault   ctermfg=red ctermbg=none
 hi! NeomakeWarningSign ctermfg=cyan ctermbg=none
 
-hi! StatusLine      ctermfg=yellow  cterm=bold,reverse
 hi! Pmenu           ctermbg=7 ctermfg=0  
 hi! PmenuSel        ctermbg=Magenta ctermfg=0 
 hi search           ctermfg=black ctermbg=green 
 hi! PmenuSbar       ctermbg=Magenta ctermfg=7
 hi! PmenuThumb      ctermbg=Magenta ctermfg=7
 
+
 hi! jediFat ctermbg=Magenta ctermfg=7 cterm=reverse
-hi TabLineSel     ctermfg=7 cterm=NONE
-hi! TabLine        ctermfg=7 cterm=reverse ctermbg=none
-hi! ToolbarLine   ctermfg=Magenta ctermbg=none
-hi! ToolbarFill   cterm=none term=none
-hi! SignColumn    cterm=bold ctermfg=Magenta ctermbg=none
+"hi TabLineSel     ctermfg=7 cterm=NONE
+"hi! TabLine        ctermfg=7 cterm=reverse ctermbg=none
+"hi! ToolbarLine   ctermfg=Magenta ctermbg=none
+"hi! ToolbarFill   cterm=none term=none
+"hi! SignColumn    cterm=bold ctermfg=Magenta ctermbg=none
 
 
 
@@ -523,7 +539,7 @@ endif
 " Airline ------------------------------
 
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'deus'
+let g:airline_theme = 'luna'           " angr, molokai, wombat, luna"
 let g:airline#extensions#whitespace#enabled = 0
 
 " Fancy Symbols!!
@@ -557,12 +573,5 @@ endif
 if filereadable(expand(custom_configs_path))
   execute "source " . custom_configs_path
 endif
-
-" Enable folder icons
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
-
-" Fix directory colors
-highlight! link NERDTreeFlags NERDTreeDir
 
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
