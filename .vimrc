@@ -18,6 +18,8 @@ noremap  <leader>e      :MRU<CR>
 noremap  <leader>tp     :set paste!<CR>
 noremap  <leader>n      :NERDTreeToggle<CR>
 nnoremap <leader>u      :GundoToggle<CR>
+nnoremap <leader>w      :w<CR>
+nnoremap <leader>q      :q<CR>
 nnoremap <c-n>          :tabn<CR>
 nnoremap <c-p>          :tabp<CR>
 hi StatusLine      ctermfg=yellow  cterm=bold,reverse
