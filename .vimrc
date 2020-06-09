@@ -18,6 +18,8 @@ noremap  <leader>e      :MRU<CR>
 noremap  <leader>tp     :set paste!<CR>
 noremap  <leader>n      :NERDTreeToggle<CR>
 nnoremap <leader>u      :GundoToggle<CR>
+nnoremap <c-n>          :tabn<CR>
+nnoremap <c-p>          :tabp<CR>
 hi StatusLine      ctermfg=yellow  cterm=bold,reverse
 set laststatus=2    " always show the status line
 set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,\*.jpg,*.gif,*.png,*.pdf
