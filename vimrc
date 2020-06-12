@@ -73,6 +73,9 @@ Plug 'vim-scripts/IndexedSearch'
 " A couple of nice colorschemes
 Plug 'fisadev/fisa-vim-colorscheme'    
 Plug 'patstockwell/vim-monokai-tasty'
+Plug 'joshdick/onedark.vim'
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'cohlin/vim-colorschemes'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -131,7 +134,14 @@ Plug 'neomake/neomake'
 Plug 'easymotion/vim-easymotion'
 Plug 'sjl/gundo.vim'
 Plug 'yegappan/mru'
-
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+Plug 'Yggdroot/indentLine'
 " Relative numbering of lines (0 is the current line)
 " (disabled by default because is very intrusive and can't be easily toggled
 " on/off. When the plugin is present, will always activate the relative
@@ -199,16 +209,20 @@ if using_vim
     noremap  <c-h>          <c-w>h
     noremap  <c-l>          <c-w>l
     noremap  <leader>w      :w<CR>
+    vnoremap  <leader>al    :EasyAlign ** \|<CR>
+    vnoremap  <leader>a=    :EasyAlign ** =<CR>
     vnoremap  <leader>y     "+y
-    noremap  <leader>p      o<esc>"+p
+    noremap  <leader>p      <esc>"+p
     inoremap  <leader>p     <esc>"+p
     noremap  <leader>!      :w !sudo tee "%"<CR>
     noremap  <leader>q      :q<CR>
+    noremap  <leader>i      :IndentLinesToggle<CR>
     noremap  <leader>e      :MRU<CR>
     nnoremap <leader>u      :GundoToggle<CR>
     noremap  <leader>tp     :set paste!<CR>
     noremap  <leader>x     :TaskList<cr>
     noremap  <leader>z     :RainbowParenthesesToggle<cr>
+    noremap  <leader>b     <c-o><c-o>
     noremap =               <c-w>15+
     noremap -               <c-w>15-
     noremap <leader>>       <c-w>15>
@@ -217,14 +231,11 @@ if using_vim
     nnoremap <C-p>           gT
     nnoremap <space>        za
     vnoremap <space>        za
-    nmap <tab>         V>
-    nmap <S-tab>       V<
-    vmap <tab>         >gv
-    vmap <S-tab>       <gv
     map gf :tabnew <cfile><cr>
     cnoremap <C-P> <Up>
     cnoremap <C-N> <Down>
     cnoremap <C-B> <Left>
+    cnoremap <C-a> <Home>
     set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分割
 
     " better backup, swap and undos storage for vim (nvim has nice ones by
@@ -264,13 +275,13 @@ set autowrite                    " Set to auto write when a file is changed from
 set autochdir                    "Auto change the global dir of the current windows
 
 "{{{ for easymotion move fast 
-    noremap  / <Plug>(easymotion-sn)
-    onoremap / <Plug>(easymotion-tn)
+    "noremap  / <Plug>(easymotion-sn)
+    "onoremap / <Plug>(easymotion-tn)
     noremap  n <Plug>(easymotion-next)
     map  N <Plug>(easymotion-prev)
     nmap w <Plug>(easymotion-w)
     nmap b <Plug>(easymotion-b)
-    noremap s <Plug>(easymotion-sn)
+    "noremap s <Plug>(easymotion-sn)
 "}}}
 
 " Fugitive {{{
@@ -281,6 +292,7 @@ set autochdir                    "Auto change the global dir of the current wind
     nnoremap <leader>gb :Gblame<cr>
     nnoremap <leader>gr :Gread<cr>
     nnoremap <leader>gc :Gcommit<cr>
+    nnoremap <leader>gp :Gpush<cr>
     nnoremap <leader>gm :Gmove<cr>
     nnoremap <leader>gl :! git gl -18<cr>:wincmd \|<cr>
     nnoremap <leader>gg :diffget //2<cr>
@@ -293,7 +305,8 @@ set autochdir                    "Auto change the global dir of the current wind
 "}}}
 
 "{{{mru
-    let MRU_Max_Entries = 50
+    let MRU_Max_Entries = 100
+    let MRU_Window_Height = 15
     let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'  " For Unix
 "}}}
 
@@ -316,15 +329,27 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     colorscheme vim-monokai-tasty
 else
     "let &t_Co = 8
-    "colorscheme desert
     let &t_Co = 128
-    colorscheme gruvbox
+    "colorscheme desert
+    "colorscheme gruvbox
+    "colorscheme neodark
+    colorscheme py-darcula
 endif
 
 " setting for gruvbox 
-set background=dark   "Setting dark/light mode 
+set background=dark "Setting dark/light mode 
 " Changes dark mode contrast. Overrides g:gruvbox_contrast option. Possible values are soft, medium and hard.
-let g:gruvbox_contrast_dark = "hard"
+"let g:gruvbox_contrast_dark = "hard"
+let g:neodark#background = '#202020'
+"let g:neodark#terminal_transparent = 1
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " parenthesis{([])}
 "au VimEnter * RainbowParenthesesToggle
@@ -357,14 +382,12 @@ nnoremap <silent> // :noh<CR>
 
 " clear empty spaces at the end of lines on save of python files
 autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd FileType markdown  noremap <leader>mp MarkdownPreview<cr> 
+autocmd! bufwritepost *vimrc source $HOME/.vimrc
 
 " fix problems with uncommon shells (fish, xonsh) and plugins running commands
 " (neomake, ...)
 set shell=/bin/bash 
-
-" Ability to add python breakpoints
-" (I use ipdb, but you can change it to whatever tool you use for debugging)
-au FileType python map <silent> <leader>b Oimport ipdb; ipdb.set_trace()<esc>
 
 " ============================================================================
 " Plugins settings and mappings
@@ -377,10 +400,6 @@ map <leader>t :TagbarToggle<CR>
 " autofocus on tagbar open
 let g:tagbar_autofocus = 1
 
-" NERDTred -----------------------------
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " toggle nerdtree display
 noremap  <leader>n      :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
@@ -396,20 +415,16 @@ set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,*.pyo,*.jpg,*.gif,*.png,*.pdf
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowLineNumbers=0
 
-" Autorefresh on tree focus
-function! NERDTreeRefresh()
-    if &filetype == "nerdtree"
-        silent exe substitute(mapcheck("R"), "<CR>", "", "")
-    endif
-endfunction
-
-autocmd BufEnter * call NERDTreeRefresh()
-
-
-" Neomake ------------------------------
+"只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
+autocmd Filetype python  iabb pdb import ipdb; ipdb.set_trace()<esc>
+autocmd Filetype python  iabb todo # TODO 
+"autocmd FileType python,php setlocal foldmethod=indent foldlevel=99 
+autocmd FileType c,cpp,java,perl,sh setlocal foldmethod=marker foldmarker={,} foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 
 " Run linter on write
 autocmd! BufWritePost * Neomake
+let g:indentLine_setColors = 0
+let g:indentLine_enabled = 0
 
 " Check code as python3 by default
 let g:neomake_python_python_maker = neomake#makers#ft#python#python()
@@ -467,7 +482,7 @@ nmap ,D :tab split<CR>:call jedi#goto()<CR>
 " Ack.vim ------------------------------
 
 " mappings
-nmap ,s :Ack 
+noremap ,s :Ack 
 nmap ,ws :execute ":Ack " . expand('<cword>')<CR>
 
 " Window Chooser ------------------------------
@@ -492,9 +507,9 @@ let g:neomake_warning_sign = {
  \ }
 
 " nicer colors
-hi DiffAdd           cterm=bold ctermbg=none ctermfg=7
-hi DiffDelete        cterm=bold ctermbg=none ctermfg=7
-hi DiffChange        cterm=bold ctermbg=none ctermfg=7
+hi DiffAdd           cterm=bold ctermbg=none ctermfg=cyan
+hi DiffDelete        cterm=bold ctermbg=none ctermfg=1
+hi DiffChange        cterm=bold ctermbg=none ctermfg=4
 hi SignifySignAdd    cterm=bold ctermbg=237  ctermfg=7
 hi SignifySignDelete cterm=bold ctermbg=237  ctermfg=7
 hi SignifySignChange cterm=bold ctermbg=237  ctermfg=7
@@ -503,12 +518,12 @@ hi! NeomakeWarningSign ctermfg=cyan ctermbg=none
 
 hi! Pmenu           ctermbg=7 ctermfg=0  
 hi! PmenuSel        ctermbg=Magenta ctermfg=0 
-hi search           ctermfg=black ctermbg=green 
+"hi search           ctermfg=black ctermbg=green 
 hi! PmenuSbar       ctermbg=Magenta ctermfg=7
 hi! PmenuThumb      ctermbg=Magenta ctermfg=7
 
 
-hi! jediFat ctermbg=Magenta ctermfg=7 cterm=reverse
+hi! jediFat ctermfg=Magenta  ctermbg=black
 "hi TabLineSel     ctermfg=7 cterm=NONE
 "hi! TabLine        ctermfg=7 cterm=reverse ctermbg=none
 "hi! ToolbarLine   ctermfg=Magenta ctermbg=none
@@ -539,7 +554,7 @@ endif
 " Airline ------------------------------
 
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'luna'           " angr, molokai, wombat, luna"
+let g:airline_theme = 'luna'           " angr, molokai, wombat, luna ,darcula"
 let g:airline#extensions#whitespace#enabled = 0
 
 " Fancy Symbols!!
