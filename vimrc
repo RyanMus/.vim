@@ -516,21 +516,8 @@ hi SignifySignChange cterm=bold ctermbg=237  ctermfg=7
 hi! NeomakeErrorSignDefault   ctermfg=red ctermbg=none
 hi! NeomakeWarningSign ctermfg=cyan ctermbg=none
 
-hi! Pmenu           ctermbg=7 ctermfg=0  
 hi! PmenuSel        ctermbg=Magenta ctermfg=0 
-"hi search           ctermfg=black ctermbg=green 
-hi! PmenuSbar       ctermbg=Magenta ctermfg=7
-hi! PmenuThumb      ctermbg=Magenta ctermfg=7
-
-
 hi! jediFat ctermfg=Magenta  ctermbg=black
-"hi TabLineSel     ctermfg=7 cterm=NONE
-"hi! TabLine        ctermfg=7 cterm=reverse ctermbg=none
-"hi! ToolbarLine   ctermfg=Magenta ctermbg=none
-"hi! ToolbarFill   cterm=none term=none
-"hi! SignColumn    cterm=bold ctermfg=Magenta ctermbg=none
-
-
 
 " Autoclose ------------------------------
 
@@ -554,7 +541,7 @@ endif
 " Airline ------------------------------
 
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'luna'           " angr, molokai, wombat, luna ,darcula"
+let g:airline_theme = 'papercolor'           "papercolor,angr,luna,darcula"
 let g:airline#extensions#whitespace#enabled = 0
 
 " Fancy Symbols!!
