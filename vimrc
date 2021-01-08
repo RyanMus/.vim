@@ -205,11 +205,24 @@ if using_vim
     set ignorecase		" Do case insensitive matching
     set smartcase		" Do smart case matching
     set cursorline		
+    autocmd InsertLeave * set cursorline
+    autocmd InsertEnter * set nocursorline
+
+    " 使用系统粘贴板替换neovim的unnamepdplus
+    if has('clipboard')
+      if has('unnamedplus')  " When possible use + register for copy-paste
+        set clipboard=unnamed,unnamedplus
+      else         " On mac and Windows, use * register for copy-paste
+        set clipboard=unnamed
+      endif
+    endif
 
     " syntax highlight on
     syntax on
     let mapleader = ","
     let g:mapleader = ","
+    inoremap  jj             <esc>
+    inoremap  <c-;>         <esc>
     inoremap  <c-i>         <esc>2l
     noremap  <c-j>          <c-w>j
     noremap  <c-k>          <c-w>k
@@ -219,8 +232,6 @@ if using_vim
     vnoremap  <leader>al    :EasyAlign ** \|<CR>
     vnoremap  <leader>a=    :EasyAlign ** =<CR>
     vnoremap  <leader>y     "+y
-    noremap  <leader>p      <esc>"+p
-    inoremap  <leader>p     <esc>"+p
     noremap  <leader>!      :w !sudo tee "%"<CR>
     noremap  <leader>q      :q<CR>
     noremap  <leader>i      :IndentLinesToggle<CR>
@@ -420,7 +431,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 let g:UltiSnipsEditSplit="vertical"
 
 " parenthesis{([])}
-"au VimEnter * RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
@@ -434,7 +445,7 @@ set completeopt+=noinsert
 set completeopt-=preview
 
 " when scrolling, keep cursor 10 lines away from screen border
-set scrolloff=13
+set scrolloff=20
 
 " clear search results
 nnoremap <silent> // :noh<CR>
@@ -442,7 +453,7 @@ nnoremap <silent> // :noh<CR>
 " clear empty spaces at the end of lines on save of python files
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.py :Isort
-autocmd FileType markdown  noremap <leader>mp MarkdownPreview<cr> 
+autocmd FileType markdown  noremap <leader>mp :MarkdownPreview<cr> 
 autocmd! bufwritepost *vimrc source $HOME/.vimrc
 
 
@@ -520,10 +531,11 @@ let g:jedi#goto_assignments_command = ',a'
 nmap ,D :tab split<CR>:call jedi#goto()<CR>
 
 " Ack.vim ------------------------------
-
-" mappings
-noremap ,s :Ack 
-nmap ,ws :execute ":Ack " . expand('<cword>')<CR>
+nnoremap <Leader>ws :Ack!<Space>
+let g:ack_default_options =" -s -H --nogroup --column --smart-case --follow -m 10"
+"let g:ack_autofold_results = 1
+"let g:ackpreview = 0
+let g:ackhighlight = 1
 
 " ------------------------------------------------
 " For Signify see :help Signify
@@ -552,7 +564,7 @@ hi SignifySignChange ctermfg=172
 
 
 hi! PmenuSel        ctermbg=Magenta ctermfg=0 
-hi! jediFat ctermfg=Magenta  ctermbg=black
+hi! jediFat         ctermfg=Magenta ctermbg=black
 
 " Autoclose ------------------------------
 
@@ -581,7 +593,6 @@ endif
 " ------------------------------------------------
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
 
@@ -594,7 +605,7 @@ let g:airline#extensions#whitespace#enabled = 0
 " For ale
 " 使用 flake8 做python3的代码检查，pylint检查太严格
 " 使用 autopep8, yapf等做代码修正，快捷键定义为 ,pe
-" normal下sp, sn跳转到上一个，下一个错误，lc关闭或者打开错误列表
+" normal下gk, gj跳转到上一个，下一个错误，lc关闭或者打开错误列表
 " more see :help ale
 " ------------------------------------------------
 let g:ale_linters_explicit = 0 "除g:ale_linters指定，其他不可用
@@ -606,13 +617,15 @@ let g:ale_linters = {
 \   'bash': ['shellcheck'],
 \   'go': ['golint'],
 \   'javascript': ['eslint'],
+\   'yaml': ['yamllint', 'prettier'],
 \}
-let g:ale_linters_ignore = {'python': ['pylint']}
+"let g:ale_linters_ignore = {'python': ['pylint']}
 let g:ale_rust_rls_toolchain = 'nightly'
 let g:ale_fixers = {
 \   'python': ['autopep8', 'black', 'isort'],
 \   'rust': ['rustfmt'],
 \   'javascript': ['eslint'],
+\   'yaml': ['prettier'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 " let g:ale_set_hightlights = 1
@@ -631,11 +644,10 @@ let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
-let g:ale_exclude_highlights = ['line too long', 'foo.*bar']
 let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8 --max-line-length=1000 --extend-ignore='
-nmap sp <Plug>(ale_previous_wrap)
-nmap sn <Plug>(ale_next_wrap)
+nmap gk <Plug>(ale_previous_wrap)
+nmap gj <Plug>(ale_next_wrap)
 nnoremap <leader>at :ALEToggle<CR>
 "format代码
 nnoremap <leader>af :ALEFix<cr>  
@@ -670,3 +682,22 @@ if filereadable(expand(custom_configs_path))
 endif
 
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+
+" ------------------------------------------------
+" For themes
+" 如果主题等写成前面效果不一致，那就写到最后面吧
+" highlight Normal ctermbg=None 可以去除灰层
+" higtlight clear SignColumn 可以使得SignColumn颜色主题与使用主题一致
+" ------------------------------------------------
+
+" ------------------------------------------------
+" For recommand and suggestion
+" ------------------------------------------------
+" Recommand install neovim
+" brew install --HEAD neovim
+" ln -s ~/.vim ~/.config/nvim
+" ln -s ~/.vimrc ~/.config/nvim/init.vim
+" alias vim='nvim'
+" 切换输入法, 退出插入模式
+set imactivatekey=C-space
+inoremap <ESC> <ESC>:set iminsert=2<CR>
