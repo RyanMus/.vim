@@ -1,7 +1,9 @@
 It's my personal ~/.vim/ repository
 Just use for macbook
 
+安装vim8 并且支持python3
+
 brew install npm && npm install --global prettier
-pip3 intall pylint
-pip3 intall flake8
-pip3 intall pyflakes
+pip3 install pylint
+pip3 install flake8
+pip3 install pyflakes
