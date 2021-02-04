@@ -8,3 +8,6 @@ brew install npm && npm install --global prettier
 pip3 install pylint
 pip3 install flake8
 pip3 install pyflakes
+pip3 install black
+pip3 install isort
+pip3 install autopep8
