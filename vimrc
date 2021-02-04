@@ -646,6 +646,7 @@ let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
 let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8 --max-line-length=1000 --extend-ignore='
+let g:ale_python_black_options = '-l 110'
 nmap gk <Plug>(ale_previous_wrap)
 nmap gj <Plug>(ale_next_wrap)
 nnoremap <leader>at :ALEToggle<CR>
@@ -701,3 +702,6 @@ silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 " 切换输入法, 退出插入模式
 set imactivatekey=C-space
 inoremap <ESC> <ESC>:set iminsert=2<CR>
+
++"设置iterm透明度,显示背景图片
++hi Normal ctermbg=none
