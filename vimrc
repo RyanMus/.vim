@@ -703,5 +703,5 @@ silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 set imactivatekey=C-space
 inoremap <ESC> <ESC>:set iminsert=2<CR>
 
-+"设置iterm透明度,显示背景图片
-+hi Normal ctermbg=none
+"设置iterm透明度,显示背景图片
+hi Normal ctermbg=none
