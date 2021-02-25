@@ -617,6 +617,7 @@ let g:ale_linters = {
 \   'bash': ['shellcheck'],
 \   'go': ['golint'],
 \   'javascript': ['eslint'],
+\   'html': ['htmlhint', 'prettier'],
 \   'yaml': ['yamllint', 'prettier'],
 \}
 "let g:ale_linters_ignore = {'python': ['pylint']}
@@ -626,6 +627,7 @@ let g:ale_fixers = {
 \   'rust': ['rustfmt'],
 \   'javascript': ['eslint'],
 \   'yaml': ['prettier'],
+\   'html': ['prettier'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 " let g:ale_set_hightlights = 1
