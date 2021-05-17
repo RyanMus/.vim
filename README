@@ -4,6 +4,15 @@ Just use for macbook
 安装vim8 并且支持python3
 参考我的另外一个项目zsh配置， 安装oh-my-zsh和powerline-status 以及zsh插件
 
+#搜索功能ag, ack
+brew install the_silver_searcher Ack
+#tags
+brew install ctags
+
+#for coc.vim autocompeletion
+brew install node
+npm install yarn
+
 brew install npm && npm install --global prettier
 npm install --global htmlhint
 pip3 install pylint
