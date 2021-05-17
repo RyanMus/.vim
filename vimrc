@@ -97,6 +97,7 @@ Plug 'Konfekt/FastFold' " 代码折叠
 Plug 'roxma/vim-hug-neovim-rpc'
 " Python autocompletion
 Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 " Completion from other opened files
 Plug 'Shougo/context_filetype.vim'
 Plug 'ianding1/leetcode.vim'
@@ -129,7 +130,14 @@ Plug 'fisadev/vim-isort'
 Plug 'valloric/MatchTagAlways'
 " colorschemes
 Plug 'morhetz/gruvbox'
+Plug 'ajmwagar/vim-deus'
+Plug 'ayu-theme/ayu-vim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'connorholyday/vim-snazzy'
+Plug 'w0ng/vim-hybrid'
 Plug 'kien/rainbow_parentheses.vim' 
+Plug 'altercation/vim-colors-solarized'
+Plug 'liuchengxu/space-vim-dark'
 " Generate html in a simple way
 Plug 'mattn/emmet-vim'
 " Git integration
@@ -185,96 +193,94 @@ endif
 " Vim settings and mappings
 " You can edit them as you wish
  
-if using_vim
-    " A bunch of things that are set by default in neovim, but not in vim
+" A bunch of things that are set by default in neovim, but not in vim
 
-    " no vi-compatible
-    set nocompatible
+" no vi-compatible
+set nocompatible
 
-    " allow plugins by file type (required for plugins!)
-    filetype plugin on
-    filetype indent on
+" allow plugins by file type (required for plugins!)
+filetype plugin on
+filetype indent on
 
-    " always show status bar
-    set laststatus=2
+" always show status bar
+set laststatus=2
 
-    " incremental search
-    set incsearch
-    " highlighted search results
-    set hlsearch
-    set ignorecase		" Do case insensitive matching
-    set smartcase		" Do smart case matching
-    set cursorline		
-    autocmd InsertLeave * set cursorline
-    autocmd InsertEnter * set nocursorline
+" incremental search
+set incsearch
+" highlighted search results
+set hlsearch
+set ignorecase		" Do case insensitive matching
+set smartcase		" Do smart case matching
+set cursorline		
+autocmd InsertLeave * set cursorline
+autocmd InsertEnter * set nocursorline
 
-    " 使用系统粘贴板替换neovim的unnamepdplus
-    if has('clipboard')
-      if has('unnamedplus')  " When possible use + register for copy-paste
-        set clipboard=unnamed,unnamedplus
-      else         " On mac and Windows, use * register for copy-paste
-        set clipboard=unnamed
-      endif
-    endif
+" 使用系统粘贴板替换neovim的unnamepdplus
+if has('clipboard')
+  if has('unnamedplus')  " When possible use + register for copy-paste
+    set clipboard=unnamed,unnamedplus
+  else         " On mac and Windows, use * register for copy-paste
+    set clipboard=unnamed
+  endif
+endif
 
-    " syntax highlight on
-    syntax on
-    let mapleader = ","
-    let g:mapleader = ","
-    inoremap  jj             <esc>
-    inoremap  <c-;>         <esc>
-    inoremap  <c-i>         <esc>2l
-    noremap  <c-j>          <c-w>j
-    noremap  <c-k>          <c-w>k
-    noremap  <c-h>          <c-w>h
-    noremap  <c-l>          <c-w>l
-    noremap  <leader>w      :w<CR>
-    vnoremap  <leader>al    :EasyAlign ** \|<CR>
-    vnoremap  <leader>a=    :EasyAlign ** =<CR>
-    vnoremap  <leader>y     "+y
-    noremap  <leader>!      :w !sudo tee "%"<CR>
-    noremap  <leader>q      :q<CR>
-    noremap  <leader>i      :IndentLinesToggle<CR>
-    noremap  <leader>e      :MRU<CR>
-    nnoremap <leader>u      :UndotreeToggle<CR>
-    noremap  <leader>tp     :set paste!<CR>
-    noremap  <leader>x     :TaskList<cr>
-    noremap  <leader>z     :RainbowParenthesesToggle<cr>
-    noremap  <leader>b     <c-o><c-o>
-    noremap  <c-w>=        <c-w>15+
-    noremap  <c-w>-        <c-w>15-
-    noremap  <c-w>,        <c-w>15>
-    noremap  <c-w>.        <c-w>15<
-    nnoremap <C-n>           gt
-    nnoremap <C-p>           gT
-    nnoremap <space>        za
-    vnoremap <space>        za
-    map gf :tabnew <cfile><cr>
-    cnoremap <C-P> <Up>
-    cnoremap <C-N> <Down>
-    cnoremap <C-B> <Left>
-    cnoremap <C-a> <Home>
-    set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分割
+" syntax highlight on
+syntax on
+let mapleader = ","
+let g:mapleader = ","
+inoremap  jk             <esc>
+inoremap  <c-;>         <esc>
+inoremap  <c-i>         <esc>2l
+noremap  <c-j>          <c-w>j
+noremap  <c-k>          <c-w>k
+noremap  <c-h>          <c-w>h
+noremap  <c-l>          <c-w>l
+noremap  <Leader>w      :w<CR>
+vnoremap  <leader>al    :EasyAlign ** \|<CR>
+vnoremap  <leader>a=    :EasyAlign ** =<CR>
+vnoremap  <leader>y     "+y
+noremap  <leader>!      :w !sudo tee "%"<CR>
+noremap  <leader>q      :q<CR>
+noremap  <leader>i      :IndentLinesToggle<CR>
+noremap  <leader>e      :MRU<CR>
+nnoremap <leader>u      :UndotreeToggle<CR>
+noremap  <leader>tp     :set paste!<CR>
+noremap  <leader>x     :TaskList<cr>
+noremap  <leader>z     :RainbowParenthesesToggle<cr>
+noremap  <leader>b     <c-o><c-o>
+noremap  <c-w>=        <c-w>15+
+noremap  <c-w>-        <c-w>15-
+noremap  <c-w>,        <c-w>15>
+noremap  <c-w>.        <c-w>15<
+nnoremap <C-n>           gt
+nnoremap <C-p>           gT
+nnoremap <space>        za
+vnoremap <space>        za
+map gf :tabnew <cfile><cr>
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
+cnoremap <C-B> <Left>
+cnoremap <C-a> <Home>
+set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分割
 
-    " better backup, swap and undos storage for vim (nvim has nice ones by
-    " default)
-    set directory=~/.vim/dirs/tmp     " directory to place swap files in
-    set backup                        " make backup files
-    set backupdir=~/.vim/dirs/backups " where to put backup files
-    set undofile                      " persistent undos - undo after you re-open the file
-    set undodir=~/.vim/dirs/undos
-    set viminfo+=n~/.vim/dirs/viminfo
-    " create needed directories if they don't exist
-    if !isdirectory(&backupdir)
-        call mkdir(&backupdir, "p")
-    endif
-    if !isdirectory(&directory)
-        call mkdir(&directory, "p")
-    endif
-    if !isdirectory(&undodir)
-        call mkdir(&undodir, "p")
-    endif
-end
+" better backup, swap and undos storage for vim (nvim has nice ones by
+" default)
+set directory=~/.vim/dirs/tmp     " directory to place swap files in
+set backup                        " make backup files
+set backupdir=~/.vim/dirs/backups " where to put backup files
+set undofile                      " persistent undos - undo after you re-open the file
+set undodir=~/.vim/dirs/undos
+set viminfo+=n~/.vim/dirs/viminfo
+" create needed directories if they don't exist
+if !isdirectory(&backupdir)
+    call mkdir(&backupdir, "p")
+endif
+if !isdirectory(&directory)
+    call mkdir(&directory, "p")
+endif
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "p")
+endif
 
 " 恢复上次文件打开位置
 "set viminfo='10,\"100,:20,%,n~/.vim/dirs/viminfo
@@ -385,6 +391,9 @@ let g:python_folding = 1
 "let g:pymode_run = 1
 "let g:pymode_run_bind = '<Leader>r'
 
+" ------------------------------------------------
+" For pydocstring 
+nmap <silent> <Leader>id <Plug>(pydocstring)
 
 " ------------------------------------------------
 " For leetcode 
@@ -403,6 +412,7 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
         let &t_Co = 256
     endif
     colorscheme vim-monokai-tasty
+    "colorscheme py-darcula
 else
     "let &t_Co = 8
     let &t_Co = 128
@@ -430,7 +440,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" parenthesis{([])}
+"parenthesis{([])}
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -640,7 +650,7 @@ let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
 let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_enter = 0
 let g:ale_set_quickfix = 1
 let g:ale_open_list = 0 "打开quitfix对话框
@@ -704,8 +714,10 @@ silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 " ln -s ~/.vimrc ~/.config/nvim/init.vim
 " alias vim='nvim'
 " 切换输入法, 退出插入模式
-set imactivatekey=C-space
-inoremap <ESC> <ESC>:set iminsert=2<CR>
+if using_vim
+    set imactivatekey=C-space
+    inoremap <ESC> <ESC>:set iminsert=2<CR>
+endif
 
 "设置iterm透明度,显示背景图片
 hi Normal ctermbg=none
