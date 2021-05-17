@@ -3,8 +3,8 @@
 " version: 12.0.1
 
 " To use fancy symbols wherever possible, change this setting from 0 to 1
-" and use a font from https://github.com/ryanoasis/nerd-fonts in your terminal 
-" (if you aren't using one of those fonts, you will see funny characters here. 
+" and use a font from https://github.com/ryanoasis/nerd-fonts in your terminal
+" (if you aren't using one of those fonts, you will see funny characters here.
 " Turst me, they look nice when using one of those fonts).
 let fancy_symbols_enabled = 0
 
@@ -43,9 +43,9 @@ if vim_plug_just_installed
     :execute 'source '.fnameescape(vim_plug_path)
 endif
 
-" Obscure hacks done, you can now modify the rest of the config down below 
+" Obscure hacks done, you can now modify the rest of the config down below
 " as you wish :)
-" IMPORTANT: some things in the config are vim or neovim specific. It's easy 
+" IMPORTANT: some things in the config are vim or neovim specific. It's easy
 " to spot, they are inside `if using_vim` or `if using_neovim` blocks.
 
 " ============================================================================
@@ -73,7 +73,7 @@ Plug 'majutsushi/tagbar'
 " Search results counter
 Plug 'vim-scripts/IndexedSearch'
 " A couple of nice colorschemes
-Plug 'fisadev/fisa-vim-colorscheme'    
+Plug 'fisadev/fisa-vim-colorscheme'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'joshdick/onedark.vim'
 Plug 'KeitaNakamura/neodark.vim'
@@ -86,6 +86,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Pending tasks list
 Plug 'fisadev/FixedTaskList.vim'
+Plug 'liuchengxu/vim-which-key'
 " Async autocompletion
 if using_neovim && vim_plug_just_installed
     Plug 'Shougo/deoplete.nvim', {'do': ':autocmd VimEnter * UpdateRemotePlugins'}
@@ -135,7 +136,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'connorholyday/vim-snazzy'
 Plug 'w0ng/vim-hybrid'
-Plug 'kien/rainbow_parentheses.vim' 
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'liuchengxu/space-vim-dark'
 " Generate html in a simple way
@@ -173,7 +174,7 @@ if using_vim
     Plug 'vim-scripts/matchit.zip'
 endif
 
-" Code searcher. If you enable it, you should also configure g:hound_base_url 
+" Code searcher. If you enable it, you should also configure g:hound_base_url
 " and g:hound_port, pointing to your hound instance
 " Plug 'mattn/webapi-vim'
 " Plug 'jfo/hound.vim'
@@ -192,28 +193,48 @@ endif
 " ============================================================================
 " Vim settings and mappings
 " You can edit them as you wish
- 
+
 " A bunch of things that are set by default in neovim, but not in vim
 
 " no vi-compatible
 set nocompatible
-
+syntax on
 " allow plugins by file type (required for plugins!)
 filetype plugin on
 filetype indent on
-
 " always show status bar
 set laststatus=2
-
 " incremental search
 set incsearch
 " highlighted search results
 set hlsearch
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set cursorline		
+set ignorecase      " Do case insensitive matching
+set smartcase       " Do smart case matching
+set cursorline
 autocmd InsertLeave * set cursorline
 autocmd InsertEnter * set nocursorline
+
+" 恢复上次文件打开位置
+"set viminfo='10,\"100,:20,%,n~/.vim/dirs/viminfo
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+set fo+=mB                       "打开断行模块对亚洲语言支持
+"set list  " 开启对于制表符（tab）、行尾空格符（trail）、行结束符（eol）等等特殊符号的回显
+set backspace=indent,eol,start  " “缩进位置”，“行结束符”，“段首”。这样设置可以使得 backspace 键在这三个特殊的位置也能进行回删动作
+" tabs and spaces handling
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoread                     " Set to auto read when a file is changed from the outside
+set autowrite                    " Set to auto write when a file is changed from the outside
+set autochdir                    "Auto change the global dir of the current windows
+set showcmd         " 在屏幕右下角显示未完成的指令输入
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+" when scrolling, keep cursor 3 lines away from screen border, less 3 then
+" show +12
+set scrolloff=3
+set scrolljump=12
 
 " 使用系统粘贴板替换neovim的unnamepdplus
 if has('clipboard')
@@ -223,45 +244,6 @@ if has('clipboard')
     set clipboard=unnamed
   endif
 endif
-
-" syntax highlight on
-syntax on
-let mapleader = ","
-let g:mapleader = ","
-inoremap  jk             <esc>
-inoremap  <c-;>         <esc>
-inoremap  <c-i>         <esc>2l
-noremap  <c-j>          <c-w>j
-noremap  <c-k>          <c-w>k
-noremap  <c-h>          <c-w>h
-noremap  <c-l>          <c-w>l
-noremap  <Leader>w      :w<CR>
-vnoremap  <leader>al    :EasyAlign ** \|<CR>
-vnoremap  <leader>a=    :EasyAlign ** =<CR>
-vnoremap  <leader>y     "+y
-noremap  <leader>!      :w !sudo tee "%"<CR>
-noremap  <leader>q      :q<CR>
-noremap  <leader>i      :IndentLinesToggle<CR>
-noremap  <leader>e      :MRU<CR>
-nnoremap <leader>u      :UndotreeToggle<CR>
-noremap  <leader>tp     :set paste!<CR>
-noremap  <leader>x     :TaskList<cr>
-noremap  <leader>z     :RainbowParenthesesToggle<cr>
-noremap  <leader>b     <c-o><c-o>
-noremap  <c-w>=        <c-w>15+
-noremap  <c-w>-        <c-w>15-
-noremap  <c-w>,        <c-w>15>
-noremap  <c-w>.        <c-w>15<
-nnoremap <C-n>           gt
-nnoremap <C-p>           gT
-nnoremap <space>        za
-vnoremap <space>        za
-map gf :tabnew <cfile><cr>
-cnoremap <C-P> <Up>
-cnoremap <C-N> <Down>
-cnoremap <C-B> <Left>
-cnoremap <C-a> <Home>
-set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分割
 
 " better backup, swap and undos storage for vim (nvim has nice ones by
 " default)
@@ -282,26 +264,66 @@ if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
 
-" 恢复上次文件打开位置
-"set viminfo='10,\"100,:20,%,n~/.vim/dirs/viminfo
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-set fo+=mB                       "打开断行模块对亚洲语言支持
-set backspace=2                  " 使回格键（backspace）正常处理indent, eol, start等
-"set list  " 开启对于制表符（tab）、行尾空格符（trail）、行结束符（eol）等等特殊符号的回显
-set backspace=indent,eol,start  " “缩进位置”，“行结束符”，“段首”。这样设置可以使得 backspace 键在这三个特殊的位置也能进行回删动作
-" tabs and spaces handling
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set autoread                     " Set to auto read when a file is changed from the outside
-set autowrite                    " Set to auto write when a file is changed from the outside
-set autochdir                    "Auto change the global dir of the current windows
-set showcmd         " 在屏幕右下角显示未完成的指令输入
-set wildmenu                    " Show list instead of just completing
-set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+" syntax highlight on
+let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ','
+inoremap  jk             <Esc>
+inoremap jj              <Esc>
+nnoremap  Y y$
+noremap  <c-j>          <c-w>j
+noremap  <c-k>          <c-w>k
+noremap  <c-h>          <c-w>h
+noremap  <c-l>          <c-w>l
+vnoremap  <leader>al    :EasyAlign ** \|<CR>
+vnoremap  <leader>a=    :EasyAlign ** =<CR>
+command! W w !sudo tee % > /dev/null
+nnoremap <silent> <Leader>ww  :w<CR>
+nnoremap <silent> <Leader>q  :q<CR>
+noremap  <leader>i      :IndentLinesToggle<CR>
+noremap  <leader>e      :MRU<CR>
+nnoremap <leader>u      :UndotreeToggle<CR>
+noremap  <leader>x     :TaskList<cr>
+noremap  <leader>z     :RainbowParenthesesToggle<cr>
+noremap  <leader>bb     <c-o><c-o>
 
-"{{{ for easymotion move fast 
+"buffers
+nnoremap <silent> <Leader>bp :bprevious<CR>
+nnoremap <silent> <Leader>bn :bnext<CR>
+nnoremap <silent> <Leader>bf :bfirst<CR>
+nnoremap <silent> <Leader>bl :blast<CR>
+
+"windows
+noremap  <leader>wj    <c-w>10+
+noremap  <leader>wk    <c-w>10-
+noremap  <leader>wl    <c-w>10>
+noremap  <leader>wh    <c-w>10<
+
+for s:i in range(1, 9)
+  " <Leader>[1-9] move to window [1-9]
+  execute 'nnoremap <Leader>w'.s:i ' :'.s:i.'wincmd w<CR>'
+
+  " <Leader><leader>[1-9] move to tab [1-9]
+  execute 'nnoremap <Leader>t'.s:i s:i.'gt'
+
+  " <Leader>b[1-9] move to buffer [1-9]
+  execute 'nnoremap <Leader>b'.s:i ':b'.s:i.'<CR>'
+endfor
+unlet s:i
+
+nnoremap <C-n>           gt
+nnoremap <C-p>           gT
+map gf :tabnew <cfile><cr>
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
+cnoremap <C-B> <Left>
+cnoremap <C-a> <Home>
+set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分割
+set report=0       " Always report changed lines
+"set pumheight=20   " Avoid the pop up menu occupying the whole screen
+set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶
+
+"{{{ for easymotion move fast
     nmap w <Plug>(easymotion-w)
     nmap b <Plug>(easymotion-b)
 "}}}
@@ -345,7 +367,7 @@ nmap <silent> <leader>ds <Plug>DashSearch
 autocmd FileType apache setlocal commentstring=#\ %s
 
 " remove ugly vertical lines on window division
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 " ------------------------------------------------
 " For Fastflod
@@ -371,32 +393,12 @@ let g:rust_fold = 1
 let g:php_folding = 1
 let g:python_folding = 1
 
-
-
 " ------------------------------------------------
-" For python-mode
-" 使用python模式编写python代码，并禁用lint, flod, rope功能
-" motion定义 [[, ]], [M, ]M 跳转到前后类，函数
-" motion定义新文本对象 aM, aC, iM, iC, 如yaM,diC分表表示复制一个method, 删除一个Class
-" 使用,r 运行当前python代码 (建议不要运行有输入的，或者超长时间超多输出的代码)
-" more see :help pymode
-" ------------------------------------------------
-"let g:pymode_python = 'python3'
-"let g:pymode_indent = 1
-"let g:pymode_motion = 1
-"let g:pymode_lint = 0
-"let g:pymode_folding = 0
-"let g:pymode_rope = 0
-"let g:pymode_breakpoint = 0
-"let g:pymode_run = 1
-"let g:pymode_run_bind = '<Leader>r'
-
-" ------------------------------------------------
-" For pydocstring 
+" For pydocstring
 nmap <silent> <Leader>id <Plug>(pydocstring)
 
 " ------------------------------------------------
-" For leetcode 
+" For leetcode
 "When non-zero, use LeetCode China accounts instead.
 let g:leetcode_china = 1
 let g:leetcode_solution_filetype = 'python3'
@@ -425,8 +427,8 @@ endif
 " 是否显示行数
 let g:enable_numbers = 1
 
-" setting for gruvbox 
-set background=dark "Setting dark/light mode 
+" setting for gruvbox
+set background=dark "Setting dark/light mode
 " Changes dark mode contrast. Overrides g:gruvbox_contrast option. Possible values are soft, medium and hard.
 "let g:gruvbox_contrast_dark = "hard"
 let g:neodark#background = '#202020'
@@ -454,8 +456,6 @@ set completeopt+=noinsert
 " disabled by default because preview makes the window flicker
 set completeopt-=preview
 
-" when scrolling, keep cursor 10 lines away from screen border
-set scrolloff=20
 
 " clear search results
 nnoremap <silent> // :noh<CR>
@@ -463,7 +463,7 @@ nnoremap <silent> // :noh<CR>
 " clear empty spaces at the end of lines on save of python files
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.py :Isort
-autocmd FileType markdown  noremap <leader>mp :MarkdownPreview<cr> 
+autocmd FileType markdown  noremap <leader>mp :MarkdownPreview<cr>
 autocmd! bufwritepost *vimrc source $HOME/.vimrc
 
 
@@ -481,7 +481,7 @@ nmap ,l :NERDTreeFind<CR>
 " 总是显示Bookmark
 let NERDTreeShowBookmarks = 1
 " ignore these list file extensions
-set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,*.pyo,*.jpg,*.gif,*.png,*.pdf
+set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,*.pyo,*.jpg,*.gif,*.png,*.pdf,*/tmp/*,*.so,*.zip
 
 " don;t show these file types
  let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.dll$', '*.o$','*.jpg','*.png$', '\.zip$', '\.tgz', '\.pdf$','\.pyc$','\.pyo$','\.dll']
@@ -491,7 +491,7 @@ let NERDTreeShowLineNumbers=0
 
 "只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
 autocmd Filetype python  iabb pdb import ipdb; ipdb.set_trace()<esc>
-"autocmd FileType python,php setlocal foldmethod=indent foldlevel=99 
+"autocmd FileType python,php setlocal foldmethod=indent foldlevel=99
 autocmd FileType c,cpp,java,perl,sh setlocal foldmethod=marker foldmarker={,} foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 
 "显示缩进线
@@ -555,6 +555,8 @@ nnoremap <leader>st :SignifyToggle<CR>
 nnoremap <leader>sd :SignifyDiff<CR>
 highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 let g:signify_sign_change = '*'
+let g:signify_sign_delete            = '-'
+let g:signify_sign_delete_first_line = '^'
 
 " this first setting decides in which order try to guess your current vcs
 " UPDATE it to reflect your preferences, it will speed up opening files
@@ -573,7 +575,7 @@ hi SignifySignDelete ctermfg=8
 hi SignifySignChange ctermfg=172
 
 
-hi! PmenuSel        ctermbg=Magenta ctermfg=0 
+hi! PmenuSel        ctermbg=Magenta ctermfg=0
 hi! jediFat         ctermfg=Magenta ctermbg=black
 
 " Autoclose ------------------------------
@@ -665,7 +667,7 @@ nmap gk <Plug>(ale_previous_wrap)
 nmap gj <Plug>(ale_next_wrap)
 nnoremap <leader>at :ALEToggle<CR>
 "format代码
-nnoremap <leader>af :ALEFix<cr>  
+nnoremap <leader>af :ALEFix<cr>
 
 
 if fancy_symbols_enabled
@@ -698,6 +700,11 @@ endif
 
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
+"for vim-which-key
+set timeoutlen=300
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+
 " ------------------------------------------------
 " For themes
 " 如果主题等写成前面效果不一致，那就写到最后面吧
@@ -720,4 +727,6 @@ if using_vim
 endif
 
 "设置iterm透明度,显示背景图片
-hi Normal ctermbg=none
+hi Normal     ctermbg=NONE guibg=NONE
+hi LineNr     ctermbg=NONE guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
