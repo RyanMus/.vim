@@ -1,4 +1,4 @@
-.netrwhist 
+.netrwhist
 *.pyc
 *.swp
 *.swn
@@ -8,3 +8,5 @@ plugged/*
 tags
 dirs
 vim-plugin-nerdcommenter.html
+.XTablineSessions
+session*
