@@ -851,3 +851,5 @@ let g:markdown_fenced_languages = [
       \ 'vim',
       \ 'help'
       \]
+" 翻译功能 coc-translator
+nmap ts <Plug>(coc-translator-p)
