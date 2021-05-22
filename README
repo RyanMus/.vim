@@ -1,23 +1,32 @@
 It's my personal ~/.vim/ repository
 Just use for macbook
+Install nerdfont for icons
 
 安装vim8 并且支持python3
 参考我的另外一个项目zsh配置， 安装oh-my-zsh和powerline-status 以及zsh插件
 
 #搜索功能ag, ack
-brew install the_silver_searcher Ack
+brew install the_silver_searcher Ack ripgrep
 #tags
 brew install ctags
+#font字体图标
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+
 
 #for coc.vim autocompeletion
 brew install node
-npm install yarn
-
 brew install npm && npm install --global prettier
+npm i eslint eslint-plugin-vue -D
 npm install --global htmlhint
+npm install yarn
+npm install -g neovim
+
 pip3 install pylint
 pip3 install flake8
 pip3 install pyflakes
 pip3 install black
 pip3 install isort
 pip3 install autopep8
+pip3 install pynvim==0.4.3
+pip3 install --user powerline-status
