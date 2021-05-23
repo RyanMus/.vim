@@ -29,4 +29,13 @@ pip3 install black
 pip3 install isort
 pip3 install autopep8
 pip3 install pynvim==0.4.3
-pip3 install --user powerline-status
+pip3 install jedi-language-server
+(vim 中安装vim-jedi或者coc-jedi)用户代码补全和跳转等功能
+
+
+vue项目需要执行以下命令coc-vetur才能正常工作
+npm i eslint eslint-plugin-vue -D
+
+npm install -g bash-language-server
+npm install -g sql-formatter
+npm install node-sql-parser --save

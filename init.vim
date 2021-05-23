@@ -1,3 +1,4 @@
+" 如果输入过程中有卡顿或者其他问题,是有:imap查看所有映射键值查找对应动作分析
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=UTF-8
@@ -51,15 +52,13 @@ endif
 
 " Now the actual plugins:
 
-" Override configs by directory
-Plug 'arielrossanigo/dir-configs-override.vim'
 " Code commenter
 Plug 'scrooloose/nerdcommenter'
 " Better file browser
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Class/module browser tag
-Plug 'majutsushi/tagbar'
+Plug 'preservim/tagbar'
 Plug 'liuchengxu/vista.vim'
 " Search results counter
 "Plug 'vim-scripts/IndexedSearch'
@@ -81,14 +80,9 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'Konfekt/FastFold' " 代码折叠
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 Plug 'ianding1/leetcode.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " 代码补全, 见配置并需要安装各语言依赖, 如coc-python
 Plug 'w0rp/ale' " 代码静态检查，代码格式修正, 见配置并需要安装各语言依赖, 如flake8
-"Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } "写python语言的各种操作, 见配置a
-
 " Just to add the python go-to-definition and similar features, autocompletion
 Plug 'davidhalter/jedi-vim'
-" Automatically close parenthesis, etc
-Plug 'Townk/vim-autoclose'
 " Surround
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -114,9 +108,11 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'connorholyday/vim-snazzy'
 Plug 'w0ng/vim-hybrid'
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'luochen1990/rainbow'
 Plug 'altercation/vim-colors-solarized'
 Plug 'liuchengxu/space-vim-dark'
+Plug 'vim-python/python-syntax'
+let g:python_highlight_all = 1
 " Generate html in a simple way
 Plug 'mattn/emmet-vim'
 " Git integration
@@ -138,26 +134,12 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'Yggdroot/indentLine'
 "tab标签的设定, session 和buffer--->help xtabline.txt
 Plug 'mg979/vim-xtabline'
-" Relative numbering of lines (0 is the current line)
-" (disabled by default because is very intrusive and can't be easily toggled
-" on/off. When the plugin is present, will always activate the relative
-" numbering every time you go to normal mode. Author refuses to add a setting
-" to avoid that)
+"vim 启动页面
 Plug 'mhinz/vim-startify'
-if using_vim
-    " Consoles as buffers (neovim has its own consoles as buffers)
-    Plug 'rosenfeld/conque-term'
-    " XML/HTML tags navigation (neovim has its own)
-    Plug 'vim-scripts/matchit.zip'
-endif
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " 代码补全, 见配置并需要安装各语言依赖
 
 " 保留为最后一个插件加载
 Plug 'ryanoasis/vim-devicons'
-
-" Code searcher. If you enable it, you should also configure g:hound_base_url
-" and g:hound_port, pointing to your hound instance
-" Plug 'mattn/webapi-vim'
-" Plug 'jfo/hound.vim'
 
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
@@ -171,11 +153,6 @@ if vim_plug_just_installed
 endif
 
 " ============================================================================
-" Vim settings and mappings
-" You can edit them as you wish
-
-" A bunch of things that are set by default in neovim, but not in vim
-
 " no vi-compatible
 set nocompatible
 syntax on
@@ -195,10 +172,10 @@ set cursorline
 autocmd InsertLeave,WinEnter * if &ft !=# 'clap_input' | set cursorline | endif
 autocmd InsertEnter,WinLeave * set nocursorline
 " 恢复上次文件打开位置
-"set viminfo='10,\"100,:20,%,n~/.vim/dirs/viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 set fo+=mB                       "打开断行模块对亚洲语言支持
 "set list  " 开启对于制表符（tab）、行尾空格符（trail）、行结束符（eol）等等特殊符号的回显
+set listchars=tab:→\ ,trail:π,extends:↷,precedes:↶
 set backspace=indent,eol,start  " “缩进位置”，“行结束符”，“段首”。这样设置可以使得 backspace 键在这三个特殊的位置也能进行回删动作
 " tabs and spaces handling
 set expandtab
@@ -207,11 +184,9 @@ set softtabstop=4
 set shiftwidth=4
 set autoread                     " Set to auto read when a file is changed from the outside
 set autowrite                    " Set to auto write when a file is changed from the outside
-"set autochdir                    "Auto change the global dir of the current windows
 set showcmd         " 在屏幕右下角显示未完成的指令输入
 set wildmenu                    " Show list instead of just completing
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-set number
 "显示相对行号
 set relativenumber
 " when scrolling, keep cursor 3 lines away from screen border, less 3 then
@@ -259,9 +234,9 @@ endif
 " syntax highlight on
 let mapleader = "\<Space>"
 let g:mapleader = "\<Space>"
-let g:maplocalleader = ';'
-inoremap  jk             <Esc>
-inoremap jj              <Esc>
+let g:maplocalleader = ','
+inoremap <silent>jk             <Esc>
+inoremap <silent>jj              <Esc>
 nnoremap  Y y$
 nnoremap <leader>?      :Maps<cr>
 noremap  <c-j>          <c-w>j
@@ -271,15 +246,13 @@ noremap  <c-l>          <c-w>l
 vnoremap  <leader>al    :EasyAlign ** \|<CR>
 vnoremap  <leader>a=    :EasyAlign ** =<CR>
 command! W w !sudo tee % > /dev/null
-nnoremap <silent> <leader>ww  :w<CR>
-nnoremap <silent> <localleader>w  :w<CR>
-nnoremap <silent> <localleader>q  :q<CR>
+nnoremap <silent><nowait> <leader>s  :w<CR>
+nnoremap <silent><nowait> <leader>q  :q<CR>
 noremap  <leader>i      :IndentLinesToggle<CR>
-noremap  <leader>e      :MRU<CR>
-nnoremap <leader>u      :UndotreeToggle<CR>
+noremap  <nowait> <leader>e      :MRU<CR>
+nnoremap <nowait> <leader>u      :UndotreeToggle<CR>
 noremap  <leader>td     :TaskList<cr>
 noremap  <leader>tn     :tabnew<cr>
-noremap  <leader>z     :RainbowParenthesesToggle<cr>
 
 "buffers
 nnoremap <silent> <Leader>bp :bprevious<CR>
@@ -300,7 +273,6 @@ noremap  <leader>-     <c-w>10-
 noremap  <leader>]    <c-w>10>
 noremap  <leader>[     <c-w>10<
 
-
 for s:i in range(1, 9)
   " <Leader>[1-9] move to window [1-9]
   execute 'nnoremap <Leader>w'.s:i ' :'.s:i.'wincmd w<CR>'
@@ -319,14 +291,11 @@ cnoremap <C-B> <Left>
 cnoremap <C-a> <Home>
 set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分割
 set report=0       " Always report changed lines
-"set pumheight=20   " Avoid the pop up menu occupying the whole screen
-set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶
 
 "{{{ for easymotion move fast
-    nmap <leader>h <Plug>(easymotion-linebackward)
-    nmap <localleader><localleader> <Plug>(easymotion-lineanywhere)
-    nmap <leader>j <Plug>(easymotion-j)
-    nmap <leader>k <Plug>(easymotion-k)
+    nmap <leader><leader> <Plug>(easymotion-lineanywhere)
+    nmap <localleader>j <Plug>(easymotion-j)
+    nmap <localleader>k <Plug>(easymotion-k)
     nmap w <Plug>(easymotion-w)
     nmap b <Plug>(easymotion-b)
 "}}}
@@ -373,29 +342,6 @@ autocmd FileType apache setlocal commentstring=#\ %s
 set fillchars+=vert:\
 
 " ------------------------------------------------
-" For Fastflod
-" ------------------------------------------------
-set foldmethod=indent
-set foldopen+=jump
-set foldlevelstart=99
-let g:fastfold_savehook = 1
-let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
-let g:markdown_folding = 1
-let g:tex_fold_enabled = 1
-let g:vimsyn_folding = 'af'
-let g:xml_syntax_folding = 1
-let g:javaScript_fold = 1
-let g:sh_fold_enabled= 7
-let g:ruby_fold = 1
-let g:perl_fold = 1
-let g:perl_fold_blocks = 1
-let g:r_syntax_folding = 1
-let g:rust_fold = 1
-let g:php_folding = 1
-let g:python_folding = 1
-
-" ------------------------------------------------
 " For pydocstring
 nmap <silent> <Leader>id <Plug>(pydocstring)
 
@@ -410,23 +356,14 @@ nnoremap <leader>lt :LeetCodeTest<cr>
 nnoremap <leader>ls :LeetCodeSubmit<cr>
 nnoremap <leader>li :LeetCodeSignIn<cr>
 
-" use 256 colors when possible
-if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
-    if !has('gui_running')
-        let &t_Co = 256
-    endif
-    colorscheme vim-monokai-tasty
-    "colorscheme py-darcula
-else
-    let &t_Co = 256
-    "colorscheme desert
-    "colorscheme gruvbox
-    "colorscheme neodark
-    colorscheme py-darcula
-endif
+let &t_Co = 256
+"colorscheme desert
+colorscheme gruvbox
+"colorscheme neodark
+"colorscheme py-darcula
 
 " setting for gruvbox
-set background=dark "Setting dark/light mode
+set background=dark           "Setting dark/light mode
 " Changes dark mode contrast. Overrides g:gruvbox_contrast option. Possible values are soft, medium and hard.
 "let g:gruvbox_contrast_dark = "hard"
 let g:neodark#background = '#202020'
@@ -439,14 +376,34 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+" +=============================== rainbow Parentheses ==============================+ "
+" [({})]
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\   'guifgs': ['#FFE66F', '#00FFFF', '#46A3FF', '#AAAAFF', '#FFB5B5'],
+\   'ctermfgs': ['lightyellow', 'lightcyan','lightblue', 'lightmagenta'],
+\   'operators': '_,_',
+\   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\	'separately': {
+\		'*': {},
+\		'tex': {
+\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\		},
+\		'lisp': {
+\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+\		},
+\		'vim': {
+\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\		},
+\		'html': {
+\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\		},
+\		'css': 0,
+\	}
+\}
 
-"parenthesis{([])}
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-let g:rbpt_max = 16
-
+set foldmethod=indent " 设置默认折叠方式为缩进
+set foldlevelstart=99 " 每次打开文件时关闭折叠
 " clear search results
 nnoremap <silent> // :noh<CR>
 
@@ -455,7 +412,8 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.py :Isort
 let g:vim_isort_python_version = 'python3'
 autocmd FileType markdown  noremap <leader>mp :MarkdownPreview<cr>
-autocmd! bufwritepost *vimrc source $HOME/.vimrc
+"修改配置文件，自动加载
+autocmd! bufwritepost init.vim source $HOME/.config/nvim/init.vim
 
 " Tagbar -----------------------------
 " toggle tagbar display
@@ -477,8 +435,9 @@ let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 0
 " Force extra padding in NERDTree so that the filetype icons line up vertically
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+" 图片前后的字符默认两个空格
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ' '
 
 
 " don;t show these file types
@@ -487,11 +446,6 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowLineNumbers=0
 let g:NERDTreeGitStatusUseNerdFonts = 1 " you should install nerdfonts by yourself. default: 0
-
-"只对c,cpp,java,pl,sh,py格式的文件启动自动缩进.注释进行了自动缩进 fold按缩进程度进行代码块的收放
-autocmd Filetype python  iabb pdb import ipdb; ipdb.set_trace()<esc>
-autocmd FileType python,php setlocal foldmethod=indent foldlevel=99
-autocmd FileType c,cpp,java,perl,sh setlocal foldmethod=marker foldmarker={,} foldlevel=99 formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 
 "显示缩进线
 let g:indentLine_setColors = 0
@@ -511,7 +465,7 @@ nmap <leader>bt :Lines<CR>
 nmap <leader>wf :execute ":Lines " . expand('<cword>')<CR>
 
 " Jedi-vim ------------------------------
-" Disable autocompletion (using deoplete instead)
+" Disable autocompletion (using coc-vim instead)
 let g:jedi#completions_enabled = 0
 
 " All these mappings work only for python code:
@@ -550,8 +504,8 @@ let g:signify_sign_change = '*'
 " UPDATE it to reflect your preferences, it will speed up opening files
 let g:signify_vcs_list = ['git']
 " mappings to jump to changed blocks
-nmap <localleader>j <plug>(signify-next-hunk)
-nmap <localleader>k <plug>(signify-prev-hunk)
+nmap <leader>j <plug>(signify-next-hunk)
+nmap <leader>k <plug>(signify-prev-hunk)
 
 " nicer colors
 hi DiffAdd           cterm=bold ctermbg=none ctermfg=2
@@ -562,28 +516,6 @@ hi DiffText          cterm=bold ctermbg=none ctermfg=1
 
 hi! PmenuSel        ctermbg=Magenta ctermfg=0
 hi! jediFat         ctermfg=Magenta ctermbg=black
-
-" Autoclose ------------------------------
-
-" Fix to let ESC work as espected with Autoclose plugin
-" (without this, when showing an autocompletion window, ESC won't leave insert
-"  mode)
-let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
-
-
-" Yankring -------------------------------
-
-if using_neovim
-    let g:yankring_history_dir = '~/.config/nvim/'
-    " Fix for yankring and neovim problem when system has non-text things
-    " copied in clipboard
-    let g:yankring_clipboard_monitor = 0
-else
-    let g:yankring_history_dir = '~/.vim/dirs/'
-endif
-
-" Airline ------------------------------
-
 
 " ------------------------------------------------
 " For airline
@@ -601,9 +533,6 @@ let g:airline_theme = 'papercolor'           "papercolor,angr,luna,darcula"
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_left_alt_sep = '❯'
 let g:airline_right_alt_sep = '❮'
-
-
-
 " ------------------------------------------------
 " For ale
 " 使用 flake8 做python3的代码检查，pylint检查太严格
@@ -667,8 +596,7 @@ nmap gk <Plug>(ale_previous_wrap)
 nmap gj <Plug>(ale_next_wrap)
 nnoremap <leader>at :ALEToggle<CR>
 "format代码 cs short for code format
-nnoremap <leader>cf :ALEFix<cr>
-
+nnoremap <leader>af :ALEFix<cr>
 
 " Include user's custom nvim configurations
 if using_neovim
@@ -681,10 +609,11 @@ if filereadable(expand(custom_configs_path))
   execute "source " . custom_configs_path
 endif
 
+" repeat.vim .重复动作
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
 "for vim-which-key
-set timeoutlen=500
+set timeoutlen=300
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
@@ -699,10 +628,37 @@ hi SignColumn ctermbg=NONE guibg=NONE
 "Set g:coc_node_path variable to specify which node executable to start coc.nvim service from.
 "Another useful command is :CocInfo — use it after the service has started to get some useful information on it.
 "Run :CocConfig, which will open main config file ~/.config/nvim/coc-settings.json
+let g:coc_global_extensions = [
+	\ 'coc-css',
+	\ 'coc-diagnostic',
+	\ 'coc-eslint',
+	\ 'coc-gitignore',
+	\ 'coc-html',
+	\ 'coc-json',
+	\ 'coc-lists',
+	\ 'coc-prettier',
+	\ 'coc-snippets',
+	\ 'coc-stylelint',
+	\ 'coc-syntax',
+	\ 'coc-tailwindcss',
+	\ 'https://github.com/rodrigore/coc-tailwind-intellisense',
+	\ 'coc-tasks',
+    \ 'coc-translator',
+	\ 'coc-tslint-plugin',
+	\ 'coc-tsserver',
+	\ 'coc-vetur',
+	\ 'coc-vimlsp',
+	\ 'coc-yaml',
+	\ 'coc-yank']
+
 set hidden
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
 
 let g:python3_host_prog = '/usr/local/bin/python3'
 " Always show the signcolumn, otherwise it would shift the text each time
@@ -746,6 +702,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD :tab sp<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -803,9 +760,11 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+nmap <leader>cf :call CocAction('format')<cr>
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+nmap <leader>zz :call     CocAction('fold', <f-args>)<cr>
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
@@ -821,15 +780,18 @@ nnoremap <silent><nowait> <leader>ca  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <leader>ce  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <leader>cc  :<C-u>CocList commands<cr>
+noremap <silent><nowait> <leader>cl  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <leader>co  :<C-u>CocList outline<cr>
 " Search workspace symbols.
 nnoremap <silent><nowait> <leader>cs  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> <leader>cj  :<C-u>CocNext<CR>
+" Do default action for previous item.
+noremap <silent><nowait> <leader>ck  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <leader>cp  :<C-u>CocListResume<CR>
 noremap <LEADER>tt :Vista coc<CR>
-" noremap <c-t> :silent! Vista finder ctags<CR>
 " -----------------------------------------------
 " let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 " let g:vista#renderer#enable_icon = 1
