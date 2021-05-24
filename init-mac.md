@@ -145,6 +145,10 @@ pip3 install pynvim
 ```shell
 brew install node
 brew install npm && npm install --global prettier
+# npm加速
+npm config set registry https://registry.npm.taobao.org
+npm config set disturl https://npm.taobao.org/dist
+
 npm i eslint eslint-plugin-vue -D
 npm install --global htmlhint
 npm install yarn
@@ -158,10 +162,10 @@ pip3 install isort
 pip3 install autopep8
 pip3 install pynvim
 pip3 install jedi-language-server
-(vim 中安装vim-jedi和coc-jedi)用户代码补全和跳转等功能
+# (vim 中安装vim-jedi和coc-jedi)用户代码补全和跳转等功能
 
 
-vue项目需要执行以下命令coc-vetur才能正常工作
+# vue项目需要执行以下命令coc-vetur才能正常工作
 npm i eslint eslint-plugin-vue -D
 
 npm install -g bash-language-server
