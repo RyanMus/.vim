@@ -130,7 +130,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " Track the engine.
 "Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-"Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'Yggdroot/indentLine'
 "tab标签的设定, session 和buffer--->help xtabline.txt
 Plug 'mg979/vim-xtabline'
@@ -576,7 +576,7 @@ let g:ale_lint_delay = 500
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚡'
+let g:ale_sign_warning = ''
 "在vim自带的状态栏中整合ale
 let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
 let g:ale_echo_msg_format = '[%linter%][%severity%]: %s'
@@ -746,12 +746,12 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+"inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+"vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
@@ -793,16 +793,16 @@ noremap <silent><nowait> <leader>ck  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <leader>cp  :<C-u>CocListResume<CR>
 noremap <LEADER>tt :Vista coc<CR>
 " -----------------------------------------------
-" let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-" let g:vista#renderer#enable_icon = 1
-" let g:vista_default_executive = 'ctags'
-" let g:vista_fzf_preview = ['right:50%']
-" let g:vista#renderer#enable_icon = 1
-" let g:vista#renderer#icons = {
-"             \   "function": "\uf794",
-"             \   "variable": "\uf71b",
-"             \  }
-" let g:scrollstatus_size = 15
+ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+ let g:vista#renderer#enable_icon = 1
+ let g:vista_default_executive = 'ctags'
+ let g:vista_fzf_preview = ['right:50%']
+ let g:vista#renderer#enable_icon = 1
+ let g:vista#renderer#icons = {
+             \   "function": "\uf794",
+             \   "variable": "\uf71b",
+             \  }
+ let g:scrollstatus_size = 15
 "------------------------------------------------
 "
 " 通过startify进入的文件,chdir到.git .svn项目根目录
