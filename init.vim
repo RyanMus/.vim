@@ -58,7 +58,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Class/module browser tag
-Plug 'preservim/tagbar'
 Plug 'liuchengxu/vista.vim'
 " Search results counter
 "Plug 'vim-scripts/IndexedSearch'
@@ -187,6 +186,8 @@ set autowrite                    " Set to auto write when a file is changed from
 set showcmd         " 在屏幕右下角显示未完成的指令输入
 set wildmenu                    " Show list instead of just completing
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+" 显示行号
+set nu
 "显示相对行号
 set relativenumber
 " when scrolling, keep cursor 3 lines away from screen border, less 3 then
@@ -245,8 +246,9 @@ noremap  <c-h>          <c-w>h
 noremap  <c-l>          <c-w>l
 vnoremap  <leader>al    :EasyAlign ** \|<CR>
 vnoremap  <leader>a=    :EasyAlign ** =<CR>
-command! W w !sudo tee % > /dev/null
-nnoremap <silent><nowait> <leader>s  :w<CR>
+command!  W             w !sudo tee % > /dev/null
+nnoremap <silent><nowait> ,w  :w<CR>
+nnoremap <silent><nowait> ,q  :q<CR>
 nnoremap <silent><nowait> <leader>q  :q<CR>
 noremap  <leader>i      :IndentLinesToggle<CR>
 noremap  <nowait> <leader>e      :MRU<CR>
@@ -260,6 +262,7 @@ nnoremap <silent> <Leader>bn :bnext<CR>
 nnoremap <silent> <Leader>bf :bfirst<CR>
 nnoremap <silent> <Leader>bl :blast<CR>
 nnoremap <silent> <Leader>bs :Buffers<CR>
+nnoremap <silent> <Leader>b  :bp<cr>
 nnoremap <silent> <Leader>bb :bp<cr>
 
 "windows
@@ -358,7 +361,8 @@ nnoremap <leader>li :LeetCodeSignIn<cr>
 
 let &t_Co = 256
 "colorscheme desert
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme vim-monokai-tasty
 "colorscheme neodark
 "colorscheme py-darcula
 
@@ -373,6 +377,9 @@ let g:neodark#background = '#202020'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+let g:coc_snippet_next="<c-f>"
+let g:coc_snippet_prev="<c-h>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -415,16 +422,10 @@ autocmd FileType markdown  noremap <leader>mp :MarkdownPreview<cr>
 "修改配置文件，自动加载
 autocmd! bufwritepost init.vim source $HOME/.config/nvim/init.vim
 
-" Tagbar -----------------------------
-" toggle tagbar display
-map <leader>tl :TagbarToggle<CR>
-" autofocus on tagbar open
-let g:tagbar_autofocus = 1
-
 " toggle nerdtree display
 noremap  <leader>n      :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
-nmap <localleader>l :NERDTreeFind<CR>
+nmap <leader>l :NERDTreeFind<CR>
 " 总是显示Bookmark
 let NERDTreeShowBookmarks = 1
 " ignore these list file extensions
@@ -441,7 +442,7 @@ let g:WebDevIconsNerdTreeBeforeGlyphPadding = ' '
 
 
 " don;t show these file types
- let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.dll$', '*.o$','*.jpg','*.png$', '\.zip$', '\.tgz', '\.pdf$']
+ let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.dll$', '*.o$','*.jpg','*.png$', '\.zip$', '\.tgz', '\.pdf$', '__pycache__']
 " 如果用t T i 打开文件后自动退出NERDTree,
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowLineNumbers=0
@@ -572,7 +573,7 @@ let g:ale_change_sign_column_color = 0
 let g:ale_sign_column_always = 1
 let g:ale_linters_explicit = 1
 let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
+let g:ale_lint_delay = 300
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_sign_error = '✗'
@@ -628,28 +629,10 @@ hi SignColumn ctermbg=NONE guibg=NONE
 "Set g:coc_node_path variable to specify which node executable to start coc.nvim service from.
 "Another useful command is :CocInfo — use it after the service has started to get some useful information on it.
 "Run :CocConfig, which will open main config file ~/.config/nvim/coc-settings.json
-let g:coc_global_extensions = [
-	\ 'coc-css',
-	\ 'coc-diagnostic',
-	\ 'coc-eslint',
-	\ 'coc-gitignore',
-	\ 'coc-html',
-	\ 'coc-json',
-	\ 'coc-lists',
-	\ 'coc-prettier',
-	\ 'coc-snippets',
-	\ 'coc-stylelint',
-	\ 'coc-syntax',
-	\ 'coc-tailwindcss',
-	\ 'https://github.com/rodrigore/coc-tailwind-intellisense',
-	\ 'coc-tasks',
-    \ 'coc-translator',
-	\ 'coc-tslint-plugin',
-	\ 'coc-tsserver',
-	\ 'coc-vetur',
-	\ 'coc-vimlsp',
-	\ 'coc-yaml',
-	\ 'coc-yank']
+" extensions
+"coc-clangd coc-css coc-diagnostic coc-emmet coc-eslint coc-gitignore coc-go coc-highlight coc-html coc-java coc-jedi coc-json
+"coc-lists coc-markdownlint coc-pairs coc-phpactor coc-prettier coc-sh coc-snippets coc-sql coc-stylelint coc-yaml coc-yank
+"coc-tailwind-intellisense coc-tailwindcss coc-tasks coc-translator coc-tslint-plugin coc-tsserver coc-vetur coc-vimlsp
 
 set hidden
 set cmdheight=2
@@ -724,7 +707,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap gn <Plug>(coc-rename)
 
 augroup mygroup
   autocmd!
@@ -814,4 +797,4 @@ let g:markdown_fenced_languages = [
       \ 'help'
       \]
 " 翻译功能 coc-translator
-nmap ts <Plug>(coc-translator-p)
+nmap gs <Plug>(coc-translator-p)
