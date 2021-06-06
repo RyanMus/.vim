@@ -8,7 +8,8 @@
 	"coc.source.around.firstMatch": false,
 	"coc.source.buffer.firstMatch": false,
 	"coc.source.syntax.firstMatch": false,
-	"suggest.detailMaxLength": 60,
+    "suggest.numberSelect": true,
+    "suggest.minTriggerInputLength":2,
 	"suggest.noselect": true,
 	"suggest.enablePreselect": false,
 	"suggest.triggerAfterInsertEnter": true,
@@ -30,8 +31,8 @@
 		"event": "\ufacd",
 		"field": "\uf93d",
 		"file": "\uf723",
-		"folder": "\uf115",
-		"function": "\u0192",
+		"folder": "\uf07b",
+		"function": "\uf794",
 		"interface": "\uf417",
 		"keyword": "\uf1de",
 		"method": "\uf6a6",
@@ -61,7 +62,6 @@
 	"list.nextKeymap": "<C-e>",
 	"list.previousKeymap": "<C-u>",
 	"snippets.ultisnips.directories": [
-		"$HOME/.config/nvim/Ultisnips/",
 		"$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"
 	],
 	"coc.preferences.formatOnSaveFiletypes": [
