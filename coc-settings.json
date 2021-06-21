@@ -1,15 +1,15 @@
 {
-	"coc.preferences.hoverTarget": "preview",
 	"coc.preferences.enableFloatHighlight": true,
 	"coc.preferences.snippetStatusText": "Ⓢ ",
-    "coc.preferences.silentAutoupdate": true,
+	"coc.preferences.silentAutoupdate": true,
 	"coc.preferences.extensionUpdateCheck": "weekly",
 	"coc.preferences.messageLevel": "error",
 	"coc.source.around.firstMatch": false,
 	"coc.source.buffer.firstMatch": false,
 	"coc.source.syntax.firstMatch": false,
-    "suggest.numberSelect": true,
-    "suggest.minTriggerInputLength":2,
+    "vetur.ignoreProjectWarning": true,
+	"suggest.numberSelect": true,
+	"suggest.minTriggerInputLength": 2,
 	"suggest.noselect": true,
 	"suggest.enablePreselect": false,
 	"suggest.triggerAfterInsertEnter": true,
@@ -61,9 +61,7 @@
 	"list.previewHighlightGroup": "Statement",
 	"list.nextKeymap": "<C-e>",
 	"list.previousKeymap": "<C-u>",
-	"snippets.ultisnips.directories": [
-		"$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"
-	],
+	"snippets.ultisnips.directories": ["$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"],
 	"coc.preferences.formatOnSaveFiletypes": [
 		"javascript",
 		"typescript",
@@ -74,7 +72,8 @@
 		"vue",
 		"svelte",
 		"c",
-		"prisma"
+		"prisma",
+        "yaml"
 	],
 	"yaml.format.enable": true,
 	"signature.target": "float",
@@ -96,6 +95,11 @@
 	"prettier.useTabs": true,
 	"prettier.trailingComma": "all",
 	"prettier.singleQuote": false,
+    "python.formatting.provider": "yapf",
+	"python.formatting.yapfArgs": [
+		"--style",
+		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
+	],
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"email": "languagetool",

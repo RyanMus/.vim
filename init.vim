@@ -78,7 +78,7 @@ Plug 'fisadev/FixedTaskList.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'Konfekt/FastFold' " 代码折叠
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
-Plug 'ianding1/leetcode.vim'
+"Plug 'ianding1/leetcode.vim'
 Plug 'w0rp/ale' " 代码静态检查，代码格式修正, 见配置并需要安装各语言依赖, 如flake8
 " Just to add the python go-to-definition and similar features, autocompletion
 Plug 'davidhalter/jedi-vim'
@@ -96,9 +96,9 @@ Plug 'mileszs/ack.vim'
 " Paint css colors with the real color
 Plug 'lilydjwg/colorizer'
 " Automatically sort python imports
-Plug 'fisadev/vim-isort'
+Plug 'fisadev/vim-isort', { 'for': 'python' }
 " Highlight matching html tags
-Plug 'valloric/MatchTagAlways'
+"Plug 'valloric/MatchTagAlways', { 'for': ['html', 'vue', 'xhtml', 'xml', 'jinja'] }
 " colorschemes
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
@@ -110,10 +110,10 @@ Plug 'w0ng/vim-hybrid'
 Plug 'luochen1990/rainbow'
 Plug 'altercation/vim-colors-solarized'
 Plug 'liuchengxu/space-vim-dark'
-Plug 'vim-python/python-syntax'
+Plug 'vim-python/python-syntax', { 'for': 'python' }
 let g:python_highlight_all = 1
 " Generate html in a simple way
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'vue'] }
 " Git integration
 Plug 'tpope/vim-fugitive'
 " Git/mercurial/others diff icons on the side of the file lines
@@ -123,8 +123,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree'  ":undotree 查看目前更记录
 Plug 'rizzatti/dash.vim'
 Plug 'yegappan/mru'
-Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-markdown'
+Plug 'junegunn/vim-easy-align', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " Track the engine.
 "Plug 'SirVer/ultisnips'
@@ -296,7 +296,7 @@ set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分
 set report=0       " Always report changed lines
 
 "{{{ for easymotion move fast
-    nmap <leader><leader> <Plug>(easymotion-lineanywhere)
+    nmap <leader>; <Plug>(easymotion-lineanywhere)
     nmap <localleader>j <Plug>(easymotion-j)
     nmap <localleader>k <Plug>(easymotion-k)
     nmap w <Plug>(easymotion-w)
@@ -313,7 +313,7 @@ set report=0       " Always report changed lines
     nnoremap <leader>gc :Gcommit<cr>
     nnoremap <leader>gp :Gpush<cr>
     nnoremap <leader>gm :Gmove<cr>
-    nnoremap <leader>gl :! git gl -18<cr>:wincmd \|<cr>
+    nnoremap <leader>gl :! git log -40<cr>:wincmd \|<cr>
     nnoremap <leader>gg :diffget //2<cr>
     nnoremap <leader>gh :diffget //3<cr>
 
@@ -324,8 +324,8 @@ set report=0       " Always report changed lines
 "}}}
 
 "{{{mru
-    let MRU_Max_Entries = 100
-    let MRU_Window_Height = 15
+    let MRU_Max_Entries = 150
+    let MRU_Window_Height = 20
     let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'  " For Unix
 "}}}
 
@@ -341,9 +341,6 @@ nmap <silent> <leader>wd <Plug>DashSearch
 " ------------------------------------------------
 autocmd FileType apache setlocal commentstring=#\ %s
 
-" remove ugly vertical lines on window division
-set fillchars+=vert:\
-
 " ------------------------------------------------
 " For pydocstring
 nmap <silent> <Leader>id <Plug>(pydocstring)
@@ -351,13 +348,14 @@ nmap <silent> <Leader>id <Plug>(pydocstring)
 " ------------------------------------------------
 " For leetcode
 "When non-zero, use LeetCode China accounts instead.
-let g:leetcode_china = 1
-let g:leetcode_solution_filetype = 'python3'
-let g:leetcode_browser = 'firefox'
-nnoremap <leader>ll :LeetCodeList<cr>
-nnoremap <leader>lt :LeetCodeTest<cr>
-nnoremap <leader>ls :LeetCodeSubmit<cr>
-nnoremap <leader>li :LeetCodeSignIn<cr>
+
+"let g:leetcode_china = 1
+"let g:leetcode_solution_filetype = 'python3'
+"let g:leetcode_browser = 'firefox'
+"nnoremap <leader>ll :LeetCodeList<cr>
+"nnoremap <leader>lt :LeetCodeTest<cr>
+"nnoremap <leader>ls :LeetCodeSubmit<cr>
+"nnoremap <leader>li :LeetCodeSignIn<cr>
 
 let &t_Co = 256
 "colorscheme desert
@@ -481,7 +479,8 @@ nmap ,D :tab split<CR>:call jedi#goto()<CR>
 
 " Ack.vim ------------
 "进行搜索，同时不自动打开第一个匹配的文件, 直接回车搜索光标所在word
-nnoremap <Leader>ws :Ack!<Space>
+nnoremap <Leader>ws :Ack!<cr>
+nnoremap <Leader>ss :Ack!<Space>
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --smart-case'
 endif
@@ -534,6 +533,8 @@ let g:airline_theme = 'papercolor'           "papercolor,angr,luna,darcula"
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_left_alt_sep = '❯'
 let g:airline_right_alt_sep = '❮'
+let g:ale_hover_to_floating_preview = 1
+let g:ale_floating_preview = 1
 " ------------------------------------------------
 " For ale
 " 使用 flake8 做python3的代码检查，pylint检查太严格
@@ -685,10 +686,12 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gD :tab sp<CR><Plug>(coc-definition)
+nmap <silent> gl :tab sp<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" Symbol renaming.
+nmap gn <Plug>(coc-rename)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -705,9 +708,6 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap gn <Plug>(coc-rename)
 
 augroup mygroup
   autocmd!
