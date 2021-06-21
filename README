@@ -39,3 +39,25 @@ npm i eslint eslint-plugin-vue -D
 npm install -g bash-language-server
 npm install -g sql-formatter
 npm install node-sql-parser --save
+
+## 如果vim启动,或者任何命令慢按下面步骤分析
+
+启动慢时, 日志写在指定的profile.log
+
+vim --startuptime profile.log
+
+
+要在Vim中分析某些动作：
+
+    :profile start profile.log
+    :profile func *
+    :profile file *
+
+...
+
+在这里做动作(分析就是在此期间的操作)
+
+...
+
+:profile pause
+:wq
