@@ -8,13 +8,13 @@
 	"coc.source.buffer.firstMatch": false,
 	"coc.source.syntax.firstMatch": false,
     "vetur.ignoreProjectWarning": true,
-	"suggest.numberSelect": true,
+	"suggest.numberSelect": false,
 	"suggest.minTriggerInputLength": 2,
 	"suggest.noselect": true,
 	"suggest.enablePreselect": false,
 	"suggest.triggerAfterInsertEnter": true,
 	"suggest.autoTrigger": "always",
-	"suggest.timeout": 5000,
+	"suggest.timeout": 3000,
 	"suggest.enablePreview": true,
 	"suggest.floatEnable": true,
 	"suggest.detailField": "preview",
@@ -75,6 +75,8 @@
 		"prisma",
         "yaml"
 	],
+    "vetur.experimental.templateInterpolationService": true,
+    "vetur.validation.interpolation": false,
 	"yaml.format.enable": true,
 	"signature.target": "float",
 	"yank.enableCompletion": false,
@@ -95,11 +97,6 @@
 	"prettier.useTabs": true,
 	"prettier.trailingComma": "all",
 	"prettier.singleQuote": false,
-    "python.formatting.provider": "yapf",
-	"python.formatting.yapfArgs": [
-		"--style",
-		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
-	],
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"email": "languagetool",

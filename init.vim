@@ -67,6 +67,10 @@ Plug 'patstockwell/vim-monokai-tasty'
 Plug 'joshdick/onedark.vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'cohlin/vim-colorschemes'
+Plug 'airblade/vim-rooter'
+Plug 'terryma/vim-smooth-scroll'
+"Plug 'ybian/smartim'
+Plug 'sbdchd/neoformat'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -110,8 +114,6 @@ Plug 'w0ng/vim-hybrid'
 Plug 'luochen1990/rainbow'
 Plug 'altercation/vim-colors-solarized'
 Plug 'liuchengxu/space-vim-dark'
-Plug 'vim-python/python-syntax', { 'for': 'python' }
-let g:python_highlight_all = 1
 " Generate html in a simple way
 Plug 'mattn/emmet-vim', { 'for': ['html', 'vue'] }
 " Git integration
@@ -198,7 +200,7 @@ set scrolljump=12
 "水平滚动时，光标距离行首或行尾的位置（单位：字符）。该配置在不折行时比较有用
 set sidescrolloff=15
 "离开 Insert 模式时自动切换至英文输入法
-set noimdisable
+"set noimdisable
 " 控制台响铃
 " 出错时，不要发出响声
 set belloff=all
@@ -216,6 +218,7 @@ endif
 " better backup, swap and undos storage for vim (nvim has nice ones by
 " default)
 set directory=~/.vim/dirs/tmp     " directory to place swap files in
+set swapfile
 "set backup                        " make backup files
 "set backupdir=~/.vim/dirs/backups " where to put backup files
 set undofile                      " persistent undos - undo after you re-open the file
@@ -236,8 +239,8 @@ endif
 let mapleader = "\<Space>"
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
-inoremap <silent>jk             <Esc>
-inoremap <silent>jj              <Esc>
+inoremap <silent>jk             <Esc>:w<cr>
+inoremap <silent>jj              <Esc>:w<cr>
 nnoremap  Y y$
 nnoremap <leader>?      :Maps<cr>
 noremap  <c-j>          <c-w>j
@@ -246,7 +249,7 @@ noremap  <c-h>          <c-w>h
 noremap  <c-l>          <c-w>l
 vnoremap  <leader>al    :EasyAlign ** \|<CR>
 vnoremap  <leader>a=    :EasyAlign ** =<CR>
-command!  W             w !sudo tee % > /dev/null
+command!  W             :w !sudo tee % > /dev/null
 nnoremap <silent><nowait> ,w  :w<CR>
 nnoremap <silent><nowait> ,q  :q<CR>
 nnoremap <silent><nowait> <leader>q  :q<CR>
@@ -296,12 +299,25 @@ set iskeyword+=_,$,#,@,%,-       " 带有如下符号的单词不要被换行分
 set report=0       " Always report changed lines
 
 "{{{ for easymotion move fast
-    nmap <leader>; <Plug>(easymotion-lineanywhere)
+    nmap ;; <Plug>(easymotion-lineanywhere)
     nmap <localleader>j <Plug>(easymotion-j)
     nmap <localleader>k <Plug>(easymotion-k)
     nmap w <Plug>(easymotion-w)
     nmap b <Plug>(easymotion-b)
 "}}}
+
+"""{{{for fast change
+nmap ci, ci<
+nmap ci. ci>
+nmap ci9 ci(
+nmap ci0 ci)
+nmap dt0 dt)
+nmap dt4 dt$
+nmap ci; ci"
+nmap f9  f(
+nmap f0  f)
+nmap f.  f>
+"""}}}
 
 " Fugitive {{{
     nnoremap <leader>gd :Gvdiff<cr>
@@ -313,7 +329,8 @@ set report=0       " Always report changed lines
     nnoremap <leader>gc :Gcommit<cr>
     nnoremap <leader>gp :Gpush<cr>
     nnoremap <leader>gm :Gmove<cr>
-    nnoremap <leader>gl :! git log -40<cr>:wincmd \|<cr>
+    nnoremap <leader>gl :Glog<cr>
+    nnoremap <leader>gls :Glog --stat<cr>
     nnoremap <leader>gg :diffget //2<cr>
     nnoremap <leader>gh :diffget //3<cr>
 
@@ -416,6 +433,7 @@ nnoremap <silent> // :noh<CR>
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.py :Isort
 let g:vim_isort_python_version = 'python3'
+imap f" f""<esc>ha
 autocmd FileType markdown  noremap <leader>mp :MarkdownPreview<cr>
 "修改配置文件，自动加载
 autocmd! bufwritepost init.vim source $HOME/.config/nvim/init.vim
@@ -593,7 +611,7 @@ let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
 let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8 --max-line-length=1000 --extend-ignore= --ignore=E121,F403'
-let g:ale_python_black_options = '-l 110'
+let g:ale_python_black_options = '-l 140'
 nmap gk <Plug>(ale_previous_wrap)
 nmap gj <Plug>(ale_next_wrap)
 nnoremap <leader>at :ALEToggle<CR>
@@ -615,7 +633,7 @@ endif
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
 "for vim-which-key
-set timeoutlen=300
+set timeoutlen=500
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
@@ -631,6 +649,7 @@ hi SignColumn ctermbg=NONE guibg=NONE
 "Another useful command is :CocInfo — use it after the service has started to get some useful information on it.
 "Run :CocConfig, which will open main config file ~/.config/nvim/coc-settings.json
 " extensions
+let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-diagnostic','coc-emmet','coc-eslint','coc-gitignore','coc-go','coc-highlight','coc-html', ]
 "coc-clangd coc-css coc-diagnostic coc-emmet coc-eslint coc-gitignore coc-go coc-highlight coc-html coc-java coc-jedi coc-json
 "coc-lists coc-markdownlint coc-pairs coc-phpactor coc-prettier coc-sh coc-snippets coc-sql coc-stylelint coc-yaml coc-yank
 "coc-tailwind-intellisense coc-tailwindcss coc-tasks coc-translator coc-tslint-plugin coc-tsserver coc-vetur coc-vimlsp
@@ -744,6 +763,8 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 nmap <leader>cf :call CocAction('format')<cr>
+" neoformat
+nmap <leader>cg :Neoformat<cr>
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -763,7 +784,7 @@ nnoremap <silent><nowait> <leader>ca  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <leader>ce  :<C-u>CocList extensions<cr>
 " Show commands.
-noremap <silent><nowait> <leader>cl  :<C-u>CocList commands<cr>
+noremap <silent><nowait> <leader>cr  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <leader>co  :<C-u>CocList outline<cr>
 " Search workspace symbols.
@@ -798,3 +819,10 @@ let g:markdown_fenced_languages = [
       \]
 " 翻译功能 coc-translator
 nmap gs <Plug>(coc-translator-p)
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
+" 设置normal模式切换到的输入法 查看当前输入法运行: ~/.vim/plugged/smartim/plugin/im-select
+"let g:smartim_default = 'com.apple.keylayout.ABC'
